@@ -1,0 +1,16 @@
+read                   
+    mol 1              
+    file "dum.pdb"    
+    fpdb               
+end
+
+set                    
+    charge             
+    radius             
+    param opls         
+    file "qtable.dat"  
+end
+
+print apar mol1 end
+
+stop

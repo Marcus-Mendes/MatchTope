@@ -1,0 +1,31 @@
+Variables
+npart: 	Number of part definitions in the parts file
+r1:	Array (3 numbers), beginning and 
+r2:	End of the conus vecotr (3 coorinates each), 6 numbers tootal
+arr:	Angle of conus (degree)
+
+ar:	Onedimensional Array of angles up to npart
+	xr1 is copy of r1, xr2 is xr1+normalized distance
+xr1,xr2:Twodimensional Array with 3 coordinates and npart conus vectors
+	
+dn: 	Distance of Beginning and End of Conus
+
+im,	Grid size in the 3 
+jm,km:	dimensions
+xo,yo,
+zo:	Center of grid
+
+isk1,	Integer*1 cubic arrays that can hold up to the number of points in the grid
+isk2,	Hods 0 or 1 if within or outside the skin.
+isk1a,
+isk2a:	
+
+np1,np2:Number of Points in skin.
+
+
+subroutines
+-> rebuild(im,jm,km,h,xo,yo,zo,xr1,xr2,scarr,isk1a,isk2a)
+-> rearra(grid1,grid2,im,jm,km,h,xo,yo,zo,isk1,isk2,np1a,np2a,npoi,aa,bb,ab,aa0,bb0)
+-> inpgrd(filnam,iounit,iform,im,jm,km,h,ox,oy,oz,grid)
+-> mkskin(ifpdb,fpdb2,im,jm,km,h,xo,yo,zo,np2,isk2)
+-> van(an,probes,rexcl2) calculate van der Vals radius

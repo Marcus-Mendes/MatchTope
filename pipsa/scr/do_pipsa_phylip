@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Post-processes similarity matrix and draw phylip diagrams and trees
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_sim_dir   = directory, where similarity matrix was computed (by do_pipsa_sim)
+# $3 = phylip_bin_dir  = Phylip binaries directory, where neighbour, drawtree and drawgram programs could be found
+#
+# - assumes protein names are in the file  pipsa_sim_dir/names 
+#   and similarity based distance matrix is in pipsa_sim_dir/sims.mat
+# - will go to  pipsa_sim_dir/ and generate plots of trees and graphs
+#
+# + only 1 fontfile from phylip is used here, phylip_fontfile from pipsa_distr_dir/data
+
+# go to similarity calculation directory and draw
+cd $2/
+$1/bin/mat2phyl.pl < sims.mat > infile
+$3/neighbor  < $1/data/phylip_neighbour.in
+cp $1/data/phylip_fontfile ./fontfile
+$3/drawtree   < $1/data/phylip_drawtree.in 
+mv plotfile phylip_tree.ps
+$3/drawgram   < $1/data/phylip_drawgram.in 
+mv plotfile phylip_gram.ps
+

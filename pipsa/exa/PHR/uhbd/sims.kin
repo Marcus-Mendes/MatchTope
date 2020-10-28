@@ -1,0 +1,52 @@
+@text
+    Representation of the proteins as a points in 3D
+based on similarities of their interaction fields.
+    The distance between proteins i and j is defined as
+D(i,j) = sqrt(2-2*SI(i,j)), where SI(i,j) is the
+similarity index of their interaction fields. Four
+points defining the 3D space were chosen as follows:
+    a) The first two points (1 and 2) are chosen as
+those for which the distance D(1,2), is largest. This
+D(1,2) is then used for normalization of all other
+distances.
+    b) Point 3 is chosen so that the area of the
+triangle formed by points 1,2 and 3 is the largest.
+    c) Point 4 is chosen so that the volume of the
+tetrahedron formed by points 1,2,3 and 4 is the largest.
+    The 3D coordinates assigned to these 4 points are
+(0,0,0), (1,0,0), (a,b,0), (c,d,e), where a, b, c, d
+and e are computed unambiguously from the 6 pairwise
+distances.  The other compounds are projected onto this
+defined 3D space with coordinates determined from their
+SI(i,j) values.
+@kinemage 1
+@caption
+    Representation of the proteins as a points in 3D
+based on similarities of their interaction fields.
+(see MAGE Text)
+    This representation is approximate and distorts
+original distance matrix.  Accuracy may be measured
+by similarity of the original matrix to the matrix
+derived from 3D distribution; Hodgkin index of this
+similarity is :    0.540
+(more accurate means this index close to 1.000)
+@onewidth
+@matrix
+1 0 0  0 1 0  0 0 1
+@viewid {x y}
+@2zoom 1.0
+@2zslab 2
+@2center   0.147   0.068   0.054
+@2matrix
+1 0 0   0 0 1  0 -1 0
+@2viewid {x z}
+@3zslab 2
+@3matrix
+0 0 1  0 1 0  -1 0 0
+@3viewid {z y}
+@group {ALL}
+@balllist {ALL} color= white radius= 0.008
+{  1 A0201-IAPHQISSV_pMHC }   0.177   0.225  -0.000
+{  2 A0201-LLAVLTAAP_pMHC }   0.293   0.000  -0.000
+{  3 A0201-MILLVLVSA_pMHC }   0.116   0.046   0.215
+{  4 A0201-TLAGKGISV_pMHC }   0.000  -0.000  -0.000

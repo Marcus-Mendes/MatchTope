@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.8 [en] (X11; U; Linux 2.4.25 i686) [Netscape]">
+  <title>Protein Interaction Property Similarity Analysis</title>
+</head>
+<body>
+<hr width="100%">
+<div style="text-align: center; color: rgb(255, 0, 0);">
+<center><br>
+<b><font face="Arial,Helvetica"><font color="#ff0000"><font size="+1">Short
+Theoretical Introduction to PIPSA <br>
+(Protein Interaction Property Similarity
+Analysis)</font></font></font></b></center>
+</div>
+<hr width="100%">
+<br>
+<font face="Arial,Helvetica">Detailed theory can be found in
+publications
+<a href="references.html#blomberg">Blomberg etal, Proteins, 1998</a>
+and
+<a href="references.html#wade">Wade etal, Intl. J. Quant. Chem. 2001</a>
+.</font>
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;<font face="Arial,Helvetica"></font>
+<p><font face="Arial,Helvetica">Molecular electrostatic potentials can
+be compared quantitatively by calculating similarity indices.
+Similarity
+indices have been developed for, and are usually applied to, the
+comparison
+of small molecules. They are, however, also useful for the analysis of
+macromolecules, allowing classification as well as prediction of the
+functional
+properties and active sites of macromolecules.&nbsp; The Hodgkin index
+is commonly used to measure the similarity of two molecular potentials.
+It detects differences in sign, magnitude, and spatial behavior in the
+potentials and is given by</font>
+</p>
+<div style="text-align: center;">
+<center><img src="f1hodgkin.gif" alt=""
+ style="width: 346px; height: 87px;"></center>
+<font face="Arial,Helvetica"></font></div>
+<font face="Arial,Helvetica">where (p<sub>1</sub>, p<sub>2</sub>), (p<sub>1</sub>,
+p<sub>1</sub>), and (p<sub>2</sub>, p<sub>2</sub>) are the scalar
+products
+of the electrostatic potentials over the region where the potentials
+are
+compared.&nbsp; Thus, SI<sub>12</sub> = +1 if the two potentials are
+identical;
+SI<sub>12</sub> = 0 if they are fully uncorrelated; SI<sub>12</sub>= -1
+if they are anti-correlated.</font><font face="Arial,Helvetica"></font>
+<p><font face="Arial,Helvetica">If the electrostatic potentials&nbsp;<img
+ src="f3phi.gif" alt="" style="width: 44px; height: 26px;"
+ align="middle">
+are computed on a three-dimensional grid over the two superimposed
+molecules,
+the scalar product is</font>
+</p>
+<div style="text-align: center;">
+<center><img src="f2scalar.gif" alt=""
+ style="width: 363px; height: 72px;"></center>
+<div style="text-align: left;"><font face="Arial,Helvetica">where the
+summation
+is carried out over the grid points (i, j, k) that are within the
+region
+of interest.&nbsp; The regions are usually chosen to represent a "skin"
+around the molecules having thickness&nbsp;<img src="f4d.gif" alt=""
+ style="width: 25px; height: 22px;" align="middle">.
+The "skin" of each molecule is defined as the volume remaining after
+excluding
+the region inside the surface accessible to the center of a probe with
+radius&nbsp;<img src="f4s.gif" alt="" style="width: 27px; height: 23px;"
+ align="middle">,
+and the region outside the surface accessible to a probe of radius&nbsp;<img
+ src="f4sd.gif" alt="" style="width: 85px; height: 26px;" align="middle">.
+The "region of interest" is the intersection of the&nbsp;&nbsp; "skins"
+of the two molecules.</font>
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;<font face="Arial,Helvetica"></font>
+<p><font face="Arial,Helvetica">The SI analysis can be performed for
+the
+complete molecular skins or restricted to particular chosen regions of
+the skins, e.g. around a protein binding site. In the latter case, a
+vector
+can be chosen pointing from the center of the proteins to the region to
+be studied.&nbsp; The figure shows a blue copper protein (the copper
+ion
+represented by a sphere) with the definition of the conical region,
+where
+the potentials are compared:</font>
+</p>
+<div style="text-align: center;"><font face="Arial,Helvetica"></font>&nbsp;<font
+ face="Arial,Helvetica"></font>
+<center>
+<p><img src="f4skin.gif" alt="" style="width: 569px; height: 584px;"></p>
+</center>
+</div>
+<font face="Arial,Helvetica">Instead of comparing protein electrostatic
+potentials on a grid, SIs for electrostatic potentials can be computed
+using a simple analytical expression accounting for monopole and dipole
+terms:</font>
+<div style="text-align: center;">
+<center><img src="f5pote.gif" alt="" style="width: 265px; height: 85px;"></center>
+<div style="text-align: left;"><font face="Arial,Helvetica">then (so
+called
+"analytical") estimate of the electrostatic potential similarity index
+for 2 molecules is:</font>
+<div style="text-align: center;">
+<center><img src="f6sia.gif" alt="" style="width: 440px; height: 82px;"></center>
+<div style="text-align: left;"><font face="Arial,Helvetica">with the
+parameter&nbsp;<img src="f6alpha.gif" alt=""
+ style="width: 26px; height: 25px;" align="middle">depending
+on the region, where the potentials should be compared.</font></div>
+</div>
+<font face="Arial,Helvetica">Interaction field similarity measure is
+not
+correlated with the sequence conservation measure:&nbsp; large variety
+of interaction fields can be observed in a set of homologous proteins,
+as this can be seen from the comparison for all pairs of PH domain
+models
+of the electrostatic SI with the fraction of identical residues in each
+pair of sequences:</font>
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<div style="text-align: center;">
+<center><img src="f8corr.gif" alt=""
+ style="width: 641px; height: 401px;"></center>
+</div>
+<hr style="width: 100%; height: 2px;"></div>
+</div>
+</div>
+</div>
+<i><a href="mailto:razif.gabdoulline@eml-r.villa-bosch.de">Razif
+Gabdoulline</a>, 2007 </i>
+&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<br>
+<font face="Arial,Helvetica"></font>&nbsp;
+<ol>
+  <font face="Arial,Helvetica"></font>&nbsp;
+</ol>
+</body>
+</html>

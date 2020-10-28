@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# assign local directories 
+
+pipsa_distr_dir=/home/marcus/Downloads/sw/pipsa
+pipsa_wrk_dir=/home/marcus/Downloads/sw/pipsa/exa/PHR/
+export pipsa_distr_dir
+export pipsa_wrk_dir
+
+
+# assign local executables 
+
+path_to_grid_bin=/sw/mcm/app/grid/grid22a_linux/
+path_to_uhbd_exe=/home/marcus/Downloads/sw/pipsa/uhdb/uhbd065
+path_to_apbs_exe=/usr/bin/apbs
+path_to_phylip_bin=/sw/mcm/app/phylip/bin.linux/
+export path_to_uhbd_exe
+export path_to_grid_bin
+export path_to_apbs_exe
+export path_to_phylip_bin
+
+
+# Run analytical electrostatic similarity calculations
+
+$pipsa_distr_dir/scr/do_pipsa_analyt_sim $pipsa_distr_dir/ $pipsa_wrk_dir/pdbs/
+
+# UHBD electrostatic similarity calculations
+
+$pipsa_distr_dir/scr/do_pipsa_UHBD_prep $pipsa_distr_dir/ $pipsa_wrk_dir/
+$pipsa_distr_dir/scr/do_pipsa_UHBD_grids $pipsa_distr_dir/ $pipsa_wrk_dir/uhbd/ $path_to_uhbd_exe
+$pipsa_distr_dir/scr/do_pipsa_sim $pipsa_distr_dir/ $pipsa_wrk_dir/uhbd/
+# results in the directory $pipsa_wrk_dir/uhbd/
+
+exit
+# APBS electrostatic similarity calculations
+
+$pipsa_distr_dir/scr/do_pipsa_APBS_prep $pipsa_distr_dir/ $pipsa_wrk_dir/
+$pipsa_distr_dir/scr/do_pipsa_APBS_grids $pipsa_distr_dir/ $pipsa_wrk_dir/apbs/ $path_to_apbs_exe
+$pipsa_distr_dir/scr/do_pipsa_sim $pipsa_distr_dir/ $pipsa_wrk_dir/apbs/
+
+# GRID probe PO4 interaction field similarity calculations
+
+$pipsa_distr_dir/scr/do_pipsa_GRID_prep $pipsa_distr_dir/ $pipsa_wrk_dir/
+$pipsa_distr_dir/scr/do_pipsa_GRID_grids $pipsa_distr_dir/ $pipsa_wrk_dir/grid/ $path_to_grid_bin/
+$pipsa_distr_dir/scr/do_pipsa_sim $pipsa_distr_dir/ $pipsa_wrk_dir/grid/
+
+
+# All phylogenic tree calculations
+
+$pipsa_distr_dir/scr/do_pipsa_phylip $pipsa_distr_dir/ $pipsa_wrk_dir/pdbs/ $path_to_phylip_bin
+$pipsa_distr_dir/scr/do_pipsa_phylip $pipsa_distr_dir/ $pipsa_wrk_dir/uhbd/ $path_to_phylip_bin
+$pipsa_distr_dir/scr/do_pipsa_phylip $pipsa_distr_dir/ $pipsa_wrk_dir/apbs/ $path_to_phylip_bin
+$pipsa_distr_dir/scr/do_pipsa_phylip $pipsa_distr_dir/ $pipsa_wrk_dir/grid/ $path_to_phylip_bin
+
+
+# Save and remove grid files (because they are too large for distribution)
+
+cd $pipsa_wrk_dir/../
+tar cvf PHR_grids_linux.tar PHR/*/names PHR/*/*.grd PHR/pdbs/*.pdb PHR/pdbs/pdbnames
+\rm -f PHR/*/*.grd
+
+# Test Whatif calculations. 
+# We already have UHBD readable pdb files in pdbs/ subdirectory.
+# This part will produce them in whatif/ subdirectory. 
+
+path_to_whatif_exe=/sw/mcm/app/Whatif.Linux/whatif
+export path_to_whatif_exe
+$pipsa_distr_dir/scr/do_pipsa_WHATIF $pipsa_distr_dir/ $pipsa_wrk_dir/ $path_to_whatif_exe
+

@@ -1,0 +1,30 @@
+c  program PIPSA    
+c  PIPSA version 4.0.2 (2019)
+c
+c  Authors: R.R.Gabdoulline, Stefan Richter, R.C.Wade
+c  Copyright (c) 2004,2019
+c  HITS gGmbH, Schloss-Wolfsbrunnenweg 33, 69118 Heidelberg,
+c  Germany, and
+c  European Molecular Biology Laboratory, Heidelberg, Germany
+c
+c  This copyright notice must be attached to all copies, or extracts,
+c  of this software.
+c
+c  Please obtain a license before using this software from the PIPSA
+c  website or "mcmsoft@h-its.org".
+c  Conditions of usage are as specified in the license agreement given 
+c  as LICENSE.TXT in this distribution
+c
+c  Queries about problems with this software should be addressed to
+c  "mcmsoft@h-its.org".
+c
+c  References:
+c  N. Blomberg, R.R. Gabdoulline, M. Nilges and R. C. Wade.
+c   Classification of protein sequences by homology modeling and
+c   quantitative analysis of electrostatic similarity.
+c   Proteins: Str., Function and Genetics, 37:379-387 (1999)
+c  Wade,R.C., Gabdoulline, R.R. and De Rienzo, F.
+c   Protein Interaction Property Similarity Analysis
+c   Intl. J. Quant. Chem., 83:122-127 (2001).
+c----------------------------------------------------------------------
+

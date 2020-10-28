@@ -1,0 +1,1 @@
+ pgf77 -fast -tp athlon -Mvect=prefetch -Bstatic 2potsim_skin_spheres.f -o 2potsim_skin_spheresPGF

@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.8 [en] (X11; U; Linux 2.4.25 i686) [Netscape]">
+  <title>Protein Interaction Property Similarity Analysis</title>
+</head>
+<body>
+<hr width="100%">
+<center><font face="Arial,Helvetica"><font color="#ff0000"><font
+ size="+1"><b>Frequently asked questions for PIPSA
+<br>
+(Protein Interaction Property Similarity Analysis</b>)</font></font></font>
+<br>
+<hr width="100%"></center>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">1.&nbsp;&nbsp; I have pdb files of my
+proteins, but PIPSA fails to proceed them, what is wrong ?</span><br>
+<ul>
+  <li>Pdb files should prepared before running PIPSA.&nbsp; Depending
+which interaction field will be compared, prepared versions of pdb
+files should be readable by APBS, UHBD or GRID.&nbsp; Instructions for
+APBS and UHBD are given in usage example page <a
+ href="example.html#pdb">example.html#pdb</a> . Changes needed for
+GRID are described in <a
+ href="http://www.moldiscovery.com/docs/grid/c33.html">GRID
+manual </a>.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">2.&nbsp;&nbsp; PIPSA did not
+superpose my proteins</span><br>
+<ul>
+It should not do this either.&nbsp; You have to take care about
+superposition
+before running PIPSA.&nbsp; There are many protein superposition tools
+that can be used for this purpose.&nbsp; The question "how to
+superpose?" is related to the question "which part of proteins should
+be compared?".&nbsp; PIPSA can be used for any type of superposition of
+the regions to be compared (this is not necessarily complete surfaces
+of homologous proteins, can be similar active sites of otherwise
+structurally different enzymes).<br>
+</ul>
+<span style="font-weight: bold;">3.&nbsp;&nbsp; How do I change ionic
+strength value to 150 mM from default 50 mM ?</span><br>
+<ul>
+  <li>Read the user guide calculation parameter section <a
+ href="usrguide.html#param">usrguide.html#param</a> .&nbsp; You should
+modify APBS (or UHBD) preparation script: make a local copy from <font
+ face="Arial,Helvetica">distribution version scr/do_pipsa_APBS_prep</font>
+(or <font face="Arial,Helvetica">scr/do_pipsa_UHBD_pre</font>, modify,
+and run (this can be done from any directory because directory
+locations are given as input parameters for PIPSA scripts)</li>
+  <li>Alternative is to modify apbs.in (or uhbd.in) files after the
+preparation script was already executed and input file for APBS (or
+UHBD) are created in apbs (or uhbd) work directory.&nbsp; This input
+file, apbs.in (or uhbd.in), should be edited changing ionic strength
+assignment.&nbsp; This way is useful in changing other interaction
+field calculation parameters locally (not changing scripts and template
+files in PIPSA distribution directory).<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">4.&nbsp;&nbsp; I have more than 999
+proteins and PIPSA does not work</span><br>
+<ul>
+  <li>Read the user guide, calculation parameter section <a
+ href="usrguide.html#param">usrguide.html#param</a> . In this case you
+have to change <font face="Arial,Helvetica">nprmx from default 999 to
+a larger value and recompile </font><font face="Arial,Helvetica">PIPSA
+programs (or at least the following programs:&nbsp; mkapbsin, mkdismx,
+mkkin,
+mkuhbdin, n1potsim,
+npotsim, qdipsim).</font></li>
+  <li><font face="Arial,Helvetica">Changing namx to a larger value and
+recompiling ccenter is needed if your proteins have more than 9999
+atoms.<br>
+    </font></li>
+</ul>
+<span style="font-weight: bold;">5.&nbsp;&nbsp; I have many proteins
+and similarity calculations take ages</span><br>
+<ul>
+  <li>Use parallel version of PIPSA</li>
+  <li>Try to allocate grid and pdb files on the disk with faster access
+- PIPSA needs comparable times both for calculations and reading in
+data files - this is increasingly important for larger grid files.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">6.&nbsp;&nbsp; I want to change one
+protein pdb file, should I re-calculate all pairwise similarities now ?</span><br>
+<ul>
+  <li>It is possible first remove the protein to be modified from the
+set of analysed proteins, using the script scr/do_pipsa_rem1 and add it
+again using the script scr/do_pipsa_add1. First step will only remove
+the protein name from the list of proteins and the entries related to
+it in similarity matrix file (sims.log), so that changing of pdb and
+grid files can be made before or after this step.&nbsp; The second step
+will use new (if updated) pdb and grid files and do calculations only
+for pairs involving the added protein.<br>
+  </li>
+  <li>Note that this method may give the analysis results different
+from the case when the analysis is done from the very
+beginning.&nbsp;&nbsp; First, the name of the replaced protein will
+disappear from its original location and appear at the end of the list
+of proteins.&nbsp; Second, old center for grids will be used for
+calculations, while this center will be recalculated and may differ
+from original center if all calculations are repeated.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">7.&nbsp; How do I run PIPSA on
+WindowsXP / MacOSX ?</span><br>
+<ul>
+  <li>Running PIPSA on OS-s rather than Linux is not supported, but it
+is possible.&nbsp; You have to be able (a) to compile fortran programs
+and (b) to
+run pipsa shell scripts.&nbsp; (a) can be done using <a
+ href="http://en.wikipedia.org/wiki/GNU_Compiler_Collection">GNU
+compilers</a> , a special attention to be paid -static option of
+compilation (at least for npotsim.f, n1potsim.f, m1potsim.f).&nbsp; (b)
+is straightforward under MacOS, can be universally solved by <a
+ href="http://www.cygwin.com/">cygwin</a> inder Windows, or by
+modifying pipsa scripts to run under respective OS.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">8.&nbsp; Why there are 2 versions
+mkapbsin.f and mkapbsin-apbs-ot-0.3.2.f ?</span><br>
+<ul>
+  <li>Second program supposed to be used (instead of mkapbsin) with
+APBS versions older than 0.3.2.&nbsp; This is caused by the difference
+in
+defining UHBD format output grid origin in versions before and after
+0.3.2.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">9.&nbsp;&nbsp; I have electrostatic
+potentials as DELPHI grid files, can I compare them with PIPSA ?</span><br>
+<ul>
+  <li>You have to convert them to UHBD grid format.</li>
+  <li>The same applies to any interaction fields calculated with other
+programs (i.e. conversion to UHBD grid format to be done before using
+PIPSA).<br>
+  </li>
+</ul>
+<span style="font-weight: bold;">10.&nbsp; How do I compare one part of
+my protein with its another part ?</span><br>
+<ul>
+  <li>You have to prepare 2 pdb files, the first for one part and the
+second for another part, superpose them so that the parts to be
+compared are located on the same place in 3D, and run PIPSA on these 2
+proteins.&nbsp; For example, if you want to compare 2 monomers of a
+dimeric protein, the&nbsp; monomers should be extracted to 2 pdb files,
+these 2 pdb files should be superposed based on the sequence alignment,
+and PIPSA should be run using these 2 superposed pdb files.</li>
+</ul>
+<span style="font-weight: bold;">11.&nbsp; Can I use PIPSA for
+non-protein molecules ?</span><br>
+<ul>
+  <li>Yes, you can, as soon as these molecules are superposed and their
+interaction fields are calculated and stored in UHBD grid format. <br>
+  </li>
+</ul>
+<span style="font-weight: bold;">12.&nbsp; I can not get any
+correlation between the interaction fields and experimental kinetic
+parameters in qPIPSA analysis, what is wrong ?</span><br>
+<ul>
+  <li>&nbsp;According to qPIPSA methodology (<a
+ href="references.html#gabdoull">here</a>), the absence of correlation
+does not necessarily means that something is going wrong.&nbsp;
+Presence of correlations needs many assumptions to hold, such as:</li>
+  <ul>
+    <li>Kinetic parameter measurement conditions should be consistent
+with the conditions of structural modeling.&nbsp; Conditions known to
+influence correlations are ionic strength and pH of the solvent.&nbsp;
+Either experiments under the same environmental conditions should be
+chosen for qPIPSA, or modeling should be adapted to each specific
+measurement
+conditions.</li>
+    <li>The proteins structures used in the analysis should be relevant
+for the rate-determining catalytic step.&nbsp; Proteins may adopt
+multiple conformations. Sometimes it may be
+necessary to do calculations with more than one conformation, e.g. with
+open and closed forms of an enzyme active site. If one of these gives
+MIFs that correlate better with known kinetic parameters, this provides
+somemechanistic information about the determinants of the kinetic
+parameter. </li>
+    <li>The region, over which interaction fields are compared, should
+be relevant for the kinetics.&nbsp; Calculations can be done for a
+number of regions. For TPIs, the best
+correlation with kinetic parameters was obtained for different regions
+for kcat/Km values and Km values. This again provides some mechanistic
+information on the parameter determinants.</li>
+    <li>The method is most suitable when the rate-determining step is
+mechanistically the same across the set of protein structures compared.
+An outlier might be mechanistically different, but if there is wide
+mechanistic variation in the dataset, the comparative approach cannot
+be expected to work.</li>
+    <li>Molecular dynamics are not currently considered in the approach
+and if
+they alter the protein structures in different ways across the dataset
+they will adversely affect the value of the interaction field
+comparison.</li>
+  </ul>
+</ul>
+<span style="font-weight: bold;">13.&nbsp; What are the two ways of
+running PIPSA ?</span><br>
+<ul>
+  <li>The first is to use prepared scripts (from subdirectory scr/ of
+pipsa distribution) combining them to accomplish the task you
+need.&nbsp; These scripts are designed to perform specific tasks taking
+as a parameter the data and executable locations.&nbsp; You may need to
+have local modified copies of these scripts to suit your tasks.<br>
+  </li>
+  <li>The second is to write scripts invoking basic programs, like
+n*potsim, 2potsim from pipsa's bin/ subdirectory.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;"></span>
+<hr style="width: 100%; height: 2px;"><br>
+<font face="Arial,Helvetica"><font color="#000000"><i><a
+ href="mailto:razif.gabdoulline@eml-r.villa-bosch.de">Razif
+Gabdoulline</a>, 2007 </i></font>
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+</font>
+<ol>
+  <font face="Arial,Helvetica">&nbsp; </font>
+</ol>
+</body>
+</html>

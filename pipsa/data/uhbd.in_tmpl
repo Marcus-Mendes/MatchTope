@@ -1,0 +1,51 @@
+! This is a template UHBD input
+! It is read and rewritten by program makuhbdin.f 
+! In order to not impair execution of this program you may introduce reasonable 
+! changes here except the lines beginning with ! and not place any 
+! assignments after the line ""! The end of assignments"
+! Note that the program only overwrites the ionic strenth (ios) and 
+! xc, yc, zc values after the line "! The end of assignments"
+
+assign dim    =   65 end
+assign ios    =   50 end
+assign spa    =  1.5 end
+assign rio    =  1.5 end
+assign pd     =  1.0 end
+assign sd     =  78  end
+assign xc     =  0.000 end
+assign yc     =  0.000 end
+assign zc     =  0.000 end
+
+! The end of assignments
+! The end of re-assignments
+
+read                   
+    mol 1              
+    file "dum.pdb"    
+    fpdb               
+end
+
+set                    
+    charge             
+    radius             
+    param opls         
+    file "qtable.dat"  
+end
+print apar mol1 end
+
+elec                   
+    mol1               
+    gcenter  $xc $yc $zc
+    dime $dim $dim $dim
+    pdie $pd
+    sdie $sd
+    bcfl 2             
+    ionstr $ios
+    rion $rio
+    spacing $spa       
+end
+
+edit all radi shift 1.4 end
+write phi file "dum.grd" binary exclude end
+
+stop

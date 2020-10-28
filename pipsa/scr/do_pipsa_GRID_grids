@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Computes GRID probe interaction field grids
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_grid_dir  = the directory where GRID calculation 
+#                        are already prepared by the script do_pipsa_GRID_prep
+# $3 = grid_bin_dir    = directory with GRID executables, 
+#                        the programs grin and grid will be used
+#
+# - assumes grid readable pdb files in  pipsa_grid_dir/../gpdbs/
+# - assumes that do_pipsa_GRID_prep is executed and necessary files 
+#   (names, grid.in) generated in pipsa_grid_dir/
+# - will go to directory pipsa_grid_dir/ and compute GRID interaction field grids there
+
+cd $2/
+
+for i in `cat names`
+do
+touch tmp.pdb grinkout.dat grinlout.dat gridlont.dat
+\rm tmp.pdb grinkout.dat grinlout.dat gridlont.dat
+$1/bin/modeller2grin < ../gpdbs/$i.pdb > tmp.pdb
+$3/grin < grin.in 
+$3/grid < grid.in
+$3/k2a < k2a.in
+$1/bin/grid_asc2bin gridkont.dat.ascii $i.grd
+\rm gridkont.dat gridkont.dat.ascii
+done
+\rm tmp.pdb
+

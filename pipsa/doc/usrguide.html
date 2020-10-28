@@ -1,0 +1,1783 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.8 [en] (X11; U; Linux 2.4.25 i686) [Netscape]">
+  <title>User Guide to PIPSA</title>
+</head>
+<body>
+<center>
+<hr width="100%"><br>
+<font face="Arial,Helvetica"><font color="#ff0000"><font size="+1"><b>User
+Guide to PIPSA 3.0<br>
+&nbsp;(Protein Interaction Property Similarity Analysis</b>)</font></font></font></center>
+<hr width="100%">
+<p><font face="Arial,Helvetica"><br>
+The PIPSA similarity analysis procedure
+consists of several steps :</font>
+<br>
+&nbsp;
+</p>
+<ul>
+  <li> <font face="Arial,Helvetica">(0) preparation step - making a
+directory
+for similarity calculations and arranging pdb files there</font></li>
+  <li> <font face="Arial,Helvetica">(1) calculating protein
+interaction
+field
+grid</font></li>
+  <li> <font face="Arial,Helvetica">(2) calculating similarity matrix
+from
+pdb
+files and protein interaction field grids</font></li>
+  <li> <font face="Arial,Helvetica">(2a) adding additional protein(s)
+to an
+already
+processed set (without repeating previously done pair-wise similarity
+calculations)</font></li>
+  <li> <font face="Arial,Helvetica">(3) phylogenic tree anaysis or
+other
+visualisation</font></li>
+  <li><font face="Arial,Helvetica">(4) correlate kinetic parameters
+with average interaction field differences<br>
+    </font></li>
+</ul>
+<font face="Arial,Helvetica"><font color="#000000">The PIPSA programs
+can
+be run using scripts provided in the scr/ subdirectory of the PIPSA
+distribution.</font></font>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">A combination of
+these scripts allows similarity analysis of proteins starting from a
+set
+of their pdb files.</font></font>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">The scripts can
+be used in meta-scripts to run all calculations at once; they also can
+be modified to meet user requirements.</font></font>
+<p><font face="Arial,Helvetica"><font color="#000000">The scripts are
+described
+in the next session with numbers (e.g. 1+2) referring to the steps of
+the
+PIPSA procedure given above.</font></font>
+</p>
+<li><font face="Arial,Helvetica"><font color="#000000">&nbsp;<a
+ href="#scr">Scripts</a></font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000"><a href="#dat">Data
+files</a></font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000"><a href="#pro">Programs</a></font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000"><a href="#aux">Auxiliary
+programs and scripts</a></font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000"><a
+ href="#param">Calculation
+parameters</a></font></font></li>
+<br>
+<p></p>
+<hr width="100%"><br>
+<a name="scr"></a><b><font face="Arial,Helvetica"><font color="#000000"><font
+ size="+1">Scripts</font></font></font></b>
+<p><font face="Arial,Helvetica">Below is a list of low-level scripts
+which
+may be used in combination to perform the similarity analysis starting
+from pdb files.</font>
+</p>
+<p><br>
+</p>
+<p><b><font face="Arial,Helvetica">(1+2)&nbsp; To calculate similarity
+matrix analytically</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp;</caption> <tbody>
+    <tr nosave="">
+      <td nosave=""><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Make a directory for pipsa
+analysis (e.g.
+call it "pdbs/") and put pdb files there;</font> <br>
+      <font face="Arial,Helvetica">make a list of pdb files (one line
+per
+pdb filename) to be analysed in the file "pdbnames" (see an example in
+the exa/ directory of the PIPSA distribution) .</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_analyt_sim</font></td>
+      <td><font face="Arial,Helvetica">Computes analytically
+monopole+dipole
+electrostatic potential similarity matrix from pdb files and
+post-processes
+it</font> <br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_pdbs_dir&nbsp; = the
+directory
+where pdb files are located</font> <br>
+      <font face="Arial,Helvetica">- assumes pdb files in&nbsp;
+pipsa_pdbs_dir/
+and the list of pdb files to analyse in "pdbnames"</font> <br>
+      <font face="Arial,Helvetica">- will go to pipsa_pdbs_dir/,
+compute
+similarity matrix, distance matrix and kinemage representations</font>
+there&nbsp; <br>
+      <font face="Arial,Helvetica">N.B.&nbsp; The value of the sphere,
+for
+which it is best to compute the potential similarity here is 9.815 ,
+which
+is suitable for PH domains (must be proportionally larger if proteins
+in
+the set are larger than PH domains)</font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p><br>
+</p>
+<p><b><font face="Arial,Helvetica">(1) To calculate the GRID
+interaction
+fields</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Make a directory for pipsa
+analysis (e.g.
+call it "grid/") and put GRID readable pdb files in its gpdbs/
+subdirectory;</font> <br>
+      <font face="Arial,Helvetica">make a list of pdb files (one line
+per
+pdb filename) to be analysed in the file gpdbs/pdbnames</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_GRID_prep</font></td>
+      <td><font face="Arial,Helvetica">Prepares GRID calculations</font>
+      <br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_wrk_dir&nbsp;&nbsp; = the
+directory
+for pipsa calculations, where grid readable pdb files are placed in
+gpdbs/
+subdirectory and pdb file list is in gpdbs/pdbnames</font> <br>
+      <font face="Arial,Helvetica">- assumes that the pdb files are in
+pipsa_wrk_dir/gpdbs/</font> <br>
+      <font face="Arial,Helvetica">- will create directory
+pipsa_wrk_dir/grid
+and generate 2 files there: a list of protein names "names" and the
+file
+"grid.in" for GRID calculations and copy data files needed for GRID
+calculations</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_GRID_grids</font></td>
+      <td><font face="Arial,Helvetica">Computes GRID probe interaction
+field
+grids</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_grid_dir&nbsp; = the
+directory
+where GRID calculation&nbsp; are already prepared by the script
+do_pipsa_GRID_prep</font> <br>
+      <font face="Arial,Helvetica">$3 = grid_bin_dir&nbsp;&nbsp;&nbsp;
+=
+directory with GRID executables, the programs grin, grid and k2a will
+be
+used</font> <br>
+      <font face="Arial,Helvetica">- assumes grid readable pdb files
+in&nbsp;
+pipsa_grid_dir/../gpdbs/</font> <br>
+      <font face="Arial,Helvetica">- assumes that do_pipsa_GRID_prep
+has
+been executed and necessary files&nbsp; (names, grid.in) generated in
+pipsa_grid_dir/</font> <br>
+      <font face="Arial,Helvetica">- will go to directory
+pipsa_grid_dir/
+and compute and write GRID interaction field grids there</font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p><br>
+</p>
+<p><b><font face="Arial,Helvetica">(1) To calculate the electrostatic
+potentials
+with UHBD</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Make a directory for pipsa
+analysis and
+put WHATIF readable pdb files without hydrogens in its opdbs/
+subdirectory;</font> <br>
+      <font face="Arial,Helvetica">make a list of pdb files (one line
+per
+pdb filename) to be analysed in the file opdbs/pdbnames</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_WHATIF</font></td>
+      <td><font face="Arial,Helvetica">Adds polar hydrogens to pdb
+files and
+converts them to UHBD readable format using WHATIF</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_wrk_dir&nbsp;&nbsp; = the
+directory
+for pipsa calculations, where original pdb files are placed in opdbs/
+subdirectory
+and pdb file list is in opdbs/pdbnames</font> <br>
+      <font face="Arial,Helvetica">$3 =
+whatif_exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= WHATIF executable with path&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- assumes original (without
+hydrogens)
+pdb files in&nbsp; pipsa_wrk_dir/opdbs/ and the list of pdb filenames
+in
+pipsa_wrk_dir/opdbs/pdbnames</font> <br>
+      <font face="Arial,Helvetica">- will make directory
+pipsa_wrk_dir/pdbs
+and convert original pdbs to pdbs with polar hydrogens</font> <br>
+      <font face="Arial,Helvetica">N.B. Current version of whatif2uhbd
+can
+handle only single chain proteins correctly</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">alternative to above 2 steps</font></td>
+      <td><font face="Arial,Helvetica">Make a directory for pipsa
+analysis and
+put UHBD readable pdb files in its pdbs/ subdirectory;</font> <br>
+      <font face="Arial,Helvetica">make a list of pdb files (one line
+per
+pdb filename) to be analysed in the file pdbs/pdbnames</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_UHBD_prep</font></td>
+      <td><font face="Arial,Helvetica">Prepares UHBD calculations</font>
+      <br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_wrk_dir&nbsp;&nbsp; = the
+directory
+for pipsa calculations, where uhbd readable pdb files are placed in
+pdbs/
+subdirectory and pdb file list is in pdbs/pdbnames</font> <br>
+      <font face="Arial,Helvetica">- assumes that pdb files are in
+pipsa_wrk_dir/pdbs/</font> <br>
+      <font face="Arial,Helvetica">- will create directory
+pipsa_wrk_dir/uhbd
+and generate 2 files there: list of protein names "names" and the file
+"uhbd.in" for UHBD calculations</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_UHBD_chk</font></td>
+      <td><font face="Arial,Helvetica">Checks if parameters to all
+atoms in the
+pdb files can be assigned in UHBD calculations</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_uhbd_dir&nbsp; = the
+directory
+where UHBD calculation are already prepared by the script
+do_pipsa_UHBD_prep</font> <br>
+      <font face="Arial,Helvetica">$3 = uhbd_executable = location of
+uhbd
+executable</font> <br>
+      <font face="Arial,Helvetica">- assumes uhbd readable pdb files
+in&nbsp;
+pipsa_uhbd_dir/../pdbs/</font> <br>
+      <font face="Arial,Helvetica">- assumes that the file with protein
+names
+"names" generated&nbsp; by the script do_pipsa_UHBD_prep or manually</font>
+      <br>
+      <font face="Arial,Helvetica">- will go to directory
+pipsa_uhbd_dir/
+and check if parameters (charges and radii) for electrostatic
+calculations
+can be assigned</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_UHBD_grids</font></td>
+      <td><font face="Arial,Helvetica">Computes electroststic potential
+grids
+with UHBD</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_uhbd_dir&nbsp; = the
+directory
+where the UHBD calculation&nbsp;</font> <br>
+      <font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+has already been prepared by the script do_pipsa_UHBD_prep</font> <br>
+      <font face="Arial,Helvetica">$3 = uhbd_executable = location of
+uhbd
+executable</font> <br>
+      <font face="Arial,Helvetica">- assumes uhbd readable pdb files
+in&nbsp;
+pipsa_uhbd_dir/../pdbs/</font> <br>
+      <font face="Arial,Helvetica">- assumes that do_pipsa_UHBD_prep
+has
+been executed and necessary files (names, uhbd.in) generated in
+pipsa_uhbd_dir/</font> <br>
+      <font face="Arial,Helvetica">- will go to directory
+pipsa_uhbd_dir/
+and compute and write electrostatic potential grids there</font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p><b><font face="Arial,Helvetica"><br>
+</font></b></p>
+<p><b><font face="Arial,Helvetica">(1) To calculate the electrostatic
+potentials
+with APBS</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp; </caption><tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Make a directory for pipsa
+analysis and
+put APBS readable pqr files in its pqrs/ subdirectory;</font> <br>
+      <font face="Arial,Helvetica">make a list of pqr files (one line
+per
+pqr filename) to be analysed in the file pqrs/pqrnames</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_APBS_prep</font></td>
+      <td><font face="Arial,Helvetica">Prepares APBS calculations</font>
+      <br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_wrk_dir&nbsp;&nbsp; = the
+directory
+for pipsa calculations, where APBS readable pqr files are placed in
+pqrs/
+subdirectory and pqr file list is in pqrs/pqrnames</font> <br>
+      <font face="Arial,Helvetica">- assumes that pqr files are in
+pipsa_wrk_dir/pqrs/</font> <br>
+      <font face="Arial,Helvetica">- will create directory
+pipsa_wrk_dir/apbs
+and generate 2 files there: list of protein names "names" and the file
+"apbs.in" for APBS calculations</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_APBS_grids</font></td>
+      <td><font face="Arial,Helvetica">Computes electrostatic potential
+grids</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_apbs_dir&nbsp; = the
+directory
+where APBS calculation has already been prepared by the script
+do_pipsa_APBS_prep</font> <br>
+      <font face="Arial,Helvetica">$3 = apbs_executable = location of
+apbs
+executable</font> <br>
+      <font face="Arial,Helvetica">- assumes apbs readable pqr files
+in&nbsp;
+pipsa_apbs_dir/../pqrs/</font> <br>
+      <font face="Arial,Helvetica">- assumes that do_pipsa_APBS_prep
+has
+been executed and necessary files (names, apbs.in) generated in
+pipsa_apbs_dir/</font> <br>
+      <font face="Arial,Helvetica">- will go to directory
+pipsa_apbs_dir/
+and compute electrostatic potential grids there</font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p><b><font face="Arial,Helvetica"><br>
+</font></b></p>
+<p><b><font face="Arial,Helvetica">(2) To calculate similarity matrix
+from
+GRID, UHBD, or APBS grids</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Either GRID, UHBD or APBS grids
+should
+have be computed in a directory (pipsa_sim_dir) and the pdb files
+should
+be available in a subdirectory (pipsa_sim_dir/../pdbs/)<br>
+The file "pdbnames"&nbsp; in p</font><font face="Arial,Helvetica">ipsa_sim_dir/../pdbs/
+should have the list of pdb file names (with extension) to be processed
+further</font><br>
+      <font face="Arial,Helvetica">For versions *parts or *spheres the
+file with the definition of conical (filename "parts") or spherical
+(filename "spheres") part of the comparison region is required<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_sim</font></td>
+      <td><font face="Arial,Helvetica">Computes similarity matrix and
+post-processes
+it</font> <br>
+Uses 2potsim_skin program - similarity on complete "skins" of proteins<br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_sim_dir&nbsp;&nbsp; =
+directory,
+where similarity matrix should be computed; the grid files should also
+be there</font> <br>
+      <font face="Arial,Helvetica">- assumes grid files to be in
+pipsa_sim_dir
+and pdb files in&nbsp; pipsa_sim_dir/../pdbs/</font> <br>
+      <font face="Arial,Helvetica">- will go to pipsa_sim_dir/ and
+calculate
+the similarity matrix and its derivatives</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica"><br>
+      <br>
+      <br>
+      <br>
+do_pipsa_sim_parts</font></td>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica">Computes
+similarity matrix and
+post-processes
+it</font> <br>
+      <font face="Arial,Helvetica">Similarity of 2
+potential grids
+are calculated on the molecular skin and over a&nbsp; conical part of
+the space</font><br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_sim_dir&nbsp;&nbsp; =
+directory,
+where similarity matrix should be computed; the grid files should also
+be there</font> <br>
+      <font face="Arial,Helvetica">- assumes grid files to be in
+pipsa_sim_dir
+and pdb files in&nbsp; pipsa_sim_dir/../pdbs/</font> <br>
+- assumes the conical <font face="Arial,Helvetica">part of the
+comparison region to be defined in the file "parts", see format of this
+file <a href="#parts">here</a> </font><br>
+      <font face="Arial,Helvetica">- will go to pipsa_sim_dir/ and
+calculate
+the similarity matrix and its derivatives</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica"><br>
+      <br>
+      <br>
+      <br>
+do_pipsa_sim_spheres</font></td>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica">Computes
+similarity matrix and
+post-processes
+it</font> <br>
+      <font face="Arial,Helvetica">Similarity of 2
+potential grids
+are calculated on the molecular skin and over a&nbsp; spherical part of
+the space</font><br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_sim_dir&nbsp;&nbsp; =
+directory,
+where similarity matrix should be computed; the grid files should also
+be there</font> <br>
+      <font face="Arial,Helvetica">- assumes grid files to be in
+pipsa_sim_dir
+and pdb files in&nbsp; pipsa_sim_dir/../pdbs/</font> <br>
+- assumes the conical <font face="Arial,Helvetica">part of the
+comparison region to be defined in the file "spheres", see format of
+this file <a href="#spheres">here</a> </font><br>
+      <font face="Arial,Helvetica">- will go to pipsa_sim_dir/ and
+calculate
+the similarity matrix and its derivative</font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p><b><font face="Arial,Helvetica"><br>
+</font></b></p>
+<p><b><font face="Arial,Helvetica">(2a) To add one additional protein
+to
+already processed set of proteins</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp;&nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Steps 1 and 2 of the pipsa
+calculation
+should have been completed for the original set of proteins in a
+directory
+(pipsa_sim_dir/) and pdb files should be available in a subdirectory
+(pipsa_sim_dir/../pdbs/</font>
+)&nbsp; <br>
+      <font face="Arial,Helvetica">Grid files for the additional
+proteins
+should have been computed and should also be located in pipsa_sim_dir
+and
+their pdb files should be in pipsa_sim_dir/../pdbs/ .</font> <br>
+      <font face="Arial,Helvetica">The content of the file "names" in
+pipsa_sim_dir/
+should be as from original computations.</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_sim_add1</font></td>
+      <td><font face="Arial,Helvetica">Adds extra protein to already
+processed
+set of proteins</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir =&nbsp; pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_sim_dir&nbsp;&nbsp; =
+directory,
+where similarity matrix was computed (by do_pipsa_sim)</font> for the
+original
+set <br>
+      <font face="Arial,Helvetica">$3 = the name of the protein to be
+added&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- assumes grid and pdb file of
+additional
+protein are located in pipsa_sim_dir/$3.grd and
+pipsa_sim_dir/../pdbs/$3.pdb.</font> <br>
+      <font face="Arial,Helvetica">- assumes that original protein name
+list,
+similarity matrix, distance matrix and kinemage are in
+pipsa_sim_dir/names,sims.log,sims.mat
+and sims.kin, resp.</font> <br>
+      <font face="Arial,Helvetica">- will generate new protein name
+list,
+similarity matrix, distance matrix and kinemage under old names and
+move
+original ones to *-old</font> <br>
+      <font face="Arial,Helvetica">N.B.&nbsp; This script can be
+repeated
+to add more than 1 protein, in this case you may need to save the list
+of original set of proteins for later reference, because only one
+previous
+list remains after execution of this script.</font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p><b><font face="Arial,Helvetica"><br>
+</font></b></p>
+<p><b><font face="Arial,Helvetica">(3) To generate Phylip presentations
+from a "similarity distance" matrix</font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp; &nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Steps 1 and 2 of the pipsa
+calculation
+should have been completed for a set of proteins in a directory
+"pipsa_sim_dir/"</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_phylip</font></td>
+      <td><font face="Arial,Helvetica">Post-processes similarity matrix
+and draw
+phylip diagrams and trees</font> <br>
+      <font face="Arial,Helvetica">- needs 3 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_sim_dir&nbsp;&nbsp; =
+directory,
+where similarity matrix was computed (by do_pipsa_sim)</font> <br>
+      <font face="Arial,Helvetica">$3 = phylip_bin_dir&nbsp; = Phylip
+binaries
+directory, where neighbour, drawtree and drawgram programs can be found</font>
+      <br>
+      <font face="Arial,Helvetica">- assumes protein names are in the
+file&nbsp;
+pipsa_sim_dir/names and similarity based distance matrix is in
+pipsa_sim_dir/sims.mat</font> <br>
+      <font face="Arial,Helvetica">- will go to&nbsp; pipsa_sim_dir/
+and
+generate plots of trees and graphs</font> <br>
+      <font face="Arial,Helvetica">N.B.&nbsp; Only 1 fontfile from
+phylip
+is used here, phylip_fontfile from pipsa_distr_dir/data.&nbsp; If
+needed,
+replace it by another one from the Physlip package fonts.</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<b><font face="Arial,Helvetica">(4) To </font></b><font
+ style="font-weight: bold;" face="Arial,Helvetica">correlate kinetic
+parameters with average interaction field differences</font>
+</p>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp; &nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">preparations needed</font></td>
+      <td><font face="Arial,Helvetica">Steps 1 and 2 of the pipsa
+calculation
+should have been completed for a set of proteins in a directory
+"pipsa_sim_dir/"<br>
+Known experimental kinetic parameters entered in the file "exp" having
+the format: <br>
+protein_name&nbsp; kinetic_parameter_value_if_known<br>
+Blank space should be left for kinetic parameters to be predicted or
+not known.&nbsp; <br>
+There should be at least 2 known parameters (or at least one if the
+regression coefficient is given)<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_qpipsa</font></td>
+      <td><font face="Arial,Helvetica">Post-processes similarity matrix
+correlate&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- needs 2 parameters:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">$1 = pipsa_distr_dir = pipsa
+distribution
+directory</font> <br>
+      <font face="Arial,Helvetica">$2 = pipsa_sim_dir&nbsp;&nbsp; =
+directory,
+where similarity matrix was computed (by do_pipsa_sim)</font> <br>
+      <font face="Arial,Helvetica">- assumes known kinetic parameters
+to be entered in the
+file&nbsp;
+pipsa_sim_dir/exp and similarity matrix is in
+pipsa_sim_dir/sims.log </font><br>
+      <font face="Arial,Helvetica">- will go to&nbsp; pipsa_sim_dir/
+and
+correlate data from "exp" and "sims.log"</font><span
+ style="font-family: arial,helvetica;"> and predict missing kinetic
+parameters</span><font face="Arial,Helvetica"><br>
+      </font></td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+</p>
+<hr width="100%"><br>
+<br>
+<a name="dat"></a><b><font face="Arial,Helvetica"><font color="#000000"><font
+ size="+1">Data
+files</font></font></font></b>
+<br>
+&nbsp;
+<table nosave="" border="1" width="100%">
+  <caption><br>
+  </caption><tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">grin.in, grub.dat</font></td>
+      <td><font face="Arial,Helvetica">Standard input file for
+executable "grin"
+of GRID and the parameter file used by GRID; from the GRID distribution</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">parts</font></td>
+      <td><font face="Arial,Helvetica">example of the file "parts" for
+2potsim_skin_parts.&nbsp;
+The format of this file is: xr1,xr2,angle, where xr1 and xr2 are 3
+coordinates
+(in &Aring;) of the beginning and the end of the vector defining the
+direction
+of the conus and angle is angular extent (in degrees, with 180.0
+defining
+a whole space) of the conus</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">phylip_neighbour.in</font> <br>
+      <font face="Arial,Helvetica">phylip_drawgram.in</font> <br>
+      <font face="Arial,Helvetica">phylip_drawtree.in</font> <br>
+      <font face="Arial,Helvetica">phylip_fontfile</font></td>
+      <td><font face="Arial,Helvetica">Input files for Phylip programs
+neighbour,
+drawgram and drawtree and font file</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">qtable.dat</font></td>
+      <td><font face="Arial,Helvetica">Parameter file for UHBD, used to
+assign
+OPLS charge+radius parameters to atoms</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">qtable_f.dat</font></td>
+      <td><font face="Arial,Helvetica">Parameter file for UHBD,
+modified to assign
+partial charges only to charged residue side-chains.&nbsp; Can be used
+with the pdb files without hydrogens (accuracy of electrostaic
+potentials
+are not guaranteed).</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">uhbd.in_tmpl /</font> <br>
+      <font face="Arial,Helvetica">apbs.in_tmpl</font></td>
+      <td><font face="Arial,Helvetica">template input command script
+for UHBD
+/ APBS. This is rewritten by mkuhbdin / mkapbsin to adjust ionic
+strength
+conditions and the center of the electrostatic potential grid</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">uhbd_chk.in</font></td>
+      <td><font face="Arial,Helvetica">Input file for UHBD to check if
+parameters
+can be assigned to all atoms from pdb files before doing electrostatic
+calculations</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">whatif_addH.in</font></td>
+      <td><font face="Arial,Helvetica">Input command script for WHATIF
+to add
+hydrogens to the pdb file</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<p></p>
+<hr width="100%"><br>
+<br>
+<a name="pro"></a><b><font face="Arial,Helvetica"><font color="#000000"><font
+ size="+1">Programs</font></font></font></b>
+<br>
+&nbsp;
+<br>
+<table nosave="" style="width: 100%;" border="1">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">2potsim_noskin.f</font></td>
+      <td><font face="Arial,Helvetica">Computes the similarity index of
+2 proteins,
+the interaction properties of which are given in two grid files (in
+UHBD
+format).&nbsp; In order to use only the points outside the protein, the
+interaction property grid should be assigned zero values in the protein
+interior before using this program.&nbsp;</font>
+      <p><font face="Arial,Helvetica">Input:</font> <br>
+      <font face="Arial,Helvetica">&nbsp;- command line arg -g1 - the
+name
+of the file with potential grid for protein 1 in UHBD format, default
+grd1.grd</font> <br>
+      <font face="Arial,Helvetica">&nbsp;- command line arg -g2 - the
+name
+of the file with potential grid for protein 2 in UHBD format, default
+grd2.grd</font> </p>
+      <p><font face="Arial,Helvetica">&nbsp;The program will use the
+values of
+electrostatic potentials at each point of the grids and derive the
+similarity
+index.</font> <br>
+      <font face="Arial,Helvetica">&nbsp;The following will be computed:</font>
+      <br>
+      <font face="Arial,Helvetica">&nbsp;aa&nbsp;&nbsp; = square of the
+norm
+of the grid 1</font> <br>
+      <font face="Arial,Helvetica">&nbsp;bb&nbsp;&nbsp; = square of the
+norm
+of the grid 2</font> <br>
+      <font face="Arial,Helvetica">&nbsp;ab&nbsp;&nbsp; = scalar
+product
+of 2 potentials</font> </p>
+      <p><font face="Arial,Helvetica">&nbsp; Output:</font> <br>
+      <font face="Arial,Helvetica">&nbsp;- fort.66 - some information
+about
+constructed skins</font> <br>
+      <font face="Arial,Helvetica">&nbsp;- standard output (fort.6) has
+the
+following data on one line:</font> <br>
+      <font face="Arial,Helvetica">&nbsp;&nbsp; si_hodgkin =
+2*ab/(aa+bb)</font> <br>
+      <font face="Arial,Helvetica">&nbsp;&nbsp; si_carbo&nbsp;&nbsp; =
+ab/sqrt(aa*bb)</font> <br>
+      <font face="Arial,Helvetica">&nbsp;&nbsp; aa</font> <br>
+      <font face="Arial,Helvetica">&nbsp;&nbsp; bb</font> <br>
+      <font face="Arial,Helvetica">&nbsp;&nbsp; ab</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">2potsim_skin.f</font></td>
+      <td><font face="Arial,Helvetica">Computes similarity of 2
+potential grids
+on the molecular skin</font>
+      <p><font face="Arial,Helvetica">Input:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -g1 - the name of
+the
+file with potential grid for protein 1 in UHBD format, default grd1.grd</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -g2 - the name of
+the
+file with potential grid for protein 2 in UHBD format, default grd2.grd</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -p1 - the name of
+the
+file with atom coordinates of protein 1 in PDB format, default pdb1.pdb</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -p2 - the name of
+the
+file with atom coordinates of protein 2 in PDB format, default pdb2.pdb</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -pr - probe
+radius,
+default is 3 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -sk - skin
+thickness,
+default is 4 &Aring;</font> </p>
+      <p><font face="Arial,Helvetica">The program will construct 2
+skins (for
+protein 1 and 2) having thickness "skin" and at distance "probes" from
+the van der Waals surface of the proteins (i.e. from "probes" to
+"probes+skin"
+distance), using the points of the potential grids.&nbsp; The potential
+values outside this skin will not be used.</font> <br>
+      <font face="Arial,Helvetica">The followings will be computed:</font>
+      <br>
+      <font face="Arial,Helvetica">np1&nbsp; = no of points of the skin
+of
+the protein 1&nbsp;</font> <br>
+      <font face="Arial,Helvetica">np2&nbsp; = no of points of the skin
+of
+the protein 2</font> <br>
+      <font face="Arial,Helvetica">npoi = no of points of the
+intersection
+of 2 skins</font> <br>
+      <font face="Arial,Helvetica">aa0&nbsp; = square of the norm of
+the
+grid 1 on its skin</font> <br>
+      <font face="Arial,Helvetica">aa&nbsp;&nbsp; = square of the norm
+of
+the grid 1 on intersection of the skins</font> <br>
+      <font face="Arial,Helvetica">bb0&nbsp; = square of the norm of
+the
+grid 2 on its skin</font> <br>
+      <font face="Arial,Helvetica">bb&nbsp;&nbsp; = square of the norm
+of
+the grid 2 on intersection of the skins</font> <br>
+      <font face="Arial,Helvetica">ab&nbsp;&nbsp; = scalar product of 2
+potentials
+(on intersection of skins)</font> </p>
+      <p><font face="Arial,Helvetica">&nbsp;Output:</font> <br>
+      <font face="Arial,Helvetica">- fort.66 - some info about
+constructed
+skins</font> <br>
+      <font face="Arial,Helvetica">- standard output has following data
+in
+one line:</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin = 2*ab/(aa+bb)</font>
+      <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo&nbsp;&nbsp; =
+ab/sqrt(aa*bb)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb</font> <br>
+      <font face="Arial,Helvetica">&nbsp; ab</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa0</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb0</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin_shape =
+2.*float(npoi)/float(np1+np2)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo_shape&nbsp;&nbsp; =
+float(npoi)/sqrt(float(np1*np2))</font> <br>
+      <font face="Arial,Helvetica">&nbsp; np1</font> <br>
+      <font face="Arial,Helvetica">&nbsp; np2</font> <br>
+      <font face="Arial,Helvetica">&nbsp; npoi</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">2potsim_skin_parts.f</font></td>
+      <td><font face="Arial,Helvetica">Computes similarity of 2
+potential grids
+on the molecular skin and over a&nbsp; conical part of the space.</font>
+      <p><font face="Arial,Helvetica">Input:</font> <br>
+      <font face="Arial,Helvetica">- command line arg -g1 - the name of
+the
+file with potential grid for protein 1 in UHBD format, default grd1.grd</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -g2 - the name of
+the
+file with potential grid for protein 2 in UHBD format, default grd2.grd</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -p1 - the name of
+the
+file with atom coordinates of protein 1 in PDB format, default pdb1.pdb</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -p2 - the name of
+the
+file with atom coordinates of protein 2 in PDB format, default pdb2.pdb</font>
+      <br>
+      <font face="Arial,Helvetica"><a name="parts"></a>- command line
+arg -pa - the name of
+the
+file with the list of directions default name "parts" - a list of (up
+to
+99) directions and angles to define conical parts; the format of the
+file
+"parts" is: xr1,xr2,angle, where xr1 and xr2 are 3 coordinates (in
+&Aring;)
+of the beginning and the end of the vector defining the direction of
+the
+conus and angle is angular extent (in degrees, with 180.0 defining a
+whole
+space) of the conus (see an example in data/ diirectoy of the pipsa
+distribution).</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pr - probe
+radius,
+default is 3 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -sk - skin
+thickness,
+default is 4 &Aring;</font> <br>
+      <font face="Arial,Helvetica">+ default values are used if no
+input
+given</font> </p>
+      <p><font face="Arial,Helvetica">The program will construct 2
+skins (for
+protein 1 and 2) having thickness "skin" and at distance "probes" from
+van der Waals surface of the proteins (i.e. from "probes" to
+"probes+skin"
+distance), using the points of the potential grids.&nbsp; The potential
+values outside this skin </font><font face="Arial,Helvetica">and
+outside the comparison region (conical region or regions here) </font><font
+ face="Arial,Helvetica">will not be used.</font> <br>
+      <font face="Arial,Helvetica">The followings will be computed:</font>
+      <br>
+      <font face="Arial,Helvetica">np1&nbsp; = no of points of the skin
+of
+the protein 1</font> <br>
+      <font face="Arial,Helvetica">np2&nbsp; = no of points of the skin
+of
+the protein 2</font> <br>
+      <font face="Arial,Helvetica">npoi = no of points of the
+intersection
+of 2 skins</font> <br>
+      <font face="Arial,Helvetica">aa0&nbsp; = square of the norm of
+the
+grid 1 on its skin</font> <br>
+      <font face="Arial,Helvetica">aa&nbsp;&nbsp; = square of the norm
+of
+the grid 1 on intersection of the skins</font> <br>
+      <font face="Arial,Helvetica">bb0&nbsp; = square of the norm of
+the
+grid 2 on its skin</font> <br>
+      <font face="Arial,Helvetica">bb&nbsp;&nbsp; = square of the norm
+of
+the grid 2 on intersection of the skins</font> <br>
+      <font face="Arial,Helvetica">ab&nbsp;&nbsp; = scalar product of 2
+potentials
+(on intersection of skins)</font> </p>
+      <p><font face="Arial,Helvetica">&nbsp;Output:</font> <br>
+      <font face="Arial,Helvetica">- fort.66 - some info about
+constructed
+skins</font> <br>
+      <font face="Arial,Helvetica">- standard output has following data
+in
+one line:</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin = 2*ab/(aa+bb)</font>
+      <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo&nbsp;&nbsp; =
+ab/sqrt(aa*bb)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb</font> <br>
+      <font face="Arial,Helvetica">&nbsp; ab</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa0</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb0</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin_shape =
+2.*float(npoi)/float(np1+np2)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo_shape&nbsp;&nbsp; =
+float(npoi)/sqrt(float(np1*np2))</font> <br>
+      <font face="Arial,Helvetica">&nbsp; np1</font> <br>
+      <font face="Arial,Helvetica">&nbsp; np2</font> <br>
+      <font face="Arial,Helvetica">&nbsp; npoi</font> <br>
+      <font face="Arial,Helvetica">(all this information is printed for
+every
+part defined in the file "parts")</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica"><br>
+      <br>
+      </font><font face="Arial,Helvetica"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+2potsim_skin_spheres.f</font><br>
+      </td>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica">Computes
+similarity of 2
+potential grids
+on the molecular skin and over a&nbsp; spherical part of the space.</font>
+      <p><font face="Arial,Helvetica">Input:</font> <br>
+      <font face="Arial,Helvetica">- command line arg -g1 - the name of
+the
+file with potential grid for protein 1 in UHBD format, default grd1.grd</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -g2 - the name of
+the
+file with potential grid for protein 2 in UHBD format, default grd2.grd</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -p1 - the name of
+the
+file with atom coordinates of protein 1 in PDB format, default pdb1.pdb</font>
+      <br>
+      <font face="Arial,Helvetica">- command line arg -p2 - the name of
+the
+file with atom coordinates of protein 2 in PDB format, default pdb2.pdb</font>
+      <br>
+      <font face="Arial,Helvetica">- <a name="spheres"></a>command
+line arg -pa - the name of
+the
+file with the list of comparison region centers and extents, default
+name "spheres" - a list of (up
+to
+999) centers and radii to define spherical regions; the format of the
+file
+"spheres" is: xc,radius, where xc is 3 coordinates (in
+&Aring; units)
+of the sphere center and radius is the radius of this spherical
+comparison region </font><font face="Arial,Helvetica">(in
+&Aring;</font><font face="Arial,Helvetica">) (see an example in data/
+diirectoy of the pipsa
+distribution).</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pr - probe
+radius,
+default is 3 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -sk - skin
+thickness,
+default is 4 &Aring;</font> <br>
+      <font face="Arial,Helvetica">+ default values are used if no
+input
+given</font> </p>
+      <p><font face="Arial,Helvetica">The program will construct 2
+skins (for
+protein 1 and 2) having thickness "skin" and at distance "probes" from
+van der Waals surface of the proteins (i.e. from "probes" to
+"probes+skin"
+distance), using the points of the potential grids.&nbsp; The potential
+values outside this skin and outside the comparison region (sphere or a
+set of spheres here) will not be used.</font> <br>
+      <font face="Arial,Helvetica">The followings will be computed:</font>
+      <br>
+      <font face="Arial,Helvetica">np1&nbsp; = no of points of the skin
+of
+the protein 1</font> <br>
+      <font face="Arial,Helvetica">np2&nbsp; = no of points of the skin
+of
+the protein 2</font> <br>
+      <font face="Arial,Helvetica">npoi = no of points of the
+intersection
+of 2 skins</font> <br>
+      <font face="Arial,Helvetica">aa0&nbsp; = square of the norm of
+the
+grid 1 on its skin</font> <br>
+      <font face="Arial,Helvetica">aa&nbsp;&nbsp; = square of the norm
+of
+the grid 1 on intersection of the skins</font> <br>
+      <font face="Arial,Helvetica">bb0&nbsp; = square of the norm of
+the
+grid 2 on its skin</font> <br>
+      <font face="Arial,Helvetica">bb&nbsp;&nbsp; = square of the norm
+of
+the grid 2 on intersection of the skins</font> <br>
+      <font face="Arial,Helvetica">ab&nbsp;&nbsp; = scalar product of 2
+potentials
+(on intersection of skins)</font> </p>
+      <font face="Arial,Helvetica">&nbsp;Output:</font> <br>
+      <font face="Arial,Helvetica">- fort.66 - some info about
+constructed
+skins</font> <br>
+      <font face="Arial,Helvetica">- standard output has following data
+in
+one line:</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin = 2*ab/(aa+bb)</font>
+      <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo&nbsp;&nbsp; =
+ab/sqrt(aa*bb)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb</font> <br>
+      <font face="Arial,Helvetica">&nbsp; ab</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa0</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb0</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin_shape =
+2.*float(npoi)/float(np1+np2)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo_shape&nbsp;&nbsp; =
+float(npoi)/sqrt(float(np1*np2))</font> <br>
+      <font face="Arial,Helvetica">&nbsp; np1<br>
+      </font><font face="Arial,Helvetica">&nbsp; np2</font> <br>
+      <font face="Arial,Helvetica">&nbsp; npoi</font> <br>
+      <font face="Arial,Helvetica">(all this information is printed for
+every sphere defined in the file "spheres")</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">ccenter.f</font></td>
+      <td><font face="Arial,Helvetica">Computes the geometric center of
+all atoms
+in a pdb file</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">grid_asc2bin.f</font></td>
+      <td><font face="Arial,Helvetica">Converts grid from GRID ASCII
+format to
+UHBD binary format</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">mkapbsin.f</font> <br>
+      <font face="Arial,Helvetica">mkuhbdin.f</font> <br>
+      <font face="Arial,Helvetica">mkgridin.f</font></td>
+      <td><font face="Arial,Helvetica">Programs to compute the average
+center
+of proteins from the output of ccenter.f, which is then used as the
+center
+for all interaction potential grids.&nbsp; Prints dispersion of the
+centers
+and size of proteins, this can be used to check the quality of
+superposition.<br>
+      <br>
+Note that:<br>
+If you use the recent apbs vesion 0.3.2 or newer, the program
+mkapbsin.f should be replaced with mkapbs-0.3.2-in.f from the src/
+directory and recompiled, because the grid origin writing is changed
+(corrected) in the later versions of apbs.<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">mkdismx.f</font></td>
+      <td><font face="Arial,Helvetica">Converts similarity matrix to
+distance
+matrix</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">mkkin.f</font></td>
+      <td><font face="Arial,Helvetica">Reads the similarity matrix,
+computes
+distances between proteins as defined by their similarity index, and
+represents
+proteins as points in 3D space, such that pairwise distances&nbsp;
+between
+each pair of proteins are represented by distances between
+corresponding
+points</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">modeller2grin.f</font></td>
+      <td><font face="Arial,Helvetica">The program to rename some atom
+names
+from MODELLER output to the names readable by the program grin of GRID</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">npotsim.f</font></td>
+      <td><font face="Arial,Helvetica">Drives similarity index
+calculations with
+2potsim*</font> <br>
+      <font face="Arial,Helvetica">Input:</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pg - similarity
+calculation
+program name: 2potsim_noskin, 2potsim_skin or 2potsim_skin_parts,
+default
+is ../bin/2potsim_noskin</font> <br>
+      <font face="Arial,Helvetica">- command line arg -fp - the
+directory
+where pdb files are located, default is ../pdbs</font> <br>
+      <font face="Arial,Helvetica">command line arg -fn - the name of
+the
+file with the names of proteins, each of which should have
+corresponding
+PDB file in the directory ../pdbs/, and corresponding potential file in
+./ , default is "names"</font> <br>
+      <font face="Arial,Helvetica">- command line arg -lg - the name of
+the
+similarity matrix file, default is "sims.log"</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pr - the value
+of
+probe radius, default is 3 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -sk - the value
+of
+skin thickness, default is 4 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pa - the name of
+the
+file with the list of directions, default name "parts" - a list of
+directions
+and angles to define conical parts</font>
+      <p><font face="Arial,Helvetica">Note that:</font> <br>
+      <font face="Arial,Helvetica">+ the program implies that it is
+executed
+in the directory, where grid files are located and expects pdb files to
+be located in the directory defined by command line arg -fp</font> <br>
+      <font face="Arial,Helvetica">+ all grid files corresponding to
+protein
+names in the file "names" must have extension .grd and all pdb files
+must
+have extension .pdb</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">n1potsim.f</font></td>
+      <td><font face="Arial,Helvetica">Drives similarity index
+calculations with
+2potsim* when 1 extra protein to be added to the set of originally
+processed
+proteins</font>
+      <p><font face="Arial,Helvetica">Input:</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pg - similarity
+calculation
+program name; 2potsim_noskin, 2potsim_skin or 2potsim_skin_parts,
+default
+is ../bin/2potsim_noskin</font> <br>
+      <font face="Arial,Helvetica">- command line arg -fp - the
+directory
+where pdb files are located, default is ../pdbs</font> <br>
+      <font face="Arial,Helvetica">- command line arg -fn - the name of
+the
+file with the names of original set of proteins, each of which should
+have
+corresponding&nbsp; PDB file in the directory ../pdbs/, and
+corresponding
+potential file in ./ , default is "names"</font> <br>
+      <font face="Arial,Helvetica">- command line arg -p1 - the name of
+the
+protein to be added, should have PDB file in ../pdbs/, and the
+potential
+file in ./</font> <br>
+      <font face="Arial,Helvetica">- command line arg -lg - the name of
+the
+similarity matrix file, default is "sims.log"</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pr - the value
+of
+probe radius, default is 3 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -sk - the value
+of
+skin thickness, default is 4 &Aring;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -pa - the name of
+the
+file with the list of directions,&nbsp; default name "parts" - a list
+of
+directions and angles to define conical parts</font> </p>
+      <p><font face="Arial,Helvetica">Note that </font>:&nbsp; <br>
+      <font face="Arial,Helvetica">+ the program should be executed in
+the
+directory, where grid files are located and expects pdb files to be
+located
+in the directory defined by command line arg -fp</font>.&nbsp; <br>
+      <font face="Arial,Helvetica">+ all grid files corresponding to
+protein
+names in the file "names" must have extension .grd and all pdb files
+must
+have extension .pdb</font> <br>
+      <font face="Arial,Helvetica">+ the file "names" after execution
+of
+this program will be renamed to "names-old" and a new file "names" will
+be created, which includes newly added protein name</font> <br>
+      <font face="Arial,Helvetica">+ the old similarity matrix file
+will
+be renamed to "sims.log-old" and new file&nbsp; "sims.log" (or any
+other
+name given after -lg) will be created which has indices for the added
+protein</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+nm1potsim.f</font></td>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica">Simple
+operation: removes a given protein from pipsa analysis.<br>
+This is done by reading the protein's name, removing it from the list
+(file "names") and from related to it similarity matrix ("sims.log")<br>
+      <br>
+Input:<br>
+- command line arg -fn - the name of the file with the names of
+original set of proteins, each of which should have corresponding PDB
+file in the directory ../pdbs/, and corresponding potential file in ./,
+default is "names"<br>
+- command line arg -p1 - the name of the protein to be removed, its
+potential in ./ and pdb file in ../pdbs are not removed and not used.<br>
+- command line arg -p&nbsp; - the same as above<br>
+- command line arg -lg - the name of the similarity matrix file,
+default is "sims.log" - will be modified<br>
+      <br>
+Note that<br>
++ the program implies that it is executed in the directory, where grid
+files are located and expects pdb files to be located in ../pdbs/
+subdirectory<br>
++ the file "names" after execution of this program will be renamed to
+"names-old" and a new file "names" will be created, which does not have
+the removed protein name<br>
++ the old similarity matrix file will be renamed to "sims.log-old" and
+new file&nbsp; "sims.log" (or any other name given after -lg) sill be
+created which does not have all entries related to the removed protein
+anymore<br>
++ note that the grid and pdb files will not be removed.&nbsp; These
+need to be either removed separately, or replaced by a new versions, if
+subsequently a new version of a protein is supposed to be added<br>
+      </font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">qdipsim.f</font></td>
+      <td><font face="Arial,Helvetica">Computes pairwise electrostatic
+similarity
+of a list of proteins, based on their monopole and dipole moments&nbsp;</font>
+      <p><font face="Arial,Helvetica">Input:&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -fn - the name of
+the
+file with the names of proteins, each of which should have
+corresponding
+PDB file in the current directory, default is "pdbnames"</font> <br>
+      <font face="Arial,Helvetica">- command line arg -fd - the name of
+the
+file where dipole moment information will be written, default name
+"dipoles"&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- command line arg -r - the size of
+the
+proteins, approx average gyration radius, default value 9.815 &Aring;,
+valid for PH domains</font> </p>
+      <p><font face="Arial,Helvetica">The program will assign formal
+charges
+to all charged residues (+0.5 e for NHX of Arg, +1 for NZ of Lys, -0.5
+for OEX of Glu and ODX of Asp, compute the monopole and dipole moments
+of protein.&nbsp;</font> <br>
+      <font face="Arial,Helvetica">The similarity index is then
+computed
+following the analytical formula (6) from the <a
+ href="references.html#blomberg">Proteins
+paper</a>, i.e. comparing monopole+dipole potentials at the sphere of
+some
+radius R.&nbsp; Default value of R is 9.815, i.e. parameter alpha
+(coded
+as scf) is 17 &Aring;**-2.&nbsp;</font> </p>
+      <p><font face="Arial,Helvetica">The following quantities are
+computed:</font> <br>
+      <font face="Arial,Helvetica">aa&nbsp;&nbsp; = square of the norm
+of
+the dipole+monopole potential of protein 1</font> <br>
+      <font face="Arial,Helvetica">bb&nbsp;&nbsp; = square of the norm
+of
+the dipole+monopole potential of protein 2</font> <br>
+      <font face="Arial,Helvetica">ab&nbsp;&nbsp; = scalar product of 2
+dipole+monopole
+potentials</font> </p>
+      <p><font face="Arial,Helvetica">&nbsp;Output:</font> <br>
+      <font face="Arial,Helvetica">- file "dipoles" where the following
+information
+about proteins are printed:</font> <br>
+      <font face="Arial,Helvetica">&nbsp; the name of pdb-file</font> <br>
+      <font face="Arial,Helvetica">&nbsp; total charge, the norm of the
+dipole
+moment, 3 (x,y,z) components of the dipole moment, number of charge
+sites&nbsp;</font> <br>
+      <font face="Arial,Helvetica">- standard output has following data
+in
+one line:</font> <br>
+      <font face="Arial,Helvetica">&nbsp; si_hodgkin = 2*ab/(aa+bb)</font>
+      <br>
+      <font face="Arial,Helvetica">&nbsp; si_carbo&nbsp;&nbsp; =
+ab/sqrt(aa*bb)</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb</font> <br>
+      <font face="Arial,Helvetica">&nbsp; ab</font> <br>
+      <font face="Arial,Helvetica">&nbsp; aa</font> <br>
+      <font face="Arial,Helvetica">&nbsp; bb</font> <br>
+      <font face="Arial,Helvetica">&nbsp; npoi</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">uhbd_asc2bin.f</font></td>
+      <td>&nbsp;<font face="Arial,Helvetica">Converts grid from UHBD
+ASCII format
+to UHBD binary format</font></td>
+    </tr>
+    <tr>
+      <td><a name="whatif2uhbd"></a><font face="Arial,Helvetica">whatif2uhbd.f</font></td>
+      <td><font face="Arial,Helvetica">The program to convert the
+WHATIF output
+file of protein coordinates to the format readable by UHBD.&nbsp; Note
+that the current version treats correctly only one-chain proteins, i.e.
+you need to do modifications if proteins having more than one chain
+need
+to be analysed .&nbsp;</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<p>
+</p>
+<hr width="100%"><br>
+<br>
+<a name="aux"></a><b><font face="Arial,Helvetica"><font color="#000000"><font
+ size="+1">Auxiliary
+programs and scripts</font></font></font></b>
+<br>
+<table nosave="" border="1" width="100%">
+  <caption>&nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">addlinks.pl&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Adds a link before every line
+that has
+'(.*) show' in a .ps file. Basically, this program adds kewl code to
+the
+.ps files, so that when they are converted to .pdf files, one gets kewl
+links.</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_UHBD2APBS&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">pipsa 2.0 script to compare UHBD
+grids
+and APBS grids (supposes that grids have the same spacing and origin
+and
+size)</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">do_pipsa_uho2pqr&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Script to convert UHBD output to
+pqr</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">getnames.sh&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Downloads names, long names,
+gene definitions
+from the SWISS-PROT database for the proteins</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">delphi2uhbd.f<br>
+      </td>
+      <td style="vertical-align: top;">Converts DELPHI output grid to
+UHBD ascii fomat grid, which can be then handled the same way as APBS
+output grid (i.e. converted to binary and used in similarity
+analysis).&nbsp; See the program header for compilation instructions.<br>
+      </td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">gridinfo</font> <br>
+      <font face="Arial,Helvetica">gridinfo.f&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Gets information from the UHBD
+grid</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">grid2insight</font> <br>
+      <font face="Arial,Helvetica">grid2insight.f</font></td>
+      <td><font face="Arial,Helvetica">Converts GRID/UHBD format grid
+file to
+InsightII readable file</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">highlight_kin_groups</font> <br>
+      <font face="Arial,Helvetica">highlight_kin_groups.f&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Highlights specified groups of
+proteins
+in different colours</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">highlight_kin_points</font> <br>
+      <font face="Arial,Helvetica">highlight_kin_points.f&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Highlights specified proteins in
+red</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">insightII.HydrSurface.in&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Input file for InsightII used to
+produce
+Hydrophobic Surfaces in .wrl, virtual reality modeling language format.</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">insightII.electSurface.in&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Input file for InsightII used to
+produce
+Electrostatic Surfaces in .wrl, virtual reality modeling language
+format.</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">malign3d.2.sh&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Aligns the sequences to the
+TEMPLATE.pdb
+sequence, using modeller and modeller.2.in script</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">malign3d.pl&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Runs modeller 6 to create 3D
+multiple
+alignment of all the proteins in pdbs directory</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">malign3d.sh&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Aligns the sequences to the
+TEMPLATE.pdb
+sequence, using whatif</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">malign3d.whatif.in&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Script used by malign3d.sh</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">mkElecSurface.sh&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Creates .wrl files that
+represent electrostatic
+surfaces. UHBD calculations should be done before the script is
+executed.</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">mkHydrSurface.sh&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Creates .wrl files that
+represent hydrophobic
+surfaces. GRID calculatoins should be done before the script is
+executed.</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">mktree.sh</font></td>
+      <td><font face="Arial,Helvetica">Creates the tree from the
+similarity matrix
+- prototype to do_pipsa_phylip</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">modeller.2.in&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Script used by the modeller 4 in
+malign3d.2.sh
+program</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">orient.sh&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Aligning the proteins using
+ORIENT command
+from the modeller. _very_ inaccurate</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">pqr2qcd</font> <br>
+      <font face="Arial,Helvetica">pqr2qcd.f&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Converts PQR format to UHBD
+readable QCD
+format</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">uho2pqr</font> <br>
+      <font face="Arial,Helvetica">uho2pqr.f&nbsp;</font></td>
+      <td><font face="Arial,Helvetica">Converts UHBD output to pqr</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<hr width="100%">
+<br>
+<br>
+<a name="param"></a><b><font face="Arial,Helvetica">Some calculation
+parameters:</font></b>
+<p><font face="Arial,Helvetica">Some parameters defining interaction
+potentials
+can be changed to adjust the calculations to the case studied.&nbsp;
+For
+example, interaction potential grid dimensions might need to be
+increased
+for a set of larger proteins; different probes can be used in GRID
+calculations.</font>
+<br>
+&nbsp;
+<table nosave="" style="width: 100%;" border="1" cols="4">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">Parameter</font></td>
+      <td><font face="Arial,Helvetica">Parameter name&nbsp; (default)</font></td>
+      <td><font face="Arial,Helvetica">Where can be changed</font></td>
+      <td><font face="Arial,Helvetica">Where used</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">Grid maximal dimension</font></td>
+      <td><font face="Arial,Helvetica">&nbsp;im_max&nbsp; (110)</font></td>
+      <td><font face="Arial,Helvetica">src/maxdim.inc</font></td>
+      <td><font face="Arial,Helvetica">2potsim*, grid_asc2bin,
+uhbd_asc2bin</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">Grid dimensions</font> <br>
+      <font face="Arial,Helvetica">Grid spacing</font> <br>
+      <font face="Arial,Helvetica">Probe for dielectric surface</font></td>
+      <td><font face="Arial,Helvetica">dime&nbsp; (65 65 65)</font> <br>
+      <font face="Arial,Helvetica">glen/(dime-1) (1.5)</font> <br>
+      <font face="Arial,Helvetica">srad (0.0)</font></td>
+      <td><font face="Arial,Helvetica">pipsa_wrk_dir/apbs/apbs.in after
+executing
+do_pipsa_APBS_prep script</font></td>
+      <td><font face="Arial,Helvetica">APBS</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">Grid dimensions</font> <br>
+      <font face="Arial,Helvetica">Grid spacing</font> <br>
+      <font face="Arial,Helvetica">Probe for dielectric surface</font></td>
+      <td><font face="Arial,Helvetica">dim (65)</font> <br>
+      <font face="Arial,Helvetica">spa (1.5)</font> <br>
+      <font face="Arial,Helvetica">nmap probe_radius_value (-)</font></td>
+      <td><font face="Arial,Helvetica">pipsa_wrk_dir/uhbd/uhbd.in after
+executing
+do_pipsa_UHBD_prep script</font></td>
+      <td><font face="Arial,Helvetica">UHBD</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">ionic strength</font></td>
+      <td><font face="Arial,Helvetica">-&nbsp; (50)</font></td>
+      <td><font face="Arial,Helvetica">scr/do_pipsa_APBS_prep</font> <br>
+      <font face="Arial,Helvetica">scr/do_pipsa_UHBD_prep</font></td>
+      <td><font face="Arial,Helvetica">APBS</font> <br>
+      <font face="Arial,Helvetica">UHBD</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">PROBE name</font></td>
+      <td><font face="Arial,Helvetica">- (PO4)</font></td>
+      <td><font face="Arial,Helvetica">scr/do_pipsa_GRID_prep</font></td>
+      <td><font face="Arial,Helvetica">GRID</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">GRID calculation parameters</font>
+      <br>
+      <font face="Arial,Helvetica">for example grid dimension</font></td>
+      <td> <br>
+      <font face="Arial,Helvetica">imax (65)</font></td>
+      <td><font face="Arial,Helvetica">pipsa_wrk_dir/grid/grid.in/grin.in
+after
+executing do_pipsa_GRID_prep script</font></td>
+      <td><font face="Arial,Helvetica">GRID</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">Maximal number of proteins</font></td>
+      <td><font face="Arial,Helvetica">nprmx&nbsp; (999)</font></td>
+      <td><font face="Arial,Helvetica">src/maxdim.inc</font></td>
+      <td><font face="Arial,Helvetica">kapbsin, mkdismx, mkkin,
+mkuhbdin, n1potsim,
+npotsim, qdipsim</font></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Maximal number of atoms per
+proteins<br>
+      </td>
+      <td style="vertical-align: top;">namx (999) <br>
+      </td>
+      <td style="vertical-align: top;"><font face="Arial,Helvetica">src/maxdim.inc</font></td>
+      <td style="vertical-align: top;">ccenter<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</p>
+<p></p>
+<hr width="100%">
+<p><i><a href="mailto:razif.gabdoulline@eml-r.villa-bosch.de">Razif
+Gabdoulline</a>, 2007</i>
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<ol>
+&nbsp;
+</ol>
+</body>
+</html>

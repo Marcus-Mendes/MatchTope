@@ -1,0 +1,10 @@
+Get Molecule PDB User in.pdb INFILE -Heteroatom -Keep_Alternates -Use_Segids -Keep_All_Frames -Reference_Object
+Get Grid in.ins 1 INFILEGRID Reference INFILE
+# Create_Single Contour -"From Grid File" INFILEGRID n1 -1 Solid -Flip_Normals 255,0,0
+Create_Single Contour -"From Grid File" INFILEGRID n05 -0.5 Solid -Flip_Normals 255,127,0
+Render Molecule Ball_and_Stick INFILE 0.3 0.1 Atom_Color Low
+Color Molecule Atoms INFILE:CYS:* Specified Specification 255,255,0
+Ribbon Molecule Create INFILE Protein Solid_Oval Low 2 6 1.2 -Variable_Width 1.2 -Depth_Cue_Ribbon -Decal
+Export_VRML From_InsightII -Include_Light VRML outfile.wrl
+quit
+

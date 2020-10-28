@@ -1,0 +1,40 @@
+: Command File for Programme GRID
+: Channel Numbers and Output File names:
+ LONT       6
+ LONT  gridlont.dat
+ KONT      20
+ KONT  gridkont.dat
+: Channel Numbers and Input File names:
+ INPT      10
+ INPT  grinkout.dat
+: Control Parameters:
+ CLER     5.000
+ DEEP     5.000
+ DPRO     4.000
+ DWAT    80.000
+ EACH     5.000
+ EMAX     5.000
+ FARH     5.000
+ FARR     8.000
+ KWIK     0
+ LEAU     0
+ LENG    12
+ LEVL     0
+ LIST     1
+ MOVE     0
+ NETA     1
+ NPLA     1
+ NUMB     1
+ VALU     0.000
+ PO4
+ TOPX   34.113
+ TOPY   34.157
+ TOPZ   31.438
+ BOTX  -29.886
+ BOTY  -29.843
+ BOTZ  -32.562
+ IEND
+ GRID 1 A spacing, size - from top and bots
+       0    1
+:PROG:  /wade/wade3/owl2/local/gri17/grid
+:DEFA:

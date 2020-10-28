@@ -1,0 +1,30 @@
+addlinks.pl                  Adds a link before every line that has '(.*) show' in a .ps file. Basically, this program adds kewl code to the .ps files, so that when they are converted to .pdf 
+files, one gets kewl links.
+delphi2uhbd4linux            converts Delphi binary output grid to uhbd ascii format grid.  Precompiled version assumes grids computed unde SGI Irix.
+delphi2uhbd.f
+do_pipsa_UHBD2APBS           pipsa 2.0 script to compare UHBD grids and APBS grids (supposes that grids have the same spacing and origin and size)
+do_pipsa_uho2pqr             Script to convert UHBD output to pqr
+getnames.sh                  Downloads names, long names, gene definitions from the SWISS-PROT database for the proteins
+grid2insight                 Converts GRID/UHBD format grid file to InsightII readable file
+grid2insight.f
+gridinfo                     Gets information from the UHBD grid
+gridinfo.f
+highlight_kin_groups         Highlights different groups of proteins in different colours
+highlight_kin_groups.f
+highlight_kin_points         Highlights proteins in red
+highlight_kin_points.f
+insightII.HydrSurface.in     Infile for the InsightII used to produce Hydrophobic Surfaces in .wrl 
+insightII.electSurface.in    Infile for the InsightII used to produce Electrostatic Surfaces in .wrl
+malign3d.2.sh                Aligns the sequences to the TEMPLATE.pdb sequence, using modeller and modeller.2.in script
+malign3d.pl                  Runs modeller 6 to create 3D multiple alignment of all the proteins in pdbs directory
+malign3d.sh                  Aligns the sequences to the TEMPLATE.pdb sequence, using whatif
+malign3d.whatif.in           Script used by malign3d.sh
+mkElecSurface.sh             Creates .wrl files that represent electrostatic surfaces. UHBD calculations should be done before the script is executed.
+mkHydrSurface.sh             Creates .wrl files that represent hydrophobic surfaces. GRID calculatoins should be done before the script is executed.
+mktree.sh                    Creates the tree from the similarity matrix - prototype to do_pipsa_phylip
+modeller.2.in                Script used by the modeller 4 in malign3d.2.sh program
+orient.sh                    Alignning the proteins using ORIENT command from the modeller. _very_ inaccurate
+pqr2qcd                      Converts PQR format to UHBD readable QCD format
+pqr2qcd.f
+uho2pqr                      Converts UHBD output to pqr
+uho2pqr.f

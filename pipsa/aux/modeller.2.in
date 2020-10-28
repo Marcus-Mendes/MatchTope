@@ -1,0 +1,22 @@
+READ_MODEL FILE='TEMPLATE'
+SEQUENCE_TO_ALI ATOM_FILES = 'TEMPLATE', ALIGN_CODES = 'TEMPLATE'
+
+READ_MODEL FILE='u'
+SEQUENCE_TO_ALI ADD_SEQUENCE = on, ATOM_FILES = ATOM_FILES 'u', ALIGN_CODES = ALIGN_CODES 'u'
+
+MALIGN
+
+READ_MODEL FILE='TEMPLATE'
+READ_MODEL2 FILE='u'
+
+# The trick of reading the files once more is needed, because there is a bug that makes MODEL2 inaccessible for the SEQUENCE_TO_ALI command.
+
+
+# WRITE_ALIGNMENT FILE='ble.ali'
+# Pick and superpose all atoms within 6 A of the CA atom in Cysteine 88
+
+PICK_ATOMS ATOM_TYPES='ALL', SPHERE_RADIUS= 10.0, ;
+	 SELECTION_SEARCH = 'SPHERE', SPHERE_CENTER = '88:' 'CA'
+SUPERPOSE
+
+WRITE_MODEL2 FILE='tmp.pdb' 

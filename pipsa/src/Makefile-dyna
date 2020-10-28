@@ -1,0 +1,18 @@
+all:	
+	g77  -O 2potsim_noskin.f -o ../bin/2potsim_noskin
+	g77  -O -static 2potsim_skin.f -o ../bin/2potsim_skin
+	g77  -O -static 2potsim_skin_parts.f -o ../bin/2potsim_skin_parts
+	g77  -O ccenter.f -o ../bin/ccenter 
+	g77  -O grid_asc2bin.f -o ../bin/grid_asc2bin
+	g77  -O mkdismx.f -o ../bin/mkdismx
+	g77  -O mkkin.f -o ../bin/mkkin
+	g77  -O mkgridin.f -o ../bin/mkgridin
+	g77  -O mkapbsin.f -o ../bin/mkapbsin 
+	g77  -O mkuhbdin.f -o ../bin/mkuhbdin 
+	g77  -O modeller2grin.f -o ../bin/modeller2grin
+	g77  -O -static n1potsim.f -o ../bin/n1potsim
+	g77  -O -static npotsim.f -o ../bin/npotsim
+	g77  -O qdipsim.f -o ../bin/qdipsim
+	g77  -O uhbd_asc2bin.f -o ../bin/uhbd_asc2bin
+	g77  -O whatif2uhbd.f -o ../bin/whatif2uhbd
+	cp mat2phyl.pl ../bin/

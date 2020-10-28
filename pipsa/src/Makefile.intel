@@ -1,0 +1,24 @@
+all:
+	ifort  2potsim_noskin.f                 -o ../bin/2potsim_noskin
+	ifort  2potsim_skin.f                   -o ../bin/2potsim_skin
+	ifort 2potsim_skin_parts.f             -o ../bin/2potsim_skin_parts
+	ifort 2potsim_skin_spheres.f           -o ../bin/2potsim_skin_spheres
+	ifort 2potsim_skin_spheresNN.f         -o ../bin/2potsim_skin_spheresNN
+	ifort ccenter.f                        -o ../bin/ccenter
+	ifort grid_asc2bin.f                   -o ../bin/grid_asc2bin
+	cp              mat2phyl.pl                         ../bin/mat2phyl.pl
+	ifort mkapbsin-apbs-ot-0.3.2.f         -o ../bin/mkapbsin-apbs-ot-0.3.2
+	ifort mkapbsin.f                       -o ../bin/mkapbsin
+	ifort mkdismx.f                        -o ../bin/mkdismx
+	ifort mkgridin.f                       -o ../bin/mkgridin
+	ifort mkkin.f                          -o ../bin/mkkin
+	ifort mkuhbdin.f                       -o ../bin/mkuhbdin
+	ifort modeller2grin.f                  -o ../bin/modeller2grin
+	ifort n1potsim.f                       -o ../bin/n1potsim
+	ifort nm1potsim.f                      -o ../bin/nm1potsim
+	ifort npotsim.f                        -o ../bin/npotsim
+	ifort qdipsim.f                        -o ../bin/qdipsim
+	ifort smNextopred.f                    -o ../bin/smNextopred
+	ifort uhbd_asc2bin.f                   -o ../bin/uhbd_asc2bin
+	ifort whatif2uhbd.f                    -o ../bin/whatif2uhbd
+	ifort 2potsim_skin_spheresU.f   -o ../bin/2potsim_skin_spheresU

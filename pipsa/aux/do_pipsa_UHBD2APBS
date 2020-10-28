@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Low-level pipsa 2.0 script
+# Provided that APBS and UHBD calculations done, will compare 
+# APBS and UHBD electrostatic potential grids 
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_uhbd_dir   = directory, where UHBD grids are computed
+# $3 = pipsa_apbs_dir   = directory, where APBS grids are computed
+#
+# - assumes grid files in $2 and $3 and pdb files in  $2/../pdbs/ and the file names 
+#   in $1/ with the names of proteins
+# - will go to pipsa_uhbd_dir/ and calculate one-to-one similarity index of UHBD and APBS grids
+
+# calculate similarity matrix
+cd $2
+
+for i in `cat names`
+do
+
+echo $i
+$1/bin/2potsim_skin -g1 $i.grd -g2 ../apbs/$i.grd -p1 ../pdbs/$i.pdb -p2 ../pdbs/$i.pdb -pr 3 -sk 4
+
+done
+
+

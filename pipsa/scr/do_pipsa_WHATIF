@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Adds polar hydrogens to pdb files and convert them to UHBD readable 
+# format using WHATIF
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_wrk_dir   = the directory for pipsa calculations, where 
+#                        original pdb files are placed in opdbs/ subdirectory
+#                        and pdb file list is in opdbs/pdbnames
+# $3 = whatif_exe      = WHATIF executable with path 
+#
+# - assumes original (without hydrogens) pdb files in  pipsa_wrk_dir/opdbs/
+#   and the list of pdb filenames in pipsa_wrk_dir/opdbs/pdbnames
+# - will make directory pipsa_wrk_dir/whatif and convert original pdbs to 
+#   pdbs with polar hydrogens
+# + Current version whatif2uhbd can handle only single chain proteins correctly
+
+cd $2/
+mkdir whatif; cd whatif
+
+# add hydrogens to pdb coordinates
+
+touch whatif.log
+for i in `cat ../opdbs/pdbnames`
+do
+cp ../opdbs/$i u.pdb
+touch uH.pdb; \rm uH.pdb
+$3 < $1/data/whatif_addH.in >>  whatif.log 2>&1
+$1/bin/whatif2uhbd < uH.pdb > uu.pdb
+mv uu.pdb $i
+done
+\rm u.pdb uH.pdb tmp.pdb pdbout.t?? WHATIF.FIG 
+
+ls -1 *.pdb > pdbnames
+

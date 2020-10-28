@@ -1,0 +1,28 @@
+read 
+mol pqr dum.pqr
+end
+
+elec name viz
+mg-manual
+dime 65 65 65
+nlev 4
+glen 96 96 96
+gcent 0.0, 0.0 0.0  
+mol 1
+lpbe
+bcfl sdh
+ion 1 0.050 1.5
+ion -1 0.050 1.5
+pdie 1.0
+sdie 78.00
+chgm spl0
+srfm smol
+srad 0.0
+swin 0.3
+temp 298.15
+gamma 0.105
+write pot uhbd dum
+end
+
+quit
+

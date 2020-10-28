@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Prepares APBS calculations
+#
+# - needs 2 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_wrk_dir   = the directory for pipsa calculations, where 
+#                        apbs readable pqr files are placed in pqrs/ subdirectory
+#                        and pqr file list is in pqrs/pqrnames
+# - assumes that pqr files are in pipsa_wrk_dir/pqrs/
+# - will create directory pipsa_wrk_dir/apbs and generate 2 files there:
+#   list of protein names "names" and the file "apbs.in" for APBS calculations
+
+cd $2/
+mkdir apbs; cd apbs
+
+# prepare the file with protein names
+cat ../pqrs/pqrnames | cut -f1 -d"." > names
+
+# prepare the center information
+touch center.log; \rm center.log; touch center.log
+for i in `cat names`
+do
+$1/bin/ccenter < ../pqrs/$i.pqr >> center.log
+done
+$1/bin/mkapbsin -ft $1/data/apbs.in_tmpl -fu apbs.in -is 50 < center.log
+

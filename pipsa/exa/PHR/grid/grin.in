@@ -1,0 +1,41 @@
+:  
+:                      MOLECULAR DISCOVERY LIMITED
+:                      ***************************
+:  
+:                    Command File for Programme GRIN
+:  
+:  
+:  
+:  Assign Channel Numbers and Output File Names:
+:  -------------------------------------------- 
+:  
+ LOUT      6
+ LOUT  grinlout.dat                                                            
+ KOUT     20
+ KOUT  grinkout.dat                                                            
+:  
+:  Assign Channel Numbers and Input File Names:
+:  ------------------------------------------- 
+:  
+ INKO     11
+ INKO  tmp.pdb                                                              
+ INAT     10
+ INAT  grub.dat                                                               
+:  
+:  Provide Control Parameters:
+:  -------------------------- 
+:  
+ LEVL      3
+ MOVE      1
+ ALHY      0.040
+ NEHY      1
+ QQHY      0.000
+ VDHY      0.600
+ IHVA      0
+ IEND
+:
+:Record the name of the executable Programme and the name of
+:the Default Directory as comment lines starting with a colon:
+:
+:PROG:  /wade/wade3/owl2/local/grid17/grid/grin                                                                   
+:DEFA:                                                                         

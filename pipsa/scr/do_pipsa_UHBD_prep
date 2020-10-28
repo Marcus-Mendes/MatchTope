@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Prepares UHBD calculations
+#
+# - needs 2 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_wrk_dir   = the directory for pipsa calculations, where 
+#                        uhbd readable pdb files are placed in pdbs/ subdirectory
+#                        and pdb file list is in pdbs/pdbnames
+# - assumes that pdb files are in pipsa_wrk_dir/pdbs/
+# - will create directory pipsa_wrk_dir/uhbd and generate 2 files there:
+#   list of protein names "names" and the file "uhbd.in" for UHBD calculations
+
+cd $2/
+mkdir uhbd; cd uhbd
+
+# prepare the file with protein names
+cat ../pdbs/pdbnames | cut -f1 -d"." > names
+
+# prepare the center information
+touch center.log; \rm center.log; touch center.log
+for i in `cat names`
+do
+$1/bin/ccenter < ../pdbs/$i.pdb >> center.log
+done
+$1/bin/mkuhbdin -ft $1/data/uhbd.in_tmpl -fu uhbd.in -is 50 < center.log
+

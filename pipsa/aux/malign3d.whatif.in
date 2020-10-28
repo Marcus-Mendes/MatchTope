@@ -1,0 +1,24 @@
+getmol TEMPLATE.pdb
+
+getmol in.pdb
+
+nmr
+usemls
+
+1
+motmls
+y
+end
+soup
+delmol
+1
+makmol
+
+out.pdb
+This file was produced by whatif after superposing the structures
+
+all
+0
+end
+end
+y

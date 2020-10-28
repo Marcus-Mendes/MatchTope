@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Computes electroststic potential grids
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_uhbd_dir  = the directory where UHBD calculation 
+#                        are already prepared by the script do_pipsa_UHBD_prep
+# $3 = uhbd_executable = location of uhbd executable
+#
+# - assumes uhbd readable pdb files in  pipsa_uhbd_dir/../pdbs/
+# - assumes that do_pipsa_UHBD_prep is executed and necessary files 
+#   (names, uhbd.in) generated in pipsa_uhbd_dir/
+# - will go to directory pipsa_uhbd_dir/ and compute electrostatic potential grids there
+
+cd $2/
+
+# run uhbd
+touch uhbd.ou
+cp $1/data/qtable.dat ./
+for i in `cat names`
+do
+cp ../pdbs/$i.pdb dum.pdb
+echo ============================= >>  uhbd.ou
+echo $i                            >>  uhbd.ou
+echo ============================= >>  uhbd.ou
+$3 < uhbd.in >> uhbd.ou
+mv dum.grd $i.grd
+done
+rm dum.pdb
+

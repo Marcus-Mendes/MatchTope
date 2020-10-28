@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Computes analytically monopole+dipole electrostatic potential similarity 
+# matrix from pdb files and post-processes it
+#
+# - needs 2 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_pdbs_dir  = the directory where pdb files are located
+#
+# - assumes pdb files in  pipsa_pdbs_dir/ and the list of pdb files to analyse in "pdbfiles"
+# - will go to pipsa_pdbs_dir/, compute similarity matrix, distance matrix and kinemage representations
+# + the value of the sphere, where it is the best to compute the 
+#   potential similarity here is 9.815, which is suitable for PH domains 
+#   (must be proportionally larger if proteins in the set are larger than PH domains)
+
+# calculate similarity matrix
+cd $2/
+cat ./pdbnames | cut -f1 -d"." > names
+$1/bin/qdipsim -fn pdbnames -fd dipoles -r 9.815 > sims.log
+
+# make kinemage and distance matrix
+$1/bin/mkkin 1 1 < sims.log > sims.kin
+$1/bin/mkdismx 1 1 < sims.log > sims.mat
+

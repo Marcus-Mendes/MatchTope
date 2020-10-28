@@ -1,0 +1,186 @@
+
+Ave center:   2.113   2.157  -0.562  has been computed
+rms of   6 centers is   0.060  compared to radii  42.833
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D1V_NS4a140_148.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D1V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D1V_NS4b183_191.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D1V_NS4b183_191.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D1V_NS4b183_191.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D1V_NS4b183_191.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4a140_148.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4a140_148.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D2V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4a140_148.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4a140_148.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D2V_NS4b182-190.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D2V_NS4b182-190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D2V_NS4b182-190.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D2V_NS4b182-190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D3V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D3V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D2V_NS4b182-190.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D2V_NS4b182-190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D3V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D3V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D3V_NS4b182_190.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D3V_NS4b182_190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+
+Ave center:     NaN     NaN     NaN  has been computed
+rms of   0 centers is     NaN  compared to radii     NaN
+ [2J
+ [1;1H
+ 
+ [2J
+ [1;1H
+
+                                 PROGRAMME K2A
+                                 =============
+
+             Converts a regular GRIDKONT file into eye-readable ASCII.
+
+
+
+
+ Type the name of your GRIDKONT file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ [2J
+ [1;1H
+ 
+ [2J
+ [1;1H
+
+                                 PROGRAMME K2A
+                                 =============
+
+             Converts a regular GRIDKONT file into eye-readable ASCII.
+
+
+
+
+ Type the name of your GRIDKONT file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ [2J
+ [1;1H
+ 
+ [2J
+ [1;1H
+
+                                 PROGRAMME K2A
+                                 =============
+
+             Converts a regular GRIDKONT file into eye-readable ASCII.
+
+
+
+
+ Type the name of your GRIDKONT file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ [2J
+ [1;1H
+ 
+ [2J
+ [1;1H
+
+                                 PROGRAMME K2A
+                                 =============
+
+             Converts a regular GRIDKONT file into eye-readable ASCII.
+
+
+
+
+ Type the name of your GRIDKONT file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ [2J
+ [1;1H
+ 
+ [2J
+ [1;1H
+
+                                 PROGRAMME K2A
+                                 =============
+
+             Converts a regular GRIDKONT file into eye-readable ASCII.
+
+
+
+
+ Type the name of your GRIDKONT file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ [2J
+ [1;1H
+ 
+ [2J
+ [1;1H
+
+                                 PROGRAMME K2A
+                                 =============
+
+             Converts a regular GRIDKONT file into eye-readable ASCII.
+
+
+
+
+ Type the name of your GRIDKONT file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+ 
+
+ Cannot find the GRIDKONT input file.  Please enter
+ the correct name for this input file: 
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D1V_NS4a140_148.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D1V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D1V_NS4b183_191.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D1V_NS4b183_191.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D1V_NS4b183_191.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D1V_NS4b183_191.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4a140_148.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4a140_148.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D2V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4a140_148.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4a140_148.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D2V_NS4b182-190.grd -g2 D2V_NS4b182-190.grd -p1 ../pdbs/D2V_NS4b182-190.pdb -p2 ../pdbs/D2V_NS4b182-190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D2V_NS4b182-190.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D2V_NS4b182-190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4a140_148.grd -g2 D3V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4a140_148.pdb -p2 ../pdbs/D3V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D1V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D1V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D1V_NS4b183_191.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D1V_NS4b183_191.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D2V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D2V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D2V_NS4b182-190.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D2V_NS4b182-190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D3V_NS4a140_148.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D3V_NS4a140_148.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log
+/home/mendesms/sw/pipsa///bin/2potsim_skin -g1 D3V_NS4b182_190.grd -g2 D3V_NS4b182_190.grd -p1 ../pdbs/D3V_NS4b182_190.pdb -p2 ../pdbs/D3V_NS4b182_190.pdb -pa parts -pr   3.000 -sk   4.000 >> sims.log

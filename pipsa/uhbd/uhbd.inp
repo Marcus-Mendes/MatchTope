@@ -1,0 +1,45 @@
+assign  dim   =  65 end                     ! dimensions of the grid
+assign  ios   =  50 end                     ! ionic strength
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! assignments and elec calculations for protein 1
+!
+read mol 1 file "uhbd1.pdb" fpdb end           ! read pdb file and assign params
+set charge radius param opls file "uhbd.qtable.dat" end
+print apar mol 1 end                         ! print details to check
+!
+elec                                        ! elec calculation module
+    mol1 center                             ! centers at geometric center
+    dime $dim $dim $dim                     ! define dimensions
+    bcfl 2                                  ! asymptotic boundary conditions 
+    ionstr $ios                             ! ionic strength 
+    rion 2.0                                ! ion exclusion radius
+    spacing 1.0                             ! grid spacing in A
+    sdie 78                                 ! solvent dielectric
+    pdie 2.0                                ! protein (solute) dielectric
+    maxit 200                               ! iterations requested  
+end                                         ! end of elec block
+!
+write phi file "uhbd1.grd" binary end          ! write binary grid
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! assignments and elec calculations for protein 2
+!
+read mol 2 file "uhbd2.pdb" fpdb end
+set charge radius param opls file "uhbd.qtable.dat" end
+print apar mol 2 end
+elec 
+    mol2 center
+	dime $dim $dim $dim
+    bcfl 2 
+	ionstr $ios 
+	rion 2.0
+    spacing 1.0
+    sdie 78 maxit 200
+    pdie 2.0
+end
+write phi file "uhbd2.grd" binary end
+
+stop

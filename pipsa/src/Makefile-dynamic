@@ -1,0 +1,24 @@
+all:
+	gfortran  -O 2potsim_noskin.f                 -o ../bin/2potsim_noskin
+	gfortran  -O 2potsim_skin.f                   -o ../bin/2potsim_skin
+	gfortran  -O 2potsim_skin_parts.f             -o ../bin/2potsim_skin_parts
+	gfortran  -O 2potsim_skin_spheres.f           -o ../bin/2potsim_skin_spheres
+	gfortran  -O 2potsim_skin_spheresNN.f         -o ../bin/2potsim_skin_spheresNN
+	gfortran  -O ccenter.f                        -o ../bin/ccenter
+	gfortran  -O grid_asc2bin.f                   -o ../bin/grid_asc2bin
+	cp              mat2phyl.pl                         ../bin/mat2phyl.pl
+	gfortran  -O mkapbsin-apbs-ot-0.3.2.f         -o ../bin/mkapbsin-apbs-ot-0.3.2
+	gfortran  -O mkapbsin.f                       -o ../bin/mkapbsin
+	gfortran  -O mkdismx.f                        -o ../bin/mkdismx
+	gfortran  -O mkgridin.f                       -o ../bin/mkgridin
+	gfortran  -O mkkin.f                          -o ../bin/mkkin
+	gfortran  -O mkuhbdin.f                       -o ../bin/mkuhbdin
+	gfortran  -O modeller2grin.f                  -o ../bin/modeller2grin
+	gfortran  -O n1potsim.f                       -o ../bin/n1potsim
+	gfortran  -O nm1potsim.f                      -o ../bin/nm1potsim
+	gfortran  -O npotsim.f                        -o ../bin/npotsim
+	gfortran  -O qdipsim.f                        -o ../bin/qdipsim
+	gfortran  -O smNextopred.f                    -o ../bin/smNextopred
+	gfortran  -O uhbd_asc2bin.f                   -o ../bin/uhbd_asc2bin
+	gfortran  -O whatif2uhbd.f                    -o ../bin/whatif2uhbd
+	gfortran  -O 2potsim_skin_spheresU.f   -o ../bin/2potsim_skin_spheresU

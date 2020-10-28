@@ -1,0 +1,45 @@
+# Not the part of distribution
+# create directory wrk_dir, with UHBD readable pdb files in its 
+# pdbs/ subdirectory, place pdb file name list to the file "pdbnames" there
+
+./do_pipsa_UHBD_prep /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/ 
+
+# this will generate /home/ra/gabdoull/wrk/pipsa/PH/uhbd/ 
+# use pdb file names from /home/ra/gabdoull/wrk/pipsa/PH/pdbs/pdbnames
+# and generate the files needed for uhbd calculations ("names" with protein names, and uhbd.in)
+
+./do_pipsa_UHBD_chk /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+./do_pipsa_UHBD_grids /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+
+# this will compute elec potentials in  /home/ra/gabdoull/wrk/pipsa/PH/uhbd/
+# calculate similarity matrix and derivatives for grids in  /home/ra/gabdoull/wrk/pipsa/PH/uhbd/:
+
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd/
+
+# phylip diagrams can be generated using the script 
+
+./do_pipsa_phylip /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd/ /home/ra/gabdoull/wrk/pipsa_add/phylip/
+
+
+./do_pipsa_UHBD_prep /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW
+./do_pipsa_APBS_prep /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW
+./do_pipsa_UHBD_chk /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/uhbd /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+./do_pipsa_UHBD_grids /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/uhbd /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+./do_pipsa_APBS_grids  /home/ra/gabdoull/wrk/pipsa/  /home/ra/gabdoull/wrk/pipsa/WW/apbs/ /home/ra/gabdoull/progs/apbs/bin/i686-pc-linux/apbs 
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/uhbd/
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/apbs/
+
+./do_pipsa_UHBD_prep /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH
+./do_pipsa_APBS_prep /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH
+./do_pipsa_UHBD_chk /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+./do_pipsa_UHBD_grids /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+./do_pipsa_APBS_grids  /home/ra/gabdoull/wrk/pipsa/  /home/ra/gabdoull/wrk/pipsa/PH/apbs/ /home/ra/gabdoull/progs/apbs/bin/i686-pc-linux/apbs 
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/uhbd/
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/PH/apbs
+
+./do_pipsa_APBS_grids  /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/apbs/ /home/ra/gabdoull/progs/apbs/bin/i686-pc-linux/apbs 
+./do_pipsa_UHBD_grids  /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/uhbd/ /home/ra/gabdoull/wrk/pipsa/bin/uhbd
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/apbs/
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/uhbd/
+./do_pipsa_sim /home/ra/gabdoull/wrk/pipsa/ /home/ra/gabdoull/wrk/pipsa/WW/grid/
+

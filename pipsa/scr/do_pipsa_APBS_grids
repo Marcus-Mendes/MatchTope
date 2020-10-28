@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Computes electroststic potential grids
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_apbs_dir  = the directory where APBS calculation 
+#                        are already prepared by the script do_pipsa_APBS_prep
+# $3 = apbs_executable = location of apbs executable
+#
+# - assumes apbs readable pqr files in  pipsa_apbs_dir/../pqrs/
+# - assumes that do_pipsa_APBS_prep is executed and necessary files 
+#   (names, apbs.in) generated in pipsa_apbs_dir/
+# - will go to directory pipsa_apbs_dir/ and compute electrostatic potential grids there
+
+cd $2/
+
+# run apbs
+touch apbs.ou
+for i in `cat names`
+do
+cp ../pqrs/$i.pqr dum.pqr
+echo ============================= >>  apbs.ou
+echo $i                            >> apbs.ou
+echo ============================= >>  apbs.ou
+$3 apbs.in >> apbs.ou
+$1/bin/uhbd_asc2bin dum.grd $i.grd
+\rm dum.grd
+done
+

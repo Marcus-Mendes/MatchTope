@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Adds extra protein to already processed set of proteins
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir =  pipsa distribution directory
+# $2 = pipsa_sim_dir   = directory, where similarity matrix was computed (by do_pipsa_sim)
+# $3 = the name of the protein to be added 
+#
+# - assumes grids and pdb files of additional protein and of original 
+#   set are located in pipsa_sim_dir/$.grd and pipsa_sim_dir/../pdbs/$3.pdb, resp.
+# - assumes that original protein name list, similarity matrix, distance matrix and kinemage 
+#   are in pipsa_sim_dir/names,sims.log,sims.mat and sims.kin, resp.
+# - will generate new protein name list, similarity matrix, distance matrix and kinemage 
+#   under old names and move original ones to *-old
+#
+# + this script can be repeated to add more than 1 protein, in this case you may need 
+#   to save the list of original set of proteins for later reference, because only 
+#   one previous list remains after execution of this script
+#   
+
+# calculate similarity matrix
+cd $2/
+$1/bin/n1potsim -pg $1/bin/2potsim_skin -fn names -p1 $3 -lg sims.log -pr 3 -sk 4 
+
+# make kinemage and distance matrix
+mv sims.kin sims.kin-old
+$1/bin/mkkin 1 1 < sims.log > sims.kin
+mv sims.mat sims.mat-old
+$1/bin/mkdismx 1 1 < sims.log > sims.mat
+

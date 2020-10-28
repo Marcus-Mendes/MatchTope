@@ -1,0 +1,1577 @@
+               ************************                    X
+               *                      *                    X
+               *     DATAFILE GRUB    *                    X
+               *                      *                    X
+               *      Version 17      *                    X
+               ************************                    X
+                                                           X  NOTE:
+MOLE!----------------!------!--------------------!---------X  The "Hydrogen Charge" column will only be used when:
+CULE! VAN DER WAALS  !CHARGE!   HYDROGEN BOND    ! HYDRO-  X    (1)  The Target and its hydrogens are defined by ATOM records
+ OR !  PARAMETERS    !      !    PARAMETERS      !  GEN    X         in the PDB file which is used as input for Programme GRIN.
+ATOM! VDWR NEFF ALPH !  Q   !EMIN RMIN ID IA TYPE! CHARGE  X    (2)  The hydrogens have atom names which include the letter H.
+NAME!----------------!------!--------------------!---------X  When the Target (or part of the Target) is defined by HETATM records,
+    !                !      !                    !         X  then the charges of the HETATMS (including hydrogen HETATMS) will be
+    !                !      !                    !         X  calculated by GRIN.   See your User Manual for detailed information.
+                     !      !                              X
+  A   24                                                   X  ADENOSINE   (NB: This must be line 16 in the file)
+  P    1.90 10.  3.00 -0.050  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables are defined here for the 5* terminus.
+  O1P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         Programme GRIN will adjust them appropriately in mid-sequence.
+  O2P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         
+  O3P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  The potassium counter ion should not normally be included in
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00  00 0.000 0  X         the PDB input file.  Programme GRIN will compute its position.
+  O5*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Atom O3P is for use at the 5* terminal only.
+  C5*  1.90  7.  1.77  0.210  0.00 0.00 00 00  00 0.010 2  X         Programme GRIN will omit it in mid-sequence, and adjust 
+  C4*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X         the energy variables of nearby atoms appropriately.
+  O4*  1.60  6.  0.64 -0.270 -1.50 1.50 00 00  28 0.000 0  X
+  C3*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X
+  O3*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables of atom O3* and nearby atoms will be
+  C2*  1.85  6.  1.35  0.320  0.00 0.00 00 00  36 0.030 1  X         adjusted by Programme GRIN if this is the 3* terminus.
+  O2*  1.65  7.  1.20 -0.150 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Atom O2* will be omitted by Programme GRIN when DNA is studied
+  C1*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.010 1  X         and the energy variables of atom C2* will then be adjusted.
+  N9   1.60  6.  1.10 -0.120  0.00 0.00 00 00  25 0.000 0  X
+  C8   1.90  6.  2.07  0.150  0.00 0.00 00 00  25 0.020 1  X
+  N7   1.60  6.  1.10 -0.120 -4.00 1.55 00 00  97 0.000 0  X
+  C5   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+  C6   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+  N6   1.70  8.  1.70  0.110 -4.00 1.55 00 00   2 0.070 2  X
+  N1   1.60  6.  1.10 -0.120 -4.00 1.55 00 00  97 0.000 0  X
+  C2   1.90  6.  2.07  0.150  0.00 0.00 00 00  25 0.005 1  X
+  N3   1.60  6.  1.10 -0.120 -4.00 1.55 00 00  97 0.000 0  X
+  C4   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+ABU    7                                                   X  AMINO BUTYRIC ACID
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.023  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.95  8.  2.17 -0.003  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ACE    4                                                   X  ACETYL This residue is for acetylation of a protein N-terminal
+  CH3  1.95  8.  2.17  0.010  0.00 0.00 00 00  00 0.010 3  X  NOTE:  This methyl group CH3 is also known as CA.  Check your file.
+  C    1.80  5.  1.65  0.345  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.355 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X  NOTE:  OXT is included so this could also be an acetate anion.
+ADS   12                                                   X  AMINODEOXYSTATINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  ADS is not a recognised abbreviation in the protein data bank
+  CA1  1.85  6.  1.35  0.115  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Net charge is +1
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.024  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The three main-chain CH & CH2 groups are called CA1 CA2 & CA3
+  CG   1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.95  8.  2.17 -0.014  0.00 0.00 00 00  00 0.010 3  X
+  CD2  1.95  8.  2.17 -0.014  0.00 0.00 00 00  00 0.010 3  X
+  CA2  1.85  6.  1.35  0.260  0.00 0.00 00 00  36 0.020 1  X
+  NB   1.75  9.  2.13  0.660 -3.00 1.60 00 00  83 0.130 3  X
+  CA3  1.90  7.  1.77  0.034  0.00 0.00 00 00  00 0.020 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+AIB    7                                                   X  AMINO ISO-BUTYRIC ACID
+  N    1.65  7.  1.40 -0.125 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  AIB is not a recognised abbreviation in the protein data bank
+  CA   1.80  5.  0.98 -0.014  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.327  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.344 -4.50 1.40 00 00   8 0.000 0  X
+  CB1  1.95  8.  2.17  0.078  0.00 0.00 00 00  00 0.010 3  X
+  CB2  1.95  8.  2.17  0.078  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ALA    6                                                   X  ALANINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.95  8.  2.17  0.020  0.00 0.00 00 00  00 0.020 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+AMI    1                                                   X  AMIDE NH2 GROUP to be used at the C terminal of proteins which have
+  N    1.70  8.  1.70  0.000 -5.00 1.55 00 00   2 0.070 2  X        an amide instead of a carboxyl terminal.  Also see NHE and NH2
+ARG   12                                                   X  ARGININE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X  NOTE:  Net charge is +1
+  C    1.80  5.  1.65  0.352  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.039  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.044  0.00 0.00 00 00  00 0.045 2  X
+  CD   1.90  7.  1.77  0.115  0.00 0.00 00 00  00 0.065 2  X
+  NE   1.65  7.  1.40 -0.029 -4.00 1.60 00 00   1 0.070 1  X
+  CZ   1.80  5.  1.65  0.460  0.00 0.00 00 00  00 0.000 0  X
+  NH1  1.70  8.  1.70  0.192 -4.00 1.55 00 00   2 0.070 2  X
+  NH2  1.70  8.  1.70  0.192 -4.00 1.55 00 00   2 0.070 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ASN   11                                                   X  ASPARAGINE
+  N    1.65  7.  1.40 -0.075 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.092  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.357 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77 -0.015  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.80  5.  1.65  0.355  0.00 0.00 00 00  00 0.000 0  X
+  OD1  1.60  6.  2.14 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  ND2  1.70  8.  1.70  0.015 -4.00 1.55 00 00   2 0.070 2  X
+  AD1  1.70  8.  1.70 -0.175  0.00 0.00 00 00  00 0.000 0  X
+  AD2  1.70  8.  1.70 -0.175  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ASP    9                                                   X  ASPARTIC ACID WITH IONIZED SIDE CHAIN
+  N    1.65  7.  1.40 -0.110 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  Net charge is -1
+  CA   1.85  6.  1.35  0.070  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.355  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This residue ASP should normally be used for aspartic acid.
+  O    1.60  6.  0.84 -0.380 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77 -0.150  0.00 0.00 00 00  00 0.030 2  X
+  CG   1.80  5.  1.65  0.365  0.00 0.00 00 00  00 0.000 0  X
+  OD1  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  OD2  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ASX    9                                                   X  ASPARAGINE OR ASPARTIC ACID
+  N    1.65  7.  1.40 -0.090 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  These ASX parameters are used when it is not clearly
+  CA   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X         established whether the observed residue is an
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         asparagine or an aspartic acid.
+  O    1.60  6.  0.84 -0.360 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77 -0.100  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The overall electrostatic charge assigned to
+  CG   1.80  5.  1.65  0.360  0.00 0.00 00 00  00 0.000 0  X         this residue is zero.   Other parameter values are a
+  AD1  1.70  7.  1.92 -0.120  0.00 0.00 00 00  00 0.000 0  X         cautious compromise between ASN and ASP.
+  AD2  1.70  7.  1.92 -0.120  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ASZ    9                                                   X  ASPARTIC ACID (WITH NEUTRAL -COOH GROUP IN SIDE CHAIN)
+  N    1.65  7.  1.40 -0.047 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  ASZ is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.114  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.281  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This residue was named ASPH in previous versions of GRUB
+  O    1.60  6.  0.84 -0.320 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.203  0.00 0.00 00 00  00 0.020 2  X  NOTE:  Net charge is zero.
+  CG   1.80  5.  1.65  0.241  0.00 0.00 00 00  00 0.000 0  X
+  OD1  1.60  6.  0.84 -0.280 -4.50 1.40 00 00   8 0.000 0  X
+  OD2  1.65  7.  1.00 -0.192 -4.50 1.40 00 00  34 0.070 1  X  NOTE:  This oxygen OD2 bears the proton.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ASZ1   9                                                   X  ASPARTIC ACID (WITH NEUTRAL -COOH GROUP IN SIDE CHAIN)
+  N    1.65  7.  1.40 -0.047 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  ASZ1 is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.114  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.281  0.00 0.00 00 00  00 0.000 0  X  NOTE:  ASZ1 differs from ASZ in the location of the carboxy proton.
+  O    1.60  6.  0.84 -0.320 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.203  0.00 0.00 00 00  00 0.020 2  X  NOTE:  Net charge is zero.
+  CG   1.80  5.  1.65  0.241  0.00 0.00 00 00  00 0.000 0  X
+  OD1  1.65  7.  1.00 -0.192 -4.50 1.40 00 00  34 0.070 1  X  NOTE:  This oxygen OD1 bears the proton.
+  OD2  1.60  6.  0.84 -0.280 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+AZT    7                                                   X  AZETIDINE
+  N    1.65  6.  1.40 -0.176  0.00 0.00 00 00  -2 0.000 0  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.032  0.00 0.00 00 00  00 0.025 2  X
+  CG   1.90  7.  1.77  0.084  0.00 0.00 00 00  00 0.025 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+BAL    6                                                   X  BETA ALANINE
+  N    1.65  7.  1.40 -0.100 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  BAL is not a recognised abbreviation in the protein data bank
+  CA   1.90  7.  1.77  0.062  0.00 0.00 00 00  00 0.020 2  X
+  C    1.80  5.  1.65  0.329  0.00 0.00 00 00  00 0.000 0  X  NOTE:  CA and CB are both main-chain CH2 groups.
+  O    1.60  6.  0.84 -0.336 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.045  0.00 0.00 00 00  00 0.020 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+BOC    7                                                   X  BUTOXYCARBONYL
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.350 -4.50 1.40 00 00   8 0.000 0  X  NOTE:  BOC is only to be used as a protecting group
+  OA   1.60  6.  0.64 -0.130  0.00 0.00 00 00  00 0.000 0  X         at the terminus of synthetic peptides.
+  CB   1.80  5.  0.98  0.100  0.00 0.00 00 00  00 0.000 0  X
+  CG1  1.95  8.  2.17  0.010  0.00 0.00 00 00  00 0.010 3  X
+  CG2  1.95  8.  2.17  0.010  0.00 0.00 00 00  00 0.010 3  X
+  CG3  1.95  8.  2.17  0.010  0.00 0.00 00 00  00 0.010 3  X
+  C   22                                                   X  CYTIDINE
+  P    1.90 10.  3.00 -0.050  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables are defined here for the 5* terminus.
+  O1P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         Programme GRIN will adjust them appropriately in mid-sequence.
+  O2P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         
+  O3P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  The potassium counter ion should not normally be included in
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00  00 0.000 0  X         the PDB input file.  Programme GRIN will compute its position.
+  O5*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Atom O3P is for use at the 5* terminal only.
+  C5*  1.90  7.  1.77  0.210  0.00 0.00 00 00  00 0.010 2  X         Programme GRIN will omit it in mid-sequence, and adjust 
+  C4*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X         the energy variables of nearby atoms appropriately.
+  O4*  1.60  6.  0.64 -0.270 -1.50 1.50 00 00  28 0.000 0  X
+  C3*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X
+  O3*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables of atom O3* and nearby atoms will be
+  C2*  1.85  6.  1.35  0.320  0.00 0.00 00 00  36 0.030 1  X         adjusted by Programme GRIN if this is the 3* terminus.
+  O2*  1.65  7.  1.20 -0.150 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Atom O2* will be omitted by Programme GRIN when DNA is studied
+  C1*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.010 1  X         and the energy variables of atom C2* will then be adjusted.
+  N1   1.60  6.  1.10 -0.140  0.00 0.00 00 00  25 0.000 0  X
+  C2   1.80  5.  1.65  0.260  0.00 0.00 00 00  25 0.000 0  X
+  O2   1.60  6.  0.84 -0.280 -4.50 1.40 00 00   8 0.000 0  X
+  N3   1.60  6.  1.10 -0.140 -4.00 1.55 00 00  97 0.000 0  X
+  C4   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+  N4   1.70  8.  1.70  0.090 -4.00 1.55 00 00   2 0.070 2  X
+  C5   1.90  6.  2.07  0.120  0.00 0.00 00 00  25 0.025 1  X
+  C6   1.90  6.  2.07  0.120  0.00 0.00 00 00  25 0.020 1  X
+CBZ    9                                                   X  BENZOXYCARBONYL
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.350 -4.50 1.40 00 00   8 0.000 0  X  NOTE:  CBZ is only to be used as a protecting group
+  OA   1.60  6.  0.64 -0.120  0.00 0.00 00 00  00 0.000 0  X         at the terminus of synthetic peptides.
+  CB   1.85  5.  1.65  0.130  0.00 0.00 00 00  25 0.000 0  X
+  CG1  1.90  6.  2.07 -0.010  0.00 0.00 00 00  25 0.150 1  X
+  CG2  1.90  6.  2.07 -0.010  0.00 0.00 00 00  25 0.150 1  X
+  CD1  1.90  6.  2.07 -0.008  0.00 0.00 00 00  25 0.150 1  X
+  CD1  1.90  6.  2.07 -0.008  0.00 0.00 00 00  25 0.150 1  X
+  CE1  1.90  6.  2.07 -0.006  0.00 0.00 00 00  25 0.150 1  X
+CER   41                                                   X  CERAMIDE  (Saturated sphingosine + alpha-hydroxy fatty acid)
+  C1   1.90  7.  1.77  0.012  0.00 0.00 00 00  35 0.020 2  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  CER is not a recognised abbreviation in the protein data bank
+  C2   1.85  6.  1.35  0.004  0.00 0.00 00 00  00 0.020 1  X
+  C3   1.85  6.  1.35  0.004  0.00 0.00 00 00  36 0.020 1  X  NOTE:  If the hydroxyl groups are involved in ether linkages,
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         Programme GRIN will make the appropriate adjustments.
+  C4   1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C5   1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X  NOTE:  This species of Ceramide has a saturated sphingosine-base and
+  C6   1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X         an alpha-hydroxy fatty acid.   Comparison with CUR below shows
+  C7   1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X         the alterations needed for an Unsaturated sphingosine-base and
+  C8   1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X         a normal fatty acid.
+  C9   1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C10  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C11  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C12  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C13  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C14  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C15  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C16  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C17  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The nomenclature of Sundaralingham (1972) is used for the
+  C18  1.95  8.  2.17  0.033  0.00 0.00 00 00  00 0.010 3  X         first side chain but cannot be followed for the second:
+  N2   1.65  7.  1.40 -0.154 -4.00 1.60 00 00   1 0.070 1  X
+  C1B  1.80  5.  1.65  0.280  0.00 0.00 00 00  00 0.000 0  X
+  O1B  1.80  5.  1.65 -0.324 -4.50 1.40 00 00   8 0.000 0  X
+  C2B  1.85  6.  1.35  0.004  0.00 0.00 00 00  36 0.020 1  X
+  O2B  1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  C3B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X         on the line immediately after their bonded carbon atom
+  C4B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C5B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C6B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C7B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C8B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  C9B  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB0  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB1  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB2  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB3  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB4  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB5  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB6  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB7  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CB8  1.95  8.  2.17  0.033  0.00 0.00 00 00  00 0.010 3  X
+CE1   40                                                   X  CERAMIDE  (Saturated sphingosine + normal fatty acid)
+  C1   1.90  7.  1.77  0.010  0.00 0.00 00 00  35 0.020 2  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  CUR is not a recognised abbreviation in the protein data bank
+  C2   1.85  6.  1.35  0.004  0.00 0.00 00 00  00 0.020 1  X
+  C3   1.85  6.  1.35  0.004  0.00 0.00 00 00  36 0.020 1  X  NOTE:  If the hydroxyl groups are involved in ether linkages,
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         Programme GRIN will make the appropriate adjustments.
+  C4   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C5   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X  NOTE:  This species of Ceramide has a saturated sphingosine-base
+  C6   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X         and a normal fatty acid.   Comparison with CER above shows
+  C7   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X         the alterations needed for a saturated sphingosine-base and
+  C8   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X         an alpha-hydroxy fatty acid.
+  C9   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C10  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C11  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C12  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C13  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C14  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C15  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C16  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C17  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The nomenclature of Sundaralingham (1972) is used for the
+  C18  1.95  8.  2.17  0.031  0.00 0.00 00 00  00 0.010 3  X         first side chain but cannot be followed for the second:
+  N2   1.65  7.  1.40 -0.154 -4.00 1.60 00 00   1 0.070 1  X
+  C1B  1.80  5.  1.65  0.274  0.00 0.00 00 00  00 0.000 0  X
+  O1B  1.80  5.  1.65 -0.340 -4.50 1.40 00 00   8 0.000 0  X
+  C2B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C3B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C4B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C5B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C6B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C7B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C8B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  C9B  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB0  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB1  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB2  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB3  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB4  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB5  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB6  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB7  1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CB8  1.95  8.  2.17  0.031  0.00 0.00 00 00  00 0.010 3  X
+CHA   12                                                   X  CYCLOHEXYL ALANINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  CHA is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.018  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CD2  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.020 2  X
+  CE1  1.90  7.  1.77 -0.017  0.00 0.00 00 00  00 0.020 2  X
+  CE2  1.90  7.  1.77 -0.017  0.00 0.00 00 00  00 0.020 2  X
+  CZ   1.90  7.  1.77 -0.018  0.00 0.00 00 00  00 0.020 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+CHL    1                                                   X  CHLORIDE COUNTER-ION
+ CL-   1.80 13.  3.48 -1.000  0.00 0.00 00 00 120 0.000 0  X  This chloride moves in response to the Probe when Directive MOVE>0
+CUR   40                                                   X  CERAMIDE  (Unsaturated sphingosine + normal fatty acid)
+  C1   1.90  7.  1.77  0.011  0.00 0.00 00 00  35 0.020 2  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  CUR is not a recognised abbreviation in the protein data bank
+  C2   1.85  6.  1.35  0.004  0.00 0.00 00 00  00 0.020 1  X
+  C3   1.85  6.  1.35  0.004  0.00 0.00 00 00  36 0.020 1  X  NOTE:  If the hydroxyl groups are involved in ether linkages,
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.040 1  X         Programme GRIN will make the appropriate adjustments.
+  C4   1.90  6.  2.07 -0.008  0.00 0.00 00 00  00 0.070 1  X
+  C5   1.90  6.  2.07 -0.008  0.00 0.00 00 00  00 0.020 1  X  NOTE:  This species of Ceramide has an unsaturated sphingosine-base
+  C6   1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X         and a normal fatty acid.   Comparison with CER above shows
+  C7   1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X         the alterations needed for a saturated sphingosine-base and
+  C8   1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X         an alpha-hydroxy fatty acid.
+  C9   1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C10  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C11  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C12  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C13  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C14  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C15  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C16  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C17  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The nomenclature of Sundaralingham (1972) is used for the
+  C18  1.95  8.  2.17  0.033  0.00 0.00 00 00  00 0.010 3  X         first side chain but cannot be followed for the second:
+  N2   1.65  7.  1.40 -0.154 -4.00 1.60 00 00   1 0.070 1  X
+  C1B  1.80  5.  1.65  0.275  0.00 0.00 00 00  00 0.000 0  X
+  O1B  1.80  5.  1.65 -0.338 -4.50 1.40 00 00   8 0.000 0  X
+  C2B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C3B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C4B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C5B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C6B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C7B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C8B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  C9B  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB0  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB1  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB2  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB3  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB4  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB5  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB6  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB7  1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CB8  1.95  8.  2.17  0.033  0.00 0.00 00 00  00 0.010 3  X
+CU1   41                                                   X  CERAMIDE  (Unsaturated sphingosine + alpha-hydroxy fatty acid)
+  C1   1.90  7.  1.77  0.013  0.00 0.00 00 00  35 0.020 2  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  CER is not a recognised abbreviation in the protein data bank
+  C2   1.85  6.  1.35  0.004  0.00 0.00 00 00  00 0.020 1  X
+  C3   1.85  6.  1.35  0.004  0.00 0.00 00 00  36 0.020 1  X  NOTE:  If the hydroxyl groups are involved in ether linkages,
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         Programme GRIN will make the appropriate adjustments.
+  C4   1.90  6.  2.07 -0.006  0.00 0.00 00 00  00 0.020 1  X
+  C5   1.90  6.  2.07 -0.006  0.00 0.00 00 00  00 0.020 1  X  NOTE:  This species of Ceramide has an unsaturated sphingosine-base
+  C6   1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X         an alpha-hydroxy fatty acid.   Comparison with CUR above shows
+  C7   1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X         the alterations needed for a normal fatty acid.
+  C8   1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C9   1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C10  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C11  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C12  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C13  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C14  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C15  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C16  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C17  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The nomenclature of Sundaralingham (1972) is used for the
+  C18  1.95  8.  2.17  0.035  0.00 0.00 00 00  00 0.010 3  X         first side chain but cannot be followed for the second:
+  N2   1.65  7.  1.40 -0.154 -4.00 1.60 00 00   1 0.070 1  X
+  C1B  1.80  5.  1.65  0.282  0.00 0.00 00 00  00 0.000 0  X
+  O1B  1.80  5.  1.65 -0.322 -4.50 1.40 00 00   8 0.000 0  X
+  C2B  1.85  6.  1.35  0.004  0.00 0.00 00 00  36 0.020 1  X
+  O2B  1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  C3B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X         on the line immediately after their bonded carbon atom
+  C4B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C5B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C6B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C7B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C8B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  C9B  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB0  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB1  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB2  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB3  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB4  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB5  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB6  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB7  1.90  7.  1.77  0.013  0.00 0.00 00 00  00 0.020 2  X
+  CB8  1.95  8.  2.17  0.035  0.00 0.00 00 00  00 0.010 3  X
+CYD    7                                                   X  CYSTINE With deprotonated sulphur (eg: in a metal complex)
+  N    1.65  7.  1.40 -0.075 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  CYD is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.092  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.395  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.397 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.95  7.  1.77 -0.475  0.00 0.00 00 00  00 0.020 2  X
+  SG   1.85 11.  3.44 -0.540 -2.00 1.65 00 00  98 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+CYO    9                                                   X  CYSTINE With ionised sulphite side-chain sulphur
+  N    1.65  7.  1.40 -0.075 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  CYO is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.092  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This side chain should be viewed with caution, since the
+  O    1.60  6.  0.84 -0.357 -4.50 1.40 00 00   8 0.000 0  X         anionic sulphite group may not be stable
+  CB   1.95  7.  1.77  0.022  0.00 0.00 00 00  00 0.020 2  X
+  SG   1.85 12.0 3.44 -0.534 -1.00 1.80 00 00  97 0.000 0  X
+  OD1  1.60  6.0 0.30 -0.249 -5.50 1.40 00 00  64 0.000 0  X
+  OD2  1.60  6.0 0.30 -0.249 -5.50 1.40 00 00  64 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+CYS    7                                                   X  CYSTINE
+  N    1.65  7.  1.40 -0.075 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  Programme GRIN will make appropriate adjustments
+  CA   1.85  6.  1.35  0.092  0.00 0.00 00 00  00 0.020 1  X         to parameter values if this residue is making an
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         SS bond to another cystine or homocystine residue
+  O    1.60  6.  0.84 -0.357 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.95  7.  1.77  0.040  0.00 0.00 00 00  00 0.020 2  X
+  SG   1.85 12.  3.50 -0.050 -0.30 1.80 00 00  84 0.010 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+CYX    7                                                   X  CYSTINE With oxydised sulphur making S-S bridge
+  N    1.65  7.  1.40 -0.075 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  CYX is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.092  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This residue is provided for compatability with other programs
+  O    1.60  6.  0.84 -0.357 -4.50 1.40 00 00   8 0.000 0  X         which generate the name CYX.   It is not needed by GRID Users,
+  CB   1.95  7.  1.77  0.022  0.00 0.00 00 00  00 0.020 2  X         and the recognised abbreviation CYS is normally recommended.
+  SG   1.80 11.  3.00 -0.032  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ETH    3                                                   X  ETHANOL
+  OA   1.60  7.  1.20 -0.188 -4.50 1.40 00 00  84 0.070 1  X
+  CB   1.90  7.  1.77  0.072  0.00 0.00 00 00  35 0.040 2  X
+  CG   1.95  8.  2.17  0.116  0.00 0.00 00 00  00 0.040 3  X
+F6P   16                                                   X  FRUCTOSE-6-PHOSPHATE   Furanose sugar.  O5 is the ring oxygen atom.
+  C1   1.90  7.  1.77  0.260  0.00 0.00 00 00  35 0.030 2  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  The same parameters may be used for isomers in which O5 is
+  C2   1.85  5.  1.35  0.020  0.00 0.00 00 00  37 0.000 0  X         still the ring oxygen atom.   They may also be used for
+  O2   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         polysaccharides which contain these monomers linked by ether
+  C3   1.85  6.  1.35  0.140  0.00 0.00 00 00  36 0.020 1  X         bonds at the O1 O3 or O4 positions.   Programme GRIN will
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         make the necessary adjustments for these ether bonds.
+  C4   1.85  6.  1.35  0.120  0.00 0.00 00 00  36 0.020 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  O4   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         on the line immediately after their bonded carbon atom
+  C5   1.85  6.  1.35  0.190  0.00 0.00 00 00  00 0.020 1  X  NOTE:  This molecule is Furanose and atom O5 is the ring oxygen
+  O5   1.65  6.  1.20 -0.250 -1.50 1.50 00 00  28 0.000 0  X         atom (Type 28)
+  C6   1.90  7.  1.77  0.310  0.00 0.00 00 00  00 0.010 2  X  NOTE:  The overall electrostatic charge assigned to this molecule is
+  O6   1.60  6.  0.64 -0.450  0.00 0.00 00 00  00 0.000 0  X         minus two, which is normally balanced by counterions.  The User
+  P1   1.90 10.  3.00 -0.070  0.00 0.00 00 00  00 0.000 0  X         should include these counterions as a separate part of the
+  O7   1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         Target.
+  O8   1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X
+  O9   1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X
+FUC   11                                                   X  FUCOSE                 Pyranose sugar.  O5 is the ring oxygen atom.
+  C1   1.85  6.  1.35  0.160  0.00 0.00 00 00  36 0.020 1  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  The same parameters may be used for isomers in which O5 is
+  C2   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         still the ring oxygen atom and C6 is the methyl group.
+  O2   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         They may also be used for polysaccharides which contain these
+  C3   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         monomers linked by ether bonds at the O1 O2 O3 or O4 positions.
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         Programme GRIN will make the necessary adjustments for these
+  C4   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         ether bonds between monomer units.
+  O4   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  C5   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X         on the line immediately after their bonded carbon atom
+  O5   1.65  7.  1.20 -0.160 -1.50 1.50 00 00  28 0.000 0  X  NOTE:  This molecule is Pyranose and atom O5 is the ring oxygen
+  C6   1.95  8.  2.17  0.000  0.00 0.00 00 00  00 0.010 3  X         atom (Type 28).
+FUM    7                                                   X  FUMARIC ACID (Use the same values for N-terminal MALEIC ACID)
+  CA   1.90  6.  2.07 -0.088  0.00 0.00 00 00  00 0.020 1  X  NOTE:  This residue must only be used at the N-terminal of synthetic
+  C    1.80  5.  1.65  0.344  0.00 0.00 00 00  00 0.000 0  X         peptides.  It is analagous to an aspartic acid from which the
+  O    1.60  6.  0.84 -0.380 -4.50 1.40 00 00   8 0.000 0  X         N-terminal NH3 group is missing, and with CH replacing CH2.
+  CB   1.90  6.  2.07 -0.082  0.00 0.00 00 00  00 0.020 1  X         No OXT atom and no backbone nitrogen is provided.
+  CG   1.80  5.  1.65  0.346  0.00 0.00 00 00  00 0.000 0  X
+  OD1  1.60  6.  2.14 -0.570 -4.50 1.40 00 00   8 0.000 0  X  NOTE:  Net charge is -1 from the ionised carboxy side chain
+  OD2  1.60  6.  2.14 -0.570 -4.50 1.40 00 00   8 0.000 0  X
+  G   25                                                   X  GUANOSINE
+  P    1.90 10.  3.00 -0.050  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables are defined here for the 5* terminus.
+  O1P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         Programme GRIN will adjust them appropriately in mid-sequence.
+  O2P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         
+  O3P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  The potassium counter ion should not normally be included in
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00  00 0.000 0  X         the PDB input file.  Programme GRIN will compute its position.
+  O5*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Atom O3P is for use at the 5* terminal only.
+  C5*  1.90  7.  1.77  0.210  0.00 0.00 00 00  00 0.010 2  X         Programme GRIN will omit it in mid-sequence, and adjust 
+  C4*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X         the energy variables of nearby atoms appropriately.
+  O4*  1.60  6.  0.64 -0.270 -1.50 1.50 00 00  28 0.000 0  X
+  C3*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X
+  O3*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables of atom O3* and nearby atoms will be
+  C2*  1.85  6.  1.35  0.320  0.00 0.00 00 00  36 0.030 1  X         adjusted by Programme GRIN if this is the 3* terminus.
+  O2*  1.65  7.  1.20 -0.150 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Atom O2* will be omitted by Programme GRIN when DNA is studied
+  C1*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.010 1  X         and the energy variables of atom C2* will then be adjusted.
+  N9   1.60  6.  1.10 -0.110  0.00 0.00 00 00  25 0.000 0  X         Hydroxyl oxygens should be listed in Grub as shown here,
+  C8   1.90  6.  2.07  0.150  0.00 0.00 00 00  25 0.020 1  X
+  N7   1.60  6.  1.10 -0.110 -4.00 1.55 00 00  97 0.000 0  X
+  C5   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+  C6   1.80  5.  1.65  0.260  0.00 0.00 00 00  25 0.000 0  X
+  O6   1.60  6.  0.84 -0.260 -4.50 1.40 00 00   8 0.000 0  X
+  N1   1.60  6.  1.10  0.000 -4.00 1.60 00 00   1 0.070 1  X
+  C2   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+  N2   1.70  8.  1.70  0.110 -4.00 1.55 00 00   2 0.070 2  X
+  N3   1.60  6.  1.10 -0.110 -4.00 1.55 00 00  97 0.000 0  X
+  C4   1.85  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+GLA   13                                                   X  GAMMA-CARBOXY GLUTAMIC ACID
+  N    1.65  7.  1.40 -0.095 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  Net charge is -2
+  CA   1.85  6.  1.35  0.050  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.355  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.380 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77 -0.005  0.00 0.00 00 00  00 0.030 2  X
+  CG   1.85  6.  1.35 -0.255  0.00 0.00 00 00  00 0.020 1  X
+  CD   1.80  5.  1.65  0.315  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Some Users may call this atom CD1 and
+  OE1  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X         they should edit this file accordingly.
+  OE2  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  CD2  1.80  5.  1.65  0.315  0.00 0.00 00 00  00 0.000 0  X  NOTE:  In many situations one of the carboxy
+  OE3  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X         groups may not be ionised.
+  OE4  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+GLN   12                                                   X  GLUTAMINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.065  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.362 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.042  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77 -0.016  0.00 0.00 00 00  00 0.020 2  X
+  CD   1.80  5.  1.65  0.361  0.00 0.00 00 00  00 0.000 0  X
+  OE1  1.60  6.  2.14 -0.370 -4.50 1.40 00 00   8 0.000 0  X
+  NE2  1.70  8.  1.70  0.010 -4.00 1.55 00 00   2 0.070 2  X
+  AE1  1.70  8.  1.70 -0.180  0.00 0.00 00 00  00 0.000 0  X
+  AE2  1.70  8.  1.70 -0.180  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+GLU   10                                                   X  GLUTAMIC ACID WITH IONIZED SIDE CHAIN
+  N    1.65  7.  1.40 -0.095 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  Net charge is -1
+  CA   1.85  6.  1.35  0.050  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.355  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This residue GLU should normally be used for glutamic acid.
+  O    1.60  6.  0.84 -0.380 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.030 2  X
+  CG   1.90  7.  1.77 -0.155  0.00 0.00 00 00  00 0.030 2  X
+  CD   1.80  5.  1.65  0.365  0.00 0.00 00 00  00 0.000 0  X
+  OE1  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  OE2  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+GLX   10                                                   X  GLUTAMINE OR GLUTAMIC ACID
+  N    1.65  7.  1.40 -0.090 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  These GLX parameters are used when it is not clearly
+  CA   1.85  6.  1.35  0.060  0.00 0.00 00 00  00 0.020 1  X         established whether the observed residue is a glutamine or
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         a glutamic acid
+  O    1.60  6.  0.84 -0.370 -4.50 1.40 00 00   8 0.000 0  X         
+  CB   1.90  7.  1.77  0.030  0.00 0.00 00 00  00 0.020 2  X  NOTE:  The overall electrostatic charge assigned to
+  CG   1.90  7.  1.77 -0.100  0.00 0.00 00 00  00 0.020 2  X         this residue is zero.    Other parameter values are a
+  CD   1.80  5.  1.65  0.360  0.00 0.00 00 00  00 0.000 0  X         cautious compromise between the values for GLN and GLU.
+  AE1  1.70  8.  1.70 -0.120  0.00 0.00 00 00  00 0.000 0  X
+  AE2  1.70  8.  1.70 -0.120  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+GLY    5                                                   X  GLYCINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.90  7.  1.77  0.090  0.00 0.00 00 00  00 0.020 2  X
+  C    1.80  5.  1.65  0.345  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.355 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+GLZ   10                                                   X  GLUTAMIC ACID (WITH NEUTRAL -COOH GROUP IN SIDE CHAIN)
+  N    1.65  7.  1.40 -0.032 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  GLZ is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.082  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.281  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Net charge is zero
+  O    1.60  6.  0.84 -0.320 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.101  0.00 0.00 00 00  00 0.020 2  X  NOTE:  GLZ1 differs from GLZ in the location of the carboxy proton.
+  CG   1.90  7.  1.77  0.138  0.00 0.00 00 00  00 0.020 2  X         GLZ1 is protonated on oxygen OE1.   This residue is
+  CD   1.80  5.  1.65  0.231  0.00 0.00 00 00  00 0.000 0  X         protonated on OE2
+  OE1  1.60  6.  0.84 -0.285 -4.50 1.40 00 00   8 0.000 0  X
+  OE2  1.65  7.  1.00 -0.196 -4.50 1.40 00 00  34 0.070 1  X  NOTE:  This oxygen bears the proton.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+GLZ1  10                                                   X  GLUTAMIC ACID (WITH NEUTRAL -COOH GROUP IN SIDE CHAIN)
+  N    1.65  7.  1.40 -0.032 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  GLZ1 is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.082  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.281  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Net charge is zero
+  O    1.60  6.  0.84 -0.320 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.101  0.00 0.00 00 00  00 0.020 2  X  NOTE:  GLZ1 differs from GLZ in the location of the carboxy proton.
+  CG   1.90  7.  1.77  0.138  0.00 0.00 00 00  00 0.020 2  X         This residue GLZ1 is protonated on oxygen OE1
+  CD   1.80  5.  1.65  0.231  0.00 0.00 00 00  00 0.000 0  X
+  OE1  1.65  7.  1.00 -0.196 -4.50 1.40 00 00  34 0.070 1  X  NOTE:  This oxygen bears the proton.
+  OE2  1.60  6.  0.84 -0.285 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+H2O    1                                                   X  WATER
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+HCX    8                                                   X  HOMOCYSTINE With oxydised sulphur making S-S bridge
+  N    1.65  7.  1.40 -0.071 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  HCX is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.338  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This residue is provided for compatability with other programs
+  O    1.60  6.  0.84 -0.357 -4.50 1.40 00 00   8 0.000 0  X         which generate the name HCX.   It is not needed by GRID Users,
+  CB   1.95  7.  1.77  0.020  0.00 0.00 00 00  00 0.020 2  X         and the residue name HCY is always recommended.
+  CG   1.95  7.  1.77  0.022  0.00 0.00 00 00  00 0.020 2  X
+  SD   1.80 11.  3.00 -0.032  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HCY    8                                                   X  HOMOCYSTINE
+  N    1.65  7.  1.40 -0.071 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  HCY is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.338  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Programme GRIN will make appropriate adjustments
+  O    1.60  6.  0.84 -0.357 -4.50 1.40 00 00   8 0.000 0  X         to parameter values if this residue is making an
+  CB   1.95  7.  1.77  0.020  0.00 0.00 00 00  00 0.020 2  X         SS bond to another homocystine or cystine residue
+  CG   1.95  7.  1.77  0.040  0.00 0.00 00 00  00 0.020 2  X
+  SD   1.85 12.  3.50 -0.050 -0.30 1.80 00 00  84 0.010 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HEM   43                                                   X  HAEM
+ FE    0.74 19.  0.44  2.376  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This is ferrous iron.  In some complexes the iron is ferric.
+  CHA  1.90  6.  2.07  0.031  0.00 0.00 00 00  25 0.020 1  X
+  CHB  1.90  6.  2.07  0.031  0.00 0.00 00 00  25 0.020 1  X  NOTE:  The charge distribution in haem may be significantly
+  CHC  1.90  6.  2.07  0.031  0.00 0.00 00 00  25 0.020 1  X         influenced by the fifth and sixth ligands of the iron.
+  CHD  1.90  6.  2.07  0.031  0.00 0.00 00 00  25 0.020 1  X
+  NA   1.60  6.  1.10 -0.157  0.00 0.00 00 00  25 0.000 0  X
+  C1A  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C2A  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C3A  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C4A  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  CMA  1.95  8.  2.17  0.089  0.00 0.00 00 00  00 0.010 3  X
+  CAA  1.90  7.  1.77  0.060  0.00 0.00 00 00  00 0.020 2  X
+  CBA  1.90  7.  1.77 -0.093  0.00 0.00 00 00  00 0.020 2  X
+  CGA  1.80  5.  1.65  0.052  0.00 0.00 00 00  00 0.000 0  X
+  O1A  1.60  6.  2.14 -0.616 -4.50 1.40 00 00   8 0.000 0  X
+  O2A  1.60  6.  2.14 -0.616 -4.50 1.40 00 00   8 0.000 0  X
+  NB   1.60  6.  1.10 -0.157  0.00 0.00 00 00  25 0.000 0  X
+  C1B  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C2B  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C3B  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C4B  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  CMB  1.95  8.  2.17  0.089  0.00 0.00 00 00  00 0.010 3  X
+  CAB  1.90  6.  2.07  0.031  0.00 0.00 00 00  25 0.020 1  X
+  CBB  1.90  7.  2.40  0.060  0.00 0.00 00 00  00 0.020 2  X
+  NC   1.60  6.  1.10 -0.157  0.00 0.00 00 00  25 0.000 0  X
+  C1C  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C2C  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C3C  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C4C  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  CMC  1.95  8.  2.17  0.089  0.00 0.00 00 00  00 0.010 3  X
+  CAC  1.90  6.  2.07  0.031  0.00 0.00 00 00  25 0.020 1  X
+  CBC  1.90  7.  2.40  0.060  0.00 0.00 00 00  00 0.020 2  X
+  ND   1.60  6.  1.10 -0.157  0.00 0.00 00 00  25 0.000 0  X
+  C1D  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C2D  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C3D  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  C4D  1.85  5.  1.65  0.001  0.00 0.00 00 00  25 0.000 0  X
+  CMD  1.95  8.  2.17  0.089  0.00 0.00 00 00  00 0.010 3  X
+  CAD  1.90  7.  1.77  0.060  0.00 0.00 00 00  00 0.020 2  X
+  CBD  1.90  7.  1.77 -0.093  0.00 0.00 00 00  00 0.020 2  X
+  CGD  1.80  5.  1.65  0.052  0.00 0.00 00 00  00 0.000 0  X
+  O1D  1.60  6.  2.14 -0.616 -4.50 1.40 00 00   8 0.000 0  X
+  O2D  1.60  6.  2.14 -0.616 -4.50 1.40 00 00   8 0.000 0  X
+HID   11                                                   X  HISTIDINE with the ionisable proton fixed to nitrogen ND1
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.076  0.00 0.00 00 00  00 0.020 1  X  NOTE:   Residue HIS below is normally recommended.   This residue
+  C    1.80  5.  1.65  0.348  0.00 0.00 00 00  00 0.000 0  X          HID is provided for special situations in which the User
+  O    1.60  6.  0.84 -0.360 -4.50 1.40 00 00   8 0.000 0  X          wishes to fix the position of the proton explicitly to ND1
+  CB   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.80  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X  NOTE:   The same atom names are used for HID  HIE  HIS  HI0
+  ND1  1.65  7.  1.40  0.017 -4.00 1.55 00 00   1 0.070 1  X          and HIP formulations of the histidine residue.   However
+  CD2  1.90  6.  2.07 -0.016  0.00 0.00 00 00  25 0.005 1  X          atom Types 21 and 27 must only be used with residue HIS below
+  CE1  1.90  6.  2.07  0.145  0.00 0.00 00 00  25 0.005 1  X
+  NE2  1.60  6.  1.10 -0.190 -4.00 1.55 00 00  97 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HIE   11                                                   X  HISTIDINE with the ionisable proton fixed to nitrogen NE2
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.076  0.00 0.00 00 00  00 0.020 1  X  NOTE:   Residue HIS below is normally recommended.   This residue
+  C    1.80  5.  1.65  0.348  0.00 0.00 00 00  00 0.000 0  X          HIE is provided for special situations in which the User
+  O    1.60  6.  0.84 -0.360 -4.50 1.40 00 00   8 0.000 0  X          wishes to fix the position of the proton explicitly to NE2
+  CB   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.80  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X  NOTE:   The same atom names are used for HID  HIE  HIS  HI0
+  ND1  1.60  6.  1.10 -0.190 -4.00 1.55 00 00  97 0.000 0  X          and HIP formulations of the histidine residue.   However,
+  CD2  1.90  6.  2.07 -0.016  0.00 0.00 00 00  25 0.030 1  X          atom Types 21 and 27 must only be used with residue HIS below
+  CE1  1.90  6.  2.07  0.145  0.00 0.00 00 00  25 0.010 1  X
+  NE2  1.65  7.  1.40  0.017 -4.00 1.55 00 00   1 0.070 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HIP   15                                                   X  HISTIDINE with two N-bonded side-chain protons
+  N    1.65  7.  1.40  0.008 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:   Residue HIS below is normally recommended.
+  CA   1.85  6.  1.35 -0.094  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.320  0.00 0.00 00 00  00 0.000 0  X  NOTE:   Atoms AD1 AD2 AE1 AE2 are provided with compromise
+  O    1.60  6.  0.84 -0.312 -4.50 1.40 00 00   8 0.000 0  X          parameter values.   These will be used if the orientation
+  CB   1.90  7.  1.77  0.077  0.00 0.00 00 00  00 0.030 2  X          of the histidine ring and the atom types are unknown.
+  CG   1.80  5.  1.65  0.209  0.00 0.00 00 00  25 0.000 0  X
+  ND1  1.65  7.  1.40  0.128 -3.50 1.55 00 00   1 0.070 1  X  NOTE:   Protons are assigned to both ring nitrogens with this
+  CD2  1.90  6.  2.07  0.282  0.00 0.00 00 00  25 0.040 1  X          formulation of histidine, and neither of the ring
+  CE1  1.90  6.  2.07  0.120  0.00 0.00 00 00  25 0.040 1  X          nitrogens can accept a hydrogen bond.
+  NE2  1.65  7.  1.40  0.262 -3.50 1.55 00 00   1 0.070 1  X
+  AD1  1.85  6.  1.35  0.205  0.00 0.00 00 00  00 0.000 0  X  NOTE:   The same atom names are used for HID  HIE  HIS  HI0
+  AD2  1.85  6.  1.35  0.205  0.00 0.00 00 00  00 0.000 0  X          and HIP formulations of the histidine residue.   However
+  AE1  1.85  6.  1.35  0.191  0.00 0.00 00 00  00 0.000 0  X          atom Types 21 and 27 must only be used with residue HIS below
+  AE2  1.85  6.  1.35  0.191  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HIS   15                                                   X  HISTIDINE under normal physiological conditions.
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:   Atoms AD1 AD2 AE1 AE2 are provided with compromise
+  CA   1.85  6.  1.35  0.076  0.00 0.00 00 00  00 0.020 1  X          parameter values.   These will be used if the orientation
+  C    1.80  5.  1.65  0.348  0.00 0.00 00 00  00 0.000 0  X          of the histidine ring and the atom types are unknown.
+  O    1.60  6.  0.84 -0.360 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X  NOTE:   Atom types 21 and 27 must only be used with this residue HIS
+  CG   1.80  5.  1.65  0.050  0.00 0.00 00 00  25 0.000 0  X
+  ND1  1.65  7.  1.40  0.017 -4.00 1.55 00 00  21 0.000 1  X  NOTE:   Programme GRIN will calculate two tautomeric positions
+  CD2  1.90  6.  2.07 -0.016  0.00 0.00 00 00  25 0.005 1  X          for hydrogen on the HIS ring.   Both of these will be
+  CE1  1.90  6.  2.07  0.145  0.00 0.00 00 00  25 0.005 1  X          shown in the grinkout file.    Then the next Programme
+  NE2  1.60  6.  1.10 -0.190 -4.00 1.55 00 00  27 0.000 0  X          GRID will select the most appropriate one of these two
+  AD1  1.85  6.  1.35  0.000  0.00 0.00 00 00  00 0.000 0  X          hydrogens.   Alternative formulations of histidine are
+  AD2  1.85  6.  1.35  0.000  0.00 0.00 00 00  00 0.000 0  X          provided above and below, but this HIS residue is
+  AE1  1.85  6.  1.35 -0.022  0.00 0.00 00 00  00 0.000 0  X          recommended and should normally be used      <<<<<<<<<<<<<<<
+  AE2  1.85  6.  1.35 -0.022  0.00 0.00 00 00  00 0.000 0  X          ***************************************
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HI0   15                                                   X  HISTIDINE without N-bonded side-chain protons
+  N    1.65  7.  1.40 -0.152 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:   Residue HIS above is normally recommended.
+  CA   1.85  6.  1.35  0.008  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.321  0.00 0.00 00 00  00 0.000 0  X  NOTE:   Atoms AD1 AD2 AE1 AE2 are provided with compromise
+  O    1.60  6.  0.84 -0.327 -4.50 1.40 00 00   8 0.000 0  X          parameter values.   These will be used if the orientation
+  CB   1.90  7.  1.77 -0.042  0.00 0.00 00 00  00 0.020 2  X          of the histidine ring and the atom types are unknown.
+  CG   1.80  5.  1.65 -0.160  0.00 0.00 00 00  25 0.000 0  X
+  ND1  1.60  6.  1.10 -0.214 -4.00 1.55 00 00  97 0.000 0  X  NOTE:   The protons are absent from both ring nitrogens
+  CD2  1.90  6.  2.07 -0.102  0.00 0.00 00 00  25 0.020 1  X          when this HI0 (HIzero) histidine residue is used.
+  CE1  1.90  6.  2.07 -0.105  0.00 0.00 00 00  25 0.020 1  X
+  NE2  1.60  6.  1.10 -0.227 -4.00 1.55 00 00  97 0.000 0  X
+  AD1  1.85  6.  1.35 -0.158  0.00 0.00 00 00  00 0.000 0  X  NOTE:   The same atom names are used for HID  HIE  HIS  HI0
+  AD2  1.85  6.  1.35 -0.158  0.00 0.00 00 00  00 0.000 0  X          and HIP formulations of the histidine residue.   However
+  AE1  1.85  6.  1.35 -0.166  0.00 0.00 00 00  00 0.000 0  X          atom Types 21 and 27 must only be used with residue HIS above
+  AE2  1.85  6.  1.35 -0.166  0.00 0.00 00 00  00 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HOH    1                                                   X  WATER   HOH is the recommended molecule name for water
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+HSE    8                                                   X  HOMOSERINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.022  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.105  0.00 0.00 00 00  35 0.040 2  X
+  OD   1.65  7.  1.20 -0.107 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X         on the line immediately after their bonded carbon atom
+HPH   13                                                   X  HOMOPHENYLALANINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  HPH is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.005  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.000  0.00 0.00 00 00  00 0.020 2  X
+  CD   1.85  5.  1.65  0.039  0.00 0.00 00 00  25 0.000 0  X
+  CE1  1.90  6.  2.07 -0.019  0.00 0.00 00 00  25 0.150 1  X
+  CE2  1.90  6.  2.07 -0.019  0.00 0.00 00 00  25 0.150 1  X
+  CZ1  1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.150 1  X
+  CZ2  1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.150 1  X
+  CH   1.90  6.  2.07 -0.006  0.00 0.00 00 00  25 0.150 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+HYP    9                                                   X  HYDROXYPROLINE
+  N    1.65  6.  1.40 -0.176  0.00 0.00 00 00  -2 0.000 0  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.032  0.00 0.00 00 00  00 0.025 2  X
+  CG   1.85  6.  1.35  0.108  0.00 0.00 00 00  36 0.030 1  X
+  OD   1.65  7.  1.20 -0.107 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  CD   1.90  7.  1.77  0.083  0.00 0.00 00 00  00 0.025 2  X         on the line immediately after their bonded carbon atom.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ILE    9                                                   X  ISOLEUCINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.85  6.  1.35  0.028  0.00 0.00 00 00  00 0.010 1  X
+  CG1  1.90  7.  1.77  0.012  0.00 0.00 00 00  00 0.010 2  X
+  CG2  1.95  8.  2.17 -0.012  0.00 0.00 00 00  00 0.010 3  X
+  CD1  1.95  8.  2.17 -0.008  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LEU    9                                                   X  LEUCINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.018  0.00 0.00 00 00  00 0.010 2  X
+  CG   1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.95  8.  2.17 -0.014  0.00 0.00 00 00  00 0.010 3  X
+  CD2  1.95  8.  2.17 -0.014  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LOV   16                                                   X  LEUCINE HYDROXY VALINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  This is to be used as if it were isosteric with the two
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X         consecutive amino-acids leucine and valine, but with the
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         -CH2.CHOH- backbone group instead of a peptide bond.
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB1  1.90  7.  1.77 -0.010  0.00 0.00 00 00  00 0.010 2  X
+  CG1  1.85  6.  1.35  0.010  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.95  8.  2.17 -0.020  0.00 0.00 00 00  00 0.010 3  X
+  CD2  1.95  8.  2.17 -0.020  0.00 0.00 00 00  00 0.010 3  X
+  CB   1.85  6.  1.35  0.130  0.00 0.00 00 00  36 0.020 1  X
+  OG   1.65  7.  1.20 -0.110 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  CG   1.90  7.  1.77  0.030  0.00 0.00 00 00  00 0.010 2  X         on the line immediately after their bonded carbon atom
+  CA1  1.85  6.  1.35  0.060  0.00 0.00 00 00  00 0.020 1  X
+  CB2  1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CG2  1.95  8.  2.17 -0.040  0.00 0.00 00 00  00 0.010 3  X
+  CG3  1.95  8.  2.17 -0.040  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LRV   15                                                   X  LEUCINE REDUCED VALINE (NEUTRAL FORM)
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  This is to be used as if it were isosteric with the two
+  CA   1.85  6.  1.35  0.045  0.00 0.00 00 00  00 0.020 1  X         consecutive amino-acids leucine and valine, but with the
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         -NH.CH2- backbone group instead of a peptide bond.   The
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X         nitrogen of the -NH.CH2- group is treated as sp3 hybridised
+  CB1  1.90  7.  1.77 -0.010  0.00 0.00 00 00  00 0.020 2  X         with one hydrogen and one lone pair; i.e. type 51 nitrogen
+  CG1  1.85  6.  1.35  0.010  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.95  8.  2.17 -0.020  0.00 0.00 00 00  00 0.010 3  X  NOTE:  The overall electrostatic charge assigned to this residue
+  CD2  1.95  8.  2.17 -0.020  0.00 0.00 00 00  00 0.010 3  X         is neutral.    The ratio LRV/LRVH will be determined by
+  CB   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.010 2  X         the pH of the solution, and the pKa of the nitrogen.
+  NG   1.65  7.  1.20  0.100 -3.00 1.60 00 00  51 0.070 1  X
+  CA1  1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CB2  1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CG2  1.95  8.  2.17 -0.040  0.00 0.00 00 00  00 0.010 3  X
+  CG3  1.95  8.  2.17 -0.040  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LRVH  15                                                   X  LEUCINE REDUCED VALINE (CATIONIC FORM)
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  This is to be used as if it were isosteric with the two
+  CA   1.85  6.  1.35  0.045  0.00 0.00 00 00  00 0.020 1  X         consecutive amino-acids leucine and valine, but with the
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         -NH2.CH2- backbone group instead of a peptide bond.   The
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X         nitrogen of the -NH2.CH2- group is treated as sp3 hybridised
+  CB1  1.90  7.  1.77 -0.010  0.00 0.00 00 00  00 0.010 2  X         with two hydrogen atoms; i.e. type 22 cationic nitrogen
+  CG1  1.85  6.  1.35  0.010  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.95  8.  2.17 -0.020  0.00 0.00 00 00  00 0.010 3  X  NOTE:  The overall electrostatic charge assigned to this residue
+  CD2  1.95  8.  2.17 -0.020  0.00 0.00 00 00  00 0.010 3  X         is plus 1.   The ratio LRV/LRVH will be determined by the
+  CB   1.90  7.  1.77  0.160  0.00 0.00 00 00  00 0.010 2  X         pH of the solution, and the pKa of the nitrogen.
+  NG   1.70  8.  1.70  0.800 -3.00 1.60 00 00  22 0.130 2  X
+  CA1  1.85  6.  1.35  0.180  0.00 0.00 00 00  00 0.020 1  X
+  CB2  1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CG2  1.95  8.  2.17 -0.040  0.00 0.00 00 00  00 0.010 3  X
+  CG3  1.95  8.  2.17 -0.040  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LYS   10                                                   X  LYSINE with cationic NH3+ group at end of side chain
+  N    1.65  7.  1.40 -0.090 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X  NOTE: This lysine LYS should normally be used, and the next
+  C    1.80  5.  1.65  0.348  0.00 0.00 00 00  00 0.000 0  X        recognised residue LYZ is not normally appropriate.
+  O    1.60  6.  0.84 -0.360 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.040  0.00 0.00 00 00  00 0.020 2  X  NOTE: Net charge is +1
+  CG   1.90  7.  1.77  0.054  0.00 0.00 00 00  00 0.030 2  X
+  CD   1.90  7.  1.77  0.063  0.00 0.00 00 00  00 0.030 2  X
+  CE   1.90  7.  1.77  0.205  0.00 0.00 00 00  35 0.030 2  X
+  NZ   1.75  9.  2.13  0.660 -2.50 1.60 00 00  83 0.130 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LYSC  13                                                   X  CARBAMYLATED LYSINE with anionic NH.COO group at end of side chain
+  N    1.65  7.  1.40 -0.086 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X  NOTE: Net charge is -1
+  C    1.80  5.  1.65  0.324  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.355 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.016  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.020  0.00 0.00 00 00  00 0.030 2  X
+  CD   1.90  7.  1.77  0.014  0.00 0.00 00 00  00 0.030 2  X
+  CE   1.90  7.  1.77  0.026  0.00 0.00 00 00  00 0.030 2  X
+  NZ   1.65  7.  1.40 -0.195 -4.00 1.60 00 00   1 0.070 1  X
+  CH   1.80  5.  1.65  0.340  0.00 0.00 00 00  00 0.000 0  X
+  OO1  1.60  6.  2.14 -0.592 -4.50 1.40 00 00   8 0.000 0  X
+  OO2  1.60  6.  2.14 -0.592 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+LYZ   10                                                   X  LYSINE with unionised NH2: group at end of side chain
+  N    1.65  7.  1.40 -0.129 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  LYZ is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.325  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This lysine LYZ should not normally be required.   The
+  O    1.60  6.  0.84 -0.346 -4.50 1.40 00 00   8 0.000 0  X         previous recognised residue LYS is normally appropriate.
+  CB   1.90  7.  1.77  0.061  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.054  0.00 0.00 00 00  00 0.020 2  X  NOTE:  Net charge is zero
+  CD   1.90  7.  1.77  0.052  0.00 0.00 00 00  00 0.020 2  X
+  CE   1.90  7.  1.77  0.037  0.00 0.00 00 00  35 0.020 2  X
+  NZ   1.70  8.  1.70 -0.084 -3.00 1.60 00 00  82 0.070 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+MAN   12                                                   X  MANNOSE     Pyranose sugar.  O5 is the ring oxygen atom.
+  C1   1.85  6.  1.35  0.160  0.00 0.00 00 00  36 0.020 1  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  The same parameters may be used for isomers in which O5
+  C2   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         still the ring oxygen atom.   They may also be used for
+  O2   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         polysaccharides which contain these monomers linked by ether
+  C3   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         bonds at the O1 O2 O3 O4 or O6 positions.   Programme GRIN
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         will make the necessary adjustments for these ether bonds.
+  C4   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X
+  O4   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  This molecule is Pyranose and atom O5 is the ring oxygen
+  C5   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X         atom (Type 28).
+  O5   1.65  7.  1.20 -0.160 -2.00 1.50 00 00  28 0.000 0  X
+  C6   1.90  7.  1.77  0.080  0.00 0.00 00 00  35 0.020 2  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  O6   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.040 1  X         on the line immediately after their bonded carbon atom
+MET    9                                                   X  METHIONINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.040  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.004  0.00 0.00 00 00  00 0.030 2  X
+  SD   1.85 12.  3.00 -0.170  0.00 0.00 00 00  00 0.000 0  X
+  CE   1.95  8.  2.17  0.146  0.00 0.00 00 00  00 0.020 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+NAD   44                                                   X  NICOTINAMIDE ADENINE DINUCLEOTIDE
+ AP    1.90 10.  3.00  0.000  0.00 0.00 00 00  00 0.000 0  X
+ AO1   1.60  6.  2.14 -0.563 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  Net charge is -1
+ AO2   1.60  6.  2.14 -0.563 -1.50 1.50 00 00  64 0.000 0  X
+ AO5*  1.60  6.  0.64 -0.362  0.00 0.00 00 00  00 0.000 0  X
+ AC5*  1.90  7.  1.77  0.273  0.00 0.00 00 00  00 0.010 2  X
+ AC4*  1.85  6.  1.35  0.161  0.00 0.00 00 00  00 0.020 1  X
+ AO4*  1.60  6.  0.64 -0.260 -1.50 1.50 00 00  28 0.000 0  X
+ AC3*  1.85  6.  1.35  0.161  0.00 0.00 00 00  36 0.020 1  X
+ AO3*  1.65  7.  1.20 -0.148 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+ AC2*  1.85  6.  1.35  0.161  0.00 0.00 00 00  36 0.020 1  X         on the line immediately after their bonded carbon atom.
+ AO2*  1.65  7.  1.20 -0.148 -4.50 1.40 00 00  84 0.070 1  X
+ AC1*  1.85  6.  1.35  0.161  0.00 0.00 00 00  00 0.020 1  X
+ AN9   1.60  6.  1.10 -0.114  0.00 0.00 00 00  25 0.000 0  X
+ AC8   1.90  6.  2.07  0.161  0.00 0.00 00 00  25 0.020 1  X
+ AN7   1.60  6.  1.10 -0.114 -4.00 1.55 00 00  97 0.000 0  X
+ AC5   1.85  5.  1.65  0.049  0.00 0.00 00 00  25 0.000 0  X
+ AC6   1.85  5.  1.65  0.049  0.00 0.00 00 00  25 0.000 0  X
+ AN6   1.70  8.  1.70  0.110 -4.00 1.55 00 00   2 0.070 2  X
+ AN1   1.60  6.  1.10 -0.114 -4.00 1.55 00 00  97 0.000 0  X
+ AC2   1.90  6.  2.07  0.161  0.00 0.00 00 00  25 0.020 1  X
+ AN3   1.60  6.  1.10 -0.114 -4.00 1.55 00 00  97 0.000 0  X
+ AC4   1.85  5.  1.65  0.049  0.00 0.00 00 00  25 0.000 0  X
+  O3   1.60  6.  0.64 -0.457  0.00 0.00 00 00  00 0.000 0  X
+ NP    1.90 10.  3.00  0.000  0.00 0.00 00 00  00 0.000 0  X
+ NO1   1.60  6.  2.14 -0.563 -1.50 1.50 00 00  64 0.000 0  X
+ NO2   1.60  6.  2.14 -0.563 -1.50 1.50 00 00  64 0.000 0  X
+ NO5*  1.60  6.  0.64 -0.362  0.00 0.00 00 00  00 0.000 0  X
+ NC5*  1.90  7.  1.77  0.273  0.00 0.00 00 00  00 0.010 2  X
+ NC4*  1.85  6.  1.35  0.161  0.00 0.00 00 00  00 0.020 1  X
+ NO4*  1.60  6.  0.64 -0.260 -1.50 1.50 00 00  28 0.000 0  X
+ NC3*  1.85  6.  1.35  0.161  0.00 0.00 00 00  36 0.020 1  X
+ NO3*  1.65  7.  1.20 -0.148 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+ NC2*  1.85  6.  1.35  0.161  0.00 0.00 00 00  36 0.020 1  X         on the line immediately after their bonded carbon atom.
+ NO2*  1.65  7.  1.20 -0.148 -4.50 1.40 00 00  84 0.070 1  X
+ NC1*  1.85  6.  1.35  0.337  0.00 0.00 00 00  00 0.020 1  X
+ NN1   1.65  6.  1.80  0.250  0.00 0.00 00 00  25 0.000 0  X
+ NC2   1.90  6.  2.07  0.337  0.00 0.00 00 00  25 0.100 1  X
+ NC3   1.85  5.  1.65  0.049  0.00 0.00 00 00  25 0.000 0  X
+ NC7   1.80  5.  1.65  0.267  0.00 0.00 00 00  25 0.000 0  X
+ NO7   1.60  6.  2.14 -0.260 -4.50 1.40 00 00   8 0.000 0  X
+ NN7   1.70  8.  1.70  0.110 -4.00 1.55 00 00   2 0.040 2  X
+ NC4   1.90  6.  2.07  0.161  0.00 0.00 00 00  25 0.100 1  X
+ NC5   1.90  6.  2.07  0.161  0.00 0.00 00 00  25 0.100 1  X
+ NC6   1.90  6.  2.07  0.337  0.00 0.00 00 00  25 0.100 1  X
+NAG   15                                                   X  N-ACETYLGLUCOSEAMINE    Pyranose sugar.  O5 is the ring oxygen atom.
+  C1   1.85  6.  1.35  0.160  0.00 0.00 00 00  36 0.020 1  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  The same parameters may be used for isomers in which O5
+  C2   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X         still the ring oxygen atom.   They may also be used for
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00   1 0.070 1  X         polysaccharides which contain these monomers linked by ether
+  C7   1.80  5.  1.65  0.340  0.00 0.00 00 00  00 0.000 0  X         bonds at the O1 O3 O3 or O6 positions.   Programme GRIN will
+  O7   1.60  6.  0.84 -0.340 -4.50 1.40 00 00   8 0.000 0  X         make the necessary adjustments for these ether bonds.
+  C8   1.95  8.  2.17  0.000  0.00 0.00 00 00  00 0.010 3  X
+  C3   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X  NOTE:  This molecule is Pyranose and atom O5 is the ring oxygen
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         atom (type 28).
+  C4   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X
+  O4   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  C5   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X         on the line immediately after their bonded carbon atom
+  O5   1.65  7.  1.20 -0.160 -1.50 1.50 00 00  28 0.000 0  X
+  C6   1.90  7.  1.77  0.080  0.00 0.00 00 00  35 0.020 2  X
+  O6   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.040 1  X
+NAL   16                                                   X  NAPHTHYL ALANINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  NAL is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.005  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.85  5.  1.65  0.040  0.00 0.00 00 00  25 0.000 0  X
+  CD1  1.90  6.  2.07 -0.025  0.00 0.00 00 00  25 0.100 1  X
+  CD2  1.85  5.  1.65 -0.025  0.00 0.00 00 00  25 0.000 0  X
+  CE1  1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.100 1  X
+  CE2  1.85  5.  1.65  0.010  0.00 0.00 00 00  25 0.000 0  X
+  CE3  1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.100 1  X
+  CZ1  1.90  6.  2.07 -0.004  0.00 0.00 00 00  25 0.100 1  X
+  CZ2  1.90  6.  2.07 -0.001  0.00 0.00 00 00  25 0.100 1  X
+  CZ3  1.90  6.  2.07  0.000  0.00 0.00 00 00  25 0.100 1  X
+  CH2  1.90  6.  2.07  0.000  0.00 0.00 00 00  25 0.100 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+NAP   48                                                   X  NICOTINAMIDE ADENINE DINUCLEOTIDE PHOSPHATE
+ AP    1.90 10.  3.00  0.013  0.00 0.00 00 00  00 0.000 0  X
+ AO1   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  Net charge is -2
+ AO2   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+ AO5*  1.60  6.  0.64 -0.351  0.00 0.00 00 00  00 0.000 0  X
+ AC5*  1.90  7.  1.77  0.312  0.00 0.00 00 00  00 0.010 2  X
+ AC4*  1.85  6.  1.35  0.187  0.00 0.00 00 00  00 0.020 1  X
+ AO4*  1.60  6.  0.64 -0.249 -1.50 1.50 00 00  28 0.000 0  X
+ AC3*  1.85  6.  1.35  0.187  0.00 0.00 00 00  36 0.020 1  X
+ AO3*  1.65  7.  1.20 -0.124 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+ AC2*  1.85  6.  1.35  0.187  0.00 0.00 00 00  00 0.010 1  X         on the line immediately after their bonded carbon atom
+ AO2*  1.60  6.  0.64 -0.351  0.00 0.00 00 00  00 0.000 0  X
+ AC1*  1.85  6.  1.35  0.187  0.00 0.00 00 00  00 0.020 1  X
+ AN9   1.60  6.  1.10 -0.103  0.00 0.00 00 00  25 0.000 0  X
+ AC8   1.90  6.  2.07  0.187  0.00 0.00 00 00  25 0.020 1  X
+ AN7   1.60  6.  1.10 -0.103 -4.00 1.55 00 00  97 0.000 0  X
+ AC5   1.85  5.  1.65  0.062  0.00 0.00 00 00  25 0.000 0  X
+ AC6   1.85  5.  1.65  0.062  0.00 0.00 00 00  25 0.000 0  X
+ AN6   1.70  8.  1.70  0.147 -4.00 1.55 00 00   2 0.070 2  X
+ AN1   1.60  6.  1.10 -0.103 -4.00 1.55 00 00  97 0.000 0  X
+ AC2   1.90  6.  2.07  0.187  0.00 0.00 00 00  25 0.020 1  X
+ AN3   1.60  6.  1.10 -0.103 -4.00 1.55 00 00  97 0.000 0  X
+ AC4   1.85  5.  1.65  0.062  0.00 0.00 00 00  25 0.000 0  X
+  O3   1.60  6.  0.64 -0.446  0.00 0.00 00 00  00 0.000 0  X
+ NP    1.90 10.  3.00  0.013  0.00 0.00 00 00  00 0.000 0  X
+ NO1   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+ NO2   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+ NO5*  1.60  6.  0.64 -0.351  0.00 0.00 00 00  00 0.000 0  X
+ NC5*  1.90  7.  1.77  0.312  0.00 0.00 00 00  00 0.010 2  X
+ NC4*  1.85  6.  1.35  0.187  0.00 0.00 00 00  00 0.020 1  X
+ NO4*  1.60  6.  0.64 -0.249 -1.50 1.50 00 00  28 0.000 0  X
+ NC3*  1.85  6.  1.35  0.187  0.00 0.00 00 00  36 0.020 1  X
+ NO3*  1.65  7.  1.20 -0.124 -4.50 1.40 00 00  84 0.070 1  X
+ NC2*  1.85  6.  1.35  0.187  0.00 0.00 00 00  36 0.020 1  X
+ NO2*  1.65  7.  1.20 -0.124 -4.50 1.40 00 00  84 0.070 1  X
+ NC1*  1.85  6.  1.35  0.365  0.00 0.00 00 00  00 0.020 1  X
+ NN1   1.65  6.  1.80  0.270  0.00 0.00 00 00  25 0.000 0  X
+ NC2   1.90  6.  2.07  0.365  0.00 0.00 00 00  25 0.100 1  X
+ NC3   1.85  5.  1.65  0.062  0.00 0.00 00 00  25 0.000 0  X
+ NC7   1.80  5.  1.65  0.281  0.00 0.00 00 00  25 0.000 0  X
+ NO7   1.60  6.  2.14 -0.249 -4.50 1.40 00 00   8 0.000 0  X
+ NN7   1.70  8.  1.70  0.147 -4.00 1.55 00 00   2 0.070 2  X
+ NC4   1.90  6.  2.07  0.187  0.00 0.00 00 00  25 0.100 1  X
+ NC5   1.90  6.  2.07  0.187  0.00 0.00 00 00  25 0.100 1  X
+ NC6   1.90  6.  2.07  0.365  0.00 0.00 00 00  25 0.100 1  X
+ RP    1.90 10.  3.00  0.013  0.00 0.00 00 00  00 0.000 0  X
+ RO1   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+ RO2   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+ RO3   1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+NHE    1                                                   X  AMIDE NH2 GROUP to be used at the C terminal of proteins which have
+  N    1.70  8.  1.70  0.000 -5.00 1.55 00 00   2 0.070 2  X        an amide instead of a carboxyl terminal.  Also see AMI and NH2
+NH2    1                                                   X  AMIDE NH2 GROUP to be used at the C terminal of proteins which have
+  N    1.70  8.  1.70  0.000 -5.00 1.55 00 00   2 0.070 2  X        an amide instead of a carboxyl terminal.  Also see AMI and NHE
+NLE    9                                                   X  NORLEUCINE     2-amino-n-hexanoic acid
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  NLE is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.020  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CD   1.90  7.  1.77  0.011  0.00 0.00 00 00  00 0.020 2  X
+  CE   1.95  8.  2.17 -0.008  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+NVA    8                                                   X  NORVALINE      2-amino-n-pentanoic acid
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  NVA is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.020  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.008  0.00 0.00 00 00  00 0.020 2  X
+  CD   1.95  8.  2.17 -0.008  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+OH2    1                                                   X  WATER
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+ORN    9                                                   X  ORNITHINE
+  N    1.65  7.  1.40 -0.090 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  Net charge is +1
+  CA   1.85  6.  1.35  0.085  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.348  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.360 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.065  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.087  0.00 0.00 00 00  00 0.030 2  X
+  CD   1.90  7.  1.77  0.205  0.00 0.00 00 00  35 0.030 2  X
+  NE   1.75  9.  2.13  0.660 -3.00 1.60 00 00  83 0.130 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+ORZ    9                                                   X  ORNITHINE with unionised NH2: group at end of side chain
+  N    1.65  7.  1.40 -0.129 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  ORZ is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.035  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.325  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This ornithine ORZ should not normally be required.   The
+  O    1.60  6.  0.84 -0.346 -4.50 1.40 00 00   8 0.000 0  X         previous recognised residue ORN is normally appropriate.
+  CB   1.90  7.  1.77  0.076  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.084  0.00 0.00 00 00  00 0.020 2  X  NOTE:  Net charge is zero
+  CD   1.90  7.  1.77  0.039  0.00 0.00 00 00  35 0.020 2  X
+  NE   1.70  8.  1.70 -0.084 -3.00 1.60 00 00  82 0.070 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PCA    9                                                   X  PYROGLUTAMIC ACID (Pyrrolidone Carboxylic Acid)
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00   1 0.070 1  X  NOTE:  This is normally an N-terminal residue but does not have a
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X         positive charge.   The nitrogen is therefore Type 1 not -1
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X 
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X 
+  CB   1.90  7.  1.77  0.022  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.008  0.00 0.00 00 00  00 0.020 2  X 
+  CD   1.80  5.  1.65  0.345  0.00 0.00 00 00  00 0.000 0  X
+  OE   1.60  6.  0.84 -0.355 -4.50 1.40 00 00   8 0.000 0  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PEN    9                                                   X  PENICILLAMINE
+  N    1.65  7.  1.40 -0.070 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.095  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.355 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.80  5.  0.98  0.050  0.00 0.00 00 00  00 0.000 0  X
+  SG1  1.85 12.  3.00 -0.050  0.00 0.00 00 00  00 0.010 1  X
+  CG2  1.95  8.  2.17 -0.010  0.00 0.00 00 00  00 0.010 3  X
+  CG3  1.95  8.  2.17 -0.010  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PHE   12                                                   X  PHENYLALANINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.005  0.00 0.00 00 00  00 0.030 2  X
+  CG   1.85  5.  1.65  0.039  0.00 0.00 00 00  25 0.000 0  X
+  CD1  1.90  6.  2.07 -0.019  0.00 0.00 00 00  25 0.150 1  X
+  CD2  1.90  6.  2.07 -0.019  0.00 0.00 00 00  25 0.150 1  X
+  CE1  1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.150 1  X
+  CE2  1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.150 1  X
+  CZ   1.90  6.  2.07 -0.006  0.00 0.00 00 00  25 0.150 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PHG   11                                                   X  PHENYLGLYCINE
+  N    1.65  7.  1.40 -0.099 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  PHG is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.040  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.325  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.331 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.85  5.  1.65  0.045  0.00 0.00 00 00  25 0.000 0  X
+  CG1  1.90  6.  2.07 -0.010  0.00 0.00 00 00  25 0.150 1  X
+  CG2  1.90  6.  2.07 -0.010  0.00 0.00 00 00  25 0.150 1  X
+  CD1  1.90  6.  2.07  0.015  0.00 0.00 00 00  25 0.150 1  X
+  CD2  1.90  6.  2.07  0.015  0.00 0.00 00 00  25 0.150 1  X
+  CE   1.90  6.  2.07  0.010  0.00 0.00 00 00  25 0.150 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PIP    9                                                   X  PIPECOLIC ACID
+  N    1.65  6.  1.40 -0.176  0.00 0.00 00 00  -2 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.027  0.00 0.00 00 00  00 0.025 2  X
+  CG   1.90  7.  1.77  0.007  0.00 0.00 00 00  00 0.025 2  X
+  CD   1.90  7.  1.77  0.007  0.00 0.00 00 00  00 0.025 2  X
+  CE   1.90  7.  1.77  0.075  0.00 0.00 00 00  00 0.025 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PLP   25                                                   X  PYRIDOXAL PHOSPHATE BONDED TO LYSINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  Net charge is -2 due to the phosphate group which is not
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X         protonated.   If, for example, ON2 were protonated the net
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X         charge would be -1 and the five atoms OL PM ON1 ON2 ON3
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X         would have charges -0.504 1.316 -0.761 -0.323 -0.761   
+  CB   1.90  7.  1.77  0.009  0.00 0.00 00 00  00 0.020 2  X         The charges of other atoms (CK3 in particular) are altered by
+  CG   1.90  7.  1.77 -0.009  0.00 0.00 00 00  00 0.020 2  X         amounts which may be neglected.  Atom ON2 would be Type 84.
+  CD   1.90  7.  1.77  0.024  0.00 0.00 00 00  00 0.020 2  X
+  CE   1.90  7.  1.77  0.088  0.00 0.00 00 00  00 0.020 2  X
+  NZ   1.65  6.  1.80 -0.307 -3.00 1.60 00 00  97 0.000 0  X  NOTE:  Lysine NZ forms a Schiff base with the aldehyde of pyridoxal
+  CH   1.90  6.  1.65  0.183  0.00 0.00 00 00  00 0.020 1  X
+  CO   1.85  5.  1.65 -0.130  0.00 0.00 00 00  25 0.000 0  X  NOTE:  Atoms CO CI1 CK1 NL1 CK2 and CI2 are consecutive ring atoms.
+  CI1  1.85  5.  1.65 -0.048  0.00 0.00 00 00  25 0.000 0  X
+  CK1  1.85  5.  1.65 -0.042  0.00 0.00 00 00  25 0.000 0  X
+  NL1  1.65  6.  1.80 -0.190 -3.50 1.60 00 00  97 0.000 0  X  NOTE:  Both nitrogens are unprotonated and uncharged
+  CK2  1.90  6.  1.65  0.120  0.00 0.00 00 00  25 0.020 1  X
+  CI2  1.85  5.  1.65  0.103  0.00 0.00 00 00  25 0.000 0  X  NOTE:  The side chain bearing the phosphate is joined to this atom.
+  CK3  1.90  7.  1.77  0.174  0.00 0.00 00 00  00 0.005 2  X  NOTE:  This is the methylene group bearing the phosphate.
+  OL   1.60  6.  0.64 -0.384  0.00 0.00 00 00  00 0.000 0  X
+  PM   1.90 10.  3.00  0.013  0.00 0.00 00 00  00 0.000 0  X
+  ON1  1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  One of the oxygens ON1 ON2 or ON3 may be protonated in
+  ON2  1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X         some proteins.  See note above.
+  ON3  1.60  6.  2.14 -0.554 -1.50 1.50 00 00  64 0.000 0  X
+  OK   1.65  7.  1.00 -0.043 -4.50 1.40 00 00  34 0.070 1  X  NOTE:  This is the hydroxyl substituent on the ring.
+  CL   1.95  8.  2.17  0.121  0.00 0.00 00 00  00 0.020 3  X  NOTE:  This is the methyl substituent on the ring.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+POT    1                                                   X  POTASSIUM COUNTER-ION
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00 120 0.000 0  X  This potassium moves in response to the Probe when Directive MOVE>0
+PRO    8                                                   X  PROLINE
+  N    1.65  6.  1.40 -0.176  0.00 0.00 00 00  -2 0.000 0  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.029  0.00 0.00 00 00  00 0.025 2  X
+  CG   1.90  7.  1.77  0.008  0.00 0.00 00 00  00 0.025 2  X
+  CD   1.90  7.  1.77  0.079  0.00 0.00 00 00  00 0.025 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PR2    4                                                   X  SECONDARY PROPYL ALCOHOL (ISOPROPYL ALCOHOL)
+  OA   1.60  7.  1.20 -0.200 -4.50 1.40 00 00  84 0.070 1  X
+  CB   1.85  6.  1.35  0.016  0.00 0.00 00 00  36 0.020 1  X
+  CG1  1.95  8.  2.17  0.092  0.00 0.00 00 00  00 0.040 3  X
+  CG2  1.95  8.  2.17  0.092  0.00 0.00 00 00  00 0.040 3  X
+PSE   11                                                   X  PHOSPHOSERINE
+  N    1.65  7.  1.40 -0.045 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  PSE is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.041  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.280  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Net charge is -2 due to the phosphate group which is not
+  O    1.60  6.  0.84 -0.353 -4.50 1.40 00 00   8 0.000 0  X         protonated.
+  CB   1.90  7.  1.77  0.020  0.00 0.00 00 00  00 0.005 2  X
+  OG   1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X
+  PD   1.90 10.  3.00  0.045  0.00 0.00 00 00  00 0.000 0  X
+  OE1  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  Protonation of these oxygens OE1 OE2 and OE3 is unlikely at any
+  OE2  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X         physiological pH.  The recognised molecule PLP above shows how
+  OE3  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X         to handle the protonation of one of these oxygens if need be.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PTH   12                                                   X  PHOSPHOTHREONINE
+  N    1.65  7.  1.40 -0.045 -4.00 1.60 00 00  -1 0.070 1  X  NOTE: PTH is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.041  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.280  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.353 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.85  6.  1.35  0.070  0.00 0.00 00 00  00 0.030 1  X
+  OG1  1.60  6.  0.64 -0.373  0.00 0.00 00 00  00 0.000 0  X
+  CG2  1.95  8.  2.17 -0.027  0.00 0.00 00 00  00 0.020 3  X
+  PD   1.90 10.  3.00  0.045  0.00 0.00 00 00  00 0.000 0  X
+  OE1  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  Protonation of these oxygens OE1 OE2 and OE3 is unlikely at any
+  OE2  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X         physiological pH.  The recognised molecule PLP above shows how
+  OE3  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X         to handle the protonation of one of these oxygens if need be.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+PTY   17                                                   X  PHOSPHOTYROSINE
+  N    1.65  7.  1.40 -0.087 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  PTY is not a recognised abbreviation in the protein data bank
+  CA   1.85  6.  1.35  0.038  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.230  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Net charge is -2 due to the phosphate group which is not
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X         protonated.
+  CB   1.90  7.  1.77  0.049  0.00 0.00 00 00  00 0.030 2  X
+  CG   1.85  5.  1.65  0.021  0.00 0.00 00 00  25 0.000 0  X
+  CD1  1.90  6.  2.07  0.004  0.00 0.00 00 00  25 0.100 1  X
+  CD2  1.90  6.  2.07  0.004  0.00 0.00 00 00  25 0.100 1  X
+  CE1  1.90  6.  2.07 -0.016  0.00 0.00 00 00  25 0.100 1  X
+  CE2  1.90  6.  2.07 -0.016  0.00 0.00 00 00  25 0.100 1  X
+  CZ   1.85  5.  1.65  0.081  0.00 0.00 00 00  25 0.000 0  X
+  OH   1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X
+  PO   1.90 10.  3.00  0.045  0.00 0.00 00 00  00 0.000 0  X
+  OI1  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  Protonation of these oxygens OI1 OI2 and OI3 is unlikely at any
+  OI2  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X         physiological pH.  The recognised molecule PLP above shows how
+  OI3  1.60  6.  2.14 -0.546 -1.50 1.50 00 00  64 0.000 0  X         to handle the protonation of one of these oxygens if need be.
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+RIB   10                                                   X  RIBOSE Furanose sugar.  O4 is the ring oxygen atom.
+  C1   1.85  6.  1.35  0.160  0.00 0.00 00 00  36 0.020 1  X
+  O1   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  The same parameters may be used for isomers in which O4 is
+  C2   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         still the ring oxygen atom.   They may also be used for
+  O2   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         polysaccharides which contain these monomers linked by ether
+  C3   1.85  6.  1.35  0.080  0.00 0.00 00 00  36 0.020 1  X         bonds at the O1 O2 O3 or O5 positions.   Programme GRIN
+  O3   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.070 1  X         will make the necessary adjustments for these ether bonds.
+  C4   1.85  6.  1.35  0.080  0.00 0.00 00 00  00 0.020 1  X  NOTE:  This molecule is Furanose and atom O4 is the ring oxygen
+  O4   1.65  7.  1.20 -0.160 -1.50 1.50 00 00  28 0.000 0  X         atom (Type 28).
+  C5   1.90  7.  1.77  0.080  0.00 0.00 00 00  35 0.020 2  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  O5   1.65  7.  1.20 -0.080 -4.50 1.40 00 00  84 0.040 1  X         on the line immediately after their bonded carbon atom
+SEM    9                                                   X  SELINOMETHIONINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.040  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.90  7.  1.77  0.005  0.00 0.00 00 00  00 0.030 2  X
+ SED   1.95 20.  4.50 -0.174  0.00 0.00 00 00  00 0.000 0  X
+  CE   1.95  8.  2.17  0.149  0.00 0.00 00 00  00 0.020 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+SER    7                                                   X  SERINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.060  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.360  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.363 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.130  0.00 0.00 00 00  35 0.040 2  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  OG   1.65  7.  1.20 -0.107 -4.50 1.40 00 00  84 0.070 1  X         on the line immediately after their bonded carbon atom
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+SOD    1                                                   X  SODIUM COUNTER-ION
+ NA+   0.95  8.  0.15  1.000  0.00 0.00 00 00 120 0.000 0  X  This sodium moves in response to the Probe when Directive MOVE>0
+STA   12                                                   X  STATINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X  NOTE:  STA is not a recognised abbreviation in the protein data bank
+  CA1  1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The three main-chain CH & CH2 groups are called CA1 CA2 & CA3
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.024  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.85  6.  1.35  0.030  0.00 0.00 00 00  00 0.020 1  X
+  CD1  1.95  8.  2.17 -0.014  0.00 0.00 00 00  00 0.010 3  X
+  CD2  1.95  8.  2.17 -0.014  0.00 0.00 00 00  00 0.010 3  X
+  CA2  1.85  6.  1.35  0.140  0.00 0.00 00 00  36 0.020 1  X
+  OB   1.65  7.  1.20 -0.130 -4.50 1.40 00 00  84 0.070 1  X
+  CA3  1.90  7.  1.77 -0.016  0.00 0.00 00 00  00 0.020 2  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+SUC    7                                                   X  SUCCINIC ACID
+  CA   1.90  7.  1.77 -0.085  0.00 0.00 00 00  00 0.020 2  X  NOTE:  This residue must only be used at the N-terminal of synthetic
+  C    1.80  5.  1.65  0.355  0.00 0.00 00 00  00 0.000 0  X         peptides.  It is analagous to an N-terminal aspartic acid from
+  O    1.60  6.  0.84 -0.380 -4.50 1.40 00 00   8 0.000 0  X         which the terminal NH3 group is missing.   No OXT atom and
+  CB   1.90  7.  1.77 -0.105  0.00 0.00 00 00  00 0.020 2  X         no backbone nitrogen is provided.
+  CG   1.80  5.  1.65  0.365  0.00 0.00 00 00  00 0.000 0  X
+  OD1  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X  NOTE:  Net charge is -1 from the ionised carboxy side chain
+  OD2  1.60  6.  2.14 -0.575 -4.50 1.40 00 00   8 0.000 0  X
+  T   23                                                   X  THYMIDINE
+  P    1.90 10.  3.00 -0.050  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables are defined here for the 5* terminus.
+  O1P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         Programme GRIN will adjust them appropriately in mid-sequence.
+  O2P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         
+  O3P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  The potassium counter ion should not normally be included in
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00  00 0.000 0  X         the PDB input file.  Programme GRIN will compute its position.
+  O5*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Atom O3P is for use at the 5* terminal only.
+  C5*  1.90  7.  1.77  0.210  0.00 0.00 00 00  00 0.010 2  X         Programme GRIN will omit it in mid-sequence, and adjust 
+  C4*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X         the energy variables of nearby atoms appropriately.
+  O4*  1.60  6.  0.64 -0.270 -1.50 1.50 00 00  28 0.000 0  X
+  C3*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X
+  O3*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables of atom O3* and nearby atoms will be
+  C2*  1.85  6.  1.35  0.320  0.00 0.00 00 00  36 0.030 1  X         adjusted by Programme GRIN if this is the 3* terminus.
+  O2*  1.65  7.  1.20 -0.150 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Atom O2* will be omitted by Programme GRIN when DNA is studied
+  C1*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.010 1  X         and the energy variables of atom C2* will then be adjusted.
+  N1   1.60  6.  1.10 -0.150  0.00 0.00 00 00  25 0.000 0  X
+  C2   1.80  5.  1.65  0.200  0.00 0.00 00 00  25 0.000 0  X
+  O2   1.60  6.  0.84 -0.300 -4.50 1.40 00 00   8 0.000 0  X
+  N3   1.60  6.  1.10  0.030 -4.00 1.60 00 00   1 0.070 1  X
+  C4   1.80  5.  1.65  0.200  0.00 0.00 00 00  25 0.000 0  X
+  O4   1.60  6.  0.84 -0.300 -4.50 1.40 00 00   8 0.000 0  X
+  C5   1.85  5.  1.65  0.040  0.00 0.00 00 00  25 0.000 0  X
+  C5M  1.95  8.  2.17  0.260  0.00 0.00 00 00  00 0.030 3  X
+  C6   1.90  6.  2.07  0.100  0.00 0.00 00 00  25 0.020 1  X
+TBU    5                                                   X  TERTIARY BUTYL ALCOHOL
+  OA   1.60  7.  1.20 -0.202 -4.50 1.40 00 00  84 0.070 1  X
+  CB   1.80  5.  0.98 -0.026  0.00 0.00 00 00  37 0.000 0  X
+  CG1  1.95  8.  2.17  0.076  0.00 0.00 00 00  00 0.010 3  X
+  CG2  1.95  8.  2.17  0.076  0.00 0.00 00 00  00 0.010 3  X
+  CG3  1.95  8.  2.17  0.076  0.00 0.00 00 00  00 0.010 3  X
+TCB   10                                                   X  TRICHLORO-BUTOXYCARBONYL
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The short name for this group is normally 'TCBOC'.
+  O    1.60  6.  0.84 -0.260 -4.50 1.40 00 00   8 0.000 0  X  NOTE:  This group is only to be used as a protecting group
+  OA   1.60  6.  0.64 -0.270  0.00 0.00 00 00  00 0.000 0  X         at the terminus of synthetic peptides.
+  CB   1.80  5.  0.98  0.040  0.00 0.00 00 00  00 0.000 0  X  NOTE:  This group is parameterised with the three chlorine
+  CG1  1.80  5.  0.98  0.010  0.00 0.00 00 00  00 0.000 0  X         atoms bonded to carbon atom CG1
+ CL1   1.80 12.  2.80 -0.200  0.00 0.00 00 00  00 0.000 0  X
+ CL2   1.80 12.  2.80 -0.200  0.00 0.00 00 00  00 0.000 0  X
+ CL3   1.80 12.  2.80 -0.200  0.00 0.00 00 00  00 0.000 0  X
+  CG2  1.95  8.  2.17  0.365  0.00 0.00 00 00  00 0.030 3  X
+  CG3  1.95  8.  2.17  0.365  0.00 0.00 00 00  00 0.030 3  X
+THR    8                                                   X  THREONINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.060  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.360  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.363 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.85  6.  1.35  0.140  0.00 0.00 00 00  36 0.030 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  OG1  1.65  7.  1.20 -0.130 -4.50 1.40 00 00  84 0.070 1  X         on the line immediately after their bonded carbon atom
+  CG2  1.95  8.  2.17  0.013  0.00 0.00 00 00  00 0.020 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+TIP    1                                                   X  WATER
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+TIP1   1                                                   X  WATER
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+TIP3   1                                                   X  WATER
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+TRP   15                                                   X  TRYPTOPHAN
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.010  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.80  5.  1.65 -0.018  0.00 0.00 00 00  25 0.000 0  X
+  CD1  1.90  6.  2.07  0.021  0.00 0.00 00 00  25 0.020 1  X
+  CD2  1.80  5.  1.65 -0.023  0.00 0.00 00 00  25 0.000 0  X
+  NE1  1.65  7.  1.40 -0.016 -4.00 1.60 00 00   1 0.070 1  X
+  CE2  1.80  5.  1.65  0.140  0.00 0.00 00 00  25 0.000 0  X
+  CE3  1.90  6.  2.07 -0.003  0.00 0.00 00 00  25 0.100 1  X
+  CZ2  1.90  6.  2.07 -0.072  0.00 0.00 00 00  25 0.100 1  X
+  CZ3  1.90  6.  2.07 -0.035  0.00 0.00 00 00  25 0.100 1  X
+  CH2  1.90  6.  2.07  0.016  0.00 0.00 00 00  25 0.100 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+TYR   13                                                   X  TYROSINE
+  N    1.65  7.  1.40 -0.085 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.020 1  X
+  C    1.80  5.  1.65  0.352  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.368 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.90  7.  1.77  0.006  0.00 0.00 00 00  00 0.020 2  X
+  CG   1.85  5.  1.65  0.024  0.00 0.00 00 00  25 0.000 0  X
+  CD1  1.90  6.  2.07  0.002  0.00 0.00 00 00  25 0.100 1  X
+  CD2  1.90  6.  2.07  0.002  0.00 0.00 00 00  25 0.100 1  X
+  CE1  1.90  6.  2.07 -0.025  0.00 0.00 00 00  25 0.100 1  X
+  CE2  1.90  6.  2.07 -0.025  0.00 0.00 00 00  25 0.100 1  X
+  CZ   1.85  5.  1.65  0.162  0.00 0.00 00 00  25 0.000 0  X
+  OH   1.65  7.  1.20 -0.120 -4.50 1.40 00 00  34 0.070 1  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+  U   22                                                   X  URIDINE
+  P    1.90 10.  3.00 -0.050  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables are defined here for the 5* terminus.
+  O1P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         Programme GRIN will adjust them appropriately in mid-sequence.
+  O2P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X         
+  O3P  1.60  6.  2.14 -0.650 -1.50 1.50 00 00  64 0.000 0  X  NOTE:  The potassium counter ion should not normally be included in
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00  00 0.000 0  X         the PDB input file.  Programme GRIN will compute its position.
+  O5*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  Atom O3P is for use at the 5* terminal only.
+  C5*  1.90  7.  1.77  0.210  0.00 0.00 00 00  00 0.010 2  X         Programme GRIN will omit it in mid-sequence, and adjust 
+  C4*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X         the energy variables of nearby atoms appropriately.
+  O4*  1.60  6.  0.64 -0.270 -1.50 1.50 00 00  28 0.000 0  X
+  C3*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.030 1  X
+  O3*  1.60  6.  0.64 -0.350  0.00 0.00 00 00  00 0.000 0  X  NOTE:  The energy variables of atom O3* and nearby atoms will be
+  C2*  1.85  6.  1.35  0.320  0.00 0.00 00 00  36 0.030 1  X         adjusted by Programme GRIN if this is the 3* terminus.
+  O2*  1.65  7.  1.20 -0.150 -4.50 1.40 00 00  84 0.070 1  X  NOTE:  Hydroxyl oxygens should be listed in Grub as shown here,
+  C1*  1.85  6.  1.35  0.170  0.00 0.00 00 00  00 0.010 1  X         on the line immediately after their bonded carbon atom
+  N1   1.60  6.  1.10  0.070  0.00 0.00 00 00  25 0.000 0  X
+  C2   1.80  5.  1.65  0.200  0.00 0.00 00 00  25 0.000 0  X
+  O2   1.60  6.  0.84 -0.280 -4.50 1.40 00 00   8 0.000 0  X
+  N3   1.60  6.  1.10 -0.030 -4.00 1.60 00 00   1 0.070 1  X
+  C4   1.80  5.  1.65  0.200  0.00 0.00 00 00  25 0.000 0  X
+  O4   1.60  6.  0.84 -0.280 -4.50 1.40 00 00   8 0.000 0  X
+  C5   1.90  6.  2.07  0.100  0.00 0.00 00 00  25 0.025 1  X
+  C6   1.90  6.  2.07  0.100  0.00 0.00 00 00  25 0.020 1  X
+VAL    8                                                   X  VALINE
+  N    1.65  7.  1.40 -0.080 -4.00 1.60 00 00  -1 0.070 1  X
+  CA   1.85  6.  1.35  0.075  0.00 0.00 00 00  00 0.010 1  X
+  C    1.80  5.  1.65  0.350  0.00 0.00 00 00  00 0.000 0  X
+  O    1.60  6.  0.84 -0.365 -4.50 1.40 00 00   8 0.000 0  X
+  CB   1.85  6.  1.35  0.062  0.00 0.00 00 00  00 0.020 1  X
+  CG1  1.95  8.  2.17 -0.021  0.00 0.00 00 00  00 0.010 3  X
+  CG2  1.95  8.  2.17 -0.021  0.00 0.00 00 00  00 0.010 3  X
+  OXT  1.60  6.  2.14 -0.560 -4.50 1.40 00 00   8 0.000 0  X
+WAT    1                                                   X  WATER
+  O    1.70  7.  1.20  0.000 -4.50 1.40 00 00  95 0.000 0  X
+HET   -1                                                   X  HETERO ATOMS arranged by Group in the Periodic Table
+                                                           X  ======================================================================
+                                                           X  Hetero atoms are to be used for Target molecules if there is no
+                                                           X  appropriate entry in the table above.   Such Targets are called
+                                                           X  hetero-molecules.    The hydrogen atoms of hetero-molecules are 
+                                                           X  explicitly considered.   (R) indicates that rotation occurs around
+                                                           X  the bond linking a hetero-atom to the rest of its hetero-molecule.
+                                                           X  ======================================================================
+                                                           X  HYDROGEN
+  H    1.15  1.  0.10  0.000  0.00 0.00 00 00  00          X  Hydrogen atom (Programme GRIN will adjust parameters for H-bonds)
+                                                           X  Note that water appears as an extended atom below
+                                                           X
+                                                           X  BORON
+  B    1.75  4.  3.40  0.000  0.00 0.00 00 00  00          X  Neutral trivalent boron not bonded to hydrogen
+  B-1  1.75  5.  3.40 -1.000  0.00 0.00 00 00  00          X  Boron in a mono-anion and not directly bonded to hydrogen
+                                                           X
+                                                           X  CARBON BONDED TO THREE HYDROGENS
+  C3   1.80  5.  0.98  0.000  0.00 0.00 00 00  30          X  sp3 aliphatic carbon atom bonded to three hydrogen atoms
+                                                           X
+                                                           X  CARBON BONDED TO TWO HYDROGENS
+  C2   1.80  5.  0.98  0.000  0.00 0.00 00 00  50          X  sp3 aliphatic carbon atom bonded to two hydrogen atoms
+  C2=  1.85  5.  1.65  0.000  0.00 0.00 00 00  20          X  sp2 carbon atom bonded to two hydrogen atoms (eg vinyl and olefins)
+                                                           X
+                                                           X  CARBON BONDED TO ONE HYDROGEN
+  C1   1.80  5.  0.98  0.000  0.00 0.00 00 00  80          X  sp3 aliphatic carbon atom bonded to one hydrogen atom
+  C1=  1.85  5.  1.30  0.000  0.00 0.00 00 00  40          X  sp2 carbon atom bonded to one hydrogen (eg aromatics and olefins)
+  CH   1.80  5.  1.65  0.250  0.00 0.00 00 00  40          X  sp2 carbon bonded to one hydrogen atom explicitly in aldehyde
+  C-H  1.80  5.  1.65 -0.750  0.00 0.00 00 00  40          X  sp2 carbon bonded to one hydrogen atom in an anion (eg formate anion)
+  C1#  1.85  5.  2.55  0.000  0.00 0.00 00 00  70          X  sp carbon atom bonded to one hydrogen atom (eg acetylene)
+                                                           X
+                                                           X  CARBON NOT BONDED TO ANY HYDROGENS
+  C0   1.80  5.  0.98  0.000  0.00 0.00 00 00  00          X  sp3 aliphatic carbon not bonded to any hydrogen atoms
+  C=   1.85  5.  1.30  0.000  0.00 0.00 00 00  00          X  sp2 carbon atom not bonded to hydrogen in aromatics, olefins, esters,
+                                                           X       thioesters and thioketones
+  C    1.80  5.  1.65  0.300  0.00 0.00 00 00  00          X  sp2 carbon atom not bonded to hydrogen in unionised carbonyl, amide,
+                                                           X       acid halide, anhydride or unionised carboxylic acid.
+  C+1  1.80  5.  1.65  1.300  0.00 0.00 00 00  00          X  sp2 carbon not bonded to hydrogen in a mono cation (eg guanidinium)
+  C-1  1.80  5.  1.65 -0.600  0.00 0.00 00 00  00          X  sp2 carbon not bonded to hydrogen in a mono anion (eg ionised carboxy)
+  C-2  1.80  5.  1.65 -1.700  0.00 0.00 00 00  00          X  sp2 carbon not bonded to hydrogen in a double anion (ie carbonate)
+  C#   1.70  5.  2.55  0.000  0.00 0.00 00 00  00          X  sp carbon atom not bonded to any hydrogens (eg allyl or acetylene)
+  C:#  1.80  5.  2.55 -1.000 -1.00 1.75 00 00  97          X  sp carbon with 1 lone pair and one triple bond (eg acetylene anion)
+                                                           X
+                                                           X  SILICON These values are not to be used for Zeolites
+ SI    2.10  9.  6.80  0.000  0.00 0.00 00 00  00          X  Neutral tetra-valent silicon not bonded to hydrogen
+ SI-1  2.10  9.  6.80 -1.000  0.00 0.00 00 00  00          X  Silicon in a mono-anion and not directly bonded to hydrogen
+ SI-2  2.10  9.  6.80 -2.000  0.00 0.00 00 00  00          X  Silicon in a di-anion and not directly bonded to hydrogen
+ SI-3  2.10  9.  6.80 -3.000  0.00 0.00 00 00  00          X  Silicon in a tri-anion and not directly bonded to hydrogen
+ SI-4  2.10  9.  6.80 -4.000  0.00 0.00 00 00  00          X  Silicon in a tetra-anion and not directly bonded to hydrogen
+                                                           X
+                                                           X  NITROGEN BONDED TO THREE HYDROGENS
+  N3+  1.65  6.  1.10  1.300 -2.50 1.60 00 00  83          X  Cationic sp3 nitrogen bonded to 3 hydrogens and with one other
+                                                           X    rotatable bond.   eg: methylamine cation.   (R)
+                                                           X
+                                                           X  NITROGEN BONDED TO TWO HYDROGENS
+  N2+  1.65  6.  1.10  1.300 -3.00 1.60 00 00  22          X  Cationic sp3 nitrogen bonded to 2 hydrogens and two other atoms
+  N2=  1.65  6.  1.80  1.300 -3.00 1.60 00 00   2          X  Cationic sp2 N bonded to 2 hydrogens and with one other non-rotatable
+                                                           X    (double) bond. Always flat. No lone pair.  NOT guanidinium NH2
+  N2   1.65  6.  1.80  0.000 -5.25 1.50 00 00  32          X  Nitrogen bonded to 2 hydrogens with one other non-rotatable bond.
+                                                           X    Normally flat but a lone pair may form if the nitrogen has some sp3
+                                                           X    character.  eg: NH2 of amides, sulphonamides, aniline, guanidinium.
+                                                           X    Use for unionised methylamine, etc when the torsion angle is fixed.
+  N2:  1.65  6.  1.10  0.000 -4.00 1.60 00 00  82          X  sp3 nitrogen bonded to 2 hydrogens and with one other rotatable bond
+                                                           X    and with one lone pair.  Normally used for methylamine, etc.  (R).
+                                                           X
+                                                           X  NITROGEN BONDED TO ONE HYDROGEN
+  N1+  1.65  6.  1.10  1.300 -3.00 1.60 00 00  31          X  Cationic sp3 nitrogen bonded to 1 hydrogen and three other atoms
+  N1=  1.65  6.  1.80  1.300 -3.00 1.60 00 00   1          X  Cationic sp2 N with 1 hydrogen, 1 other single and one double bond
+                                                           X    eg: aromatic heterocycle cations.  No lone pair.  NOT guanidinium NH
+  N1:  1.65  6.  1.10  0.000 -5.50 1.50 00 00  61          X  sp3 nitrogen with 1 lone pair bonded to 1 hydrogen and 2 other atoms.
+                                                           X    Partial sp2 character may weaken the lone pair.
+  N1<  1.65  6.  1.10  0.000 -5.50 1.50 00 00  51          X  Like N1: (Type 61) but permitting inversion of lone pair and hydrogen
+  N1   1.65  6.  1.35  0.000 -4.00 1.60 00 00   1          X  Planar nitrogen bonded to 1 H and two other atoms.   No lone pair.
+                                                           X    eg: amide, guanidinium, methyl aniline, & some aromatic heterocycles
+  NH=  1.65  6.  1.80  0.000 -3.00 1.60 00 00  34          X  Neutral sp2 nitrogen with 1 lone pair 1 hydrogen and 1 double bond
+  N1#  1.65  6.  2.90  0.600 -3.00 1.60 00 00  71          X  sp nitrogen with one triple bond and one single bond to hydrogen
+                                                           X
+                                                           X  NITROGEN NOT BONDED TO ANY HYDROGENS
+  N+   1.65  6.  1.10  1.300  0.00 0.00 00 00  00          X  Cationic sp3 nitrogen bonded to four non-hydrogen atoms
+  N:   1.65  6.  1.10  0.000 -6.50 1.50 00 00  97          X  sp3 nitrogen with 1 lone pair bonded to three non-hydrogen atoms
+  N=   1.65  6.  1.80  1.300  0.00 0.00 00 00  00          X  Cationic sp2 N with 2 single and 1 double bonds to non-hydrogen atoms
+                                                           X    eg: N-substituted aromatic heterocycles.
+  N0   1.65  6.  1.40  0.000  0.00 0.00 00 00  00          X  Planar neutral nitrogen bonded to two or three non-hydrogen atoms
+                                                           X    eg: dimethyl-acetamide or nitro or some aromatic heterocycles
+                                                           X    Also use for nitroso nitrogen.
+  N0:  1.65  6.  2.00  0.000 -4.00 1.60 00 00  97          X  Explicit deprotonated nitrogen (eg: of acyl sulphonamide)
+  N:=  1.65  6.  1.80  0.000 -5.50 1.55 00 00  97          X  Neutral sp2 nitrogen with 1 lone pair 1 non-H single and 1 double bond
+                                                           X    eg: aromatic heterocycles
+  N::  1.65  6.  1.80 -0.400 -3.00 1.60 00 00   8          X  sp2 nitrogen with 2 lone pairs and 1 double bond
+  N#   1.65  6.  2.90  0.000  0.00 0.00 00 00  00          X  sp nitrogen making two double bonds to (non-hydrogen) atoms, or
+                                                           X       making one triple and one (non-hydrogen) single bond
+  N:#  1.65  6.  2.90  0.000 -5.00 1.55 00 00  97          X  sp nitrogen with 1 lone pair and 1 triple (non-hydrogen) bond
+  N-1  1.65  6.  1.80 -1.000  0.00 0.00 00 00  00          X  Nitrogen in a mono-anion and not bonded to hydrogen. ie: nitrate ion
+  N-:  1.65  6.  1.80 -1.000 -3.00 1.60 00 00  97          X  Anionic sp2 nitrogen with 1 lone pair 1 non-H single and 1 double bond
+                                                           X       Explicitly for nitrogens 1 and 4 of an anionic tetrazole ring.
+                                                           X       (Nitrogens 2 and 3 are N:=    The ring carbon is C+1   )
+                                                           X
+                                                           X  PHOSPHORUS
+  P    1.90 10.  3.00  0.000  0.00 0.00 00 00  00          X  Neutral tri or penta-valent phosphorus not bonded to hydrogen
+  P+1  1.90 10.  3.00  1.000  0.00 0.00 00 00  00          X  Phosphorus in a mono-cation and not directly bonded to hydrogen
+  P-1  1.90 10.  3.00 -1.000  0.00 0.00 00 00  00          X  Phosphorus in a mono-anion and not directly bonded to hydrogen
+  P-2  1.90 10.  3.00 -2.000  0.00 0.00 00 00  00          X  Phosphorus in a double anion and not directly bonded to hydrogen
+  P-3  1.90 10.  3.00 -3.000  0.00 0.00 00 00  00          X  Phosphorus in a triple anion and not directly bonded to hydrogen
+                                                           X
+                                                           X  ARSENIC & ANTIMONY
+ AS    2.00 19.  3.00  0.000  0.00 0.00 00 00  00          X  Neutral tri or penta-valent arsenic not bonded to hydrogen
+ SB    2.20 28.  5.10  0.000  0.00 0.00 00 00  00          X  Neutral tri or penta-valent antimony not bonded to hydrogen
+                                                           X
+                                                           X  OXYGEN BONDED TO TWO HYDROGENS
+                                                           X  There is a special entry for water at the end of this list
+                                                           X
+                                                           X  OXYGEN BONDED TO ONE HYDROGEN
+  O1   1.60  6.  1.00  0.000 -4.50 1.40 00 00  84          X  Oxygen atom in sp3 hydroxyl group rotating around its bond.   Also the
+                                                           X    oxygen atom bearing one acidic hydrogen in sulphur, silicon, arsenic
+                                                           X    or phosphorus acids (R).   NOT unionised phenolic or carboxy acid OH
+  OH   1.60  6.  1.00 -0.100 -4.50 1.40 00 00  34          X  Oxygen atom bearing one acidic hydrogen in phenols or carboxy -COOH
+                                                           X
+                                                           X  OXYGEN NOT BONDED TO ANY HYDROGENS
+  O    1.60  6.  0.84 -0.100 -5.00 1.40 00 00   8          X  sp2 carbonyl oxygen bonded to 1 atom and with 2 lone pairs
+                                                           X    eg: in aldehyde or ketone or amide groups
+  O::  1.60  6.  2.14 -0.400 -5.00 1.40 00 00   8          X  Explicit resonating sp2 oxygen with 2 lone pairs in carboxy acid anion
+                                                           X    or pyridine oxide (C5H5NO) 
+  O#   1.60  6.  1.00  0.000 -3.50 1.40 00 00  97          X  Explicit oxygen of cyanate accepting one hydrogen bond
+  OC2  1.60  6.  0.64  0.000 -2.00 1.50 00 00  28          X  Explicit aliphatic ether oxygen accepting two hydrogen bonds
+  OES  1.60  6.  0.64  0.000 -0.50 1.55 00 00  28          X  Explicit tetrahedral ester oxygen atom not accepting hydrogen bonds
+                                                                eg: in carbon, sulphur, silicon, arsenic or phosphorus acids
+  OFU  1.60  6.  0.70  0.000 -1.25 1.45 00 00  97          X  Explicit aromatic furan or oxazole oxygen accepting one hydrogen bond
+  ON   1.60  6.  2.14 -0.150 -1.25 1.50 00 00  97          X  Explicit oxygen of nitro or nitroso group
+  OS   1.60  6.  0.30  0.000 -5.50 1.40 00 00  64          X  Explicit oxygen bonded only to one central heavy atom of sulphoxides
+                                                           X    or sulphones or unionised sulphonate esters or unionised sulphate
+                                                           X    esters or unionised alkyl sulphinates. No hydrogen; does not donate
+  O-1  1.60  6.  2.14 -1.450 -4.50 1.40 00 00  64          X  sp3 anionic oxygen as in ethoxide
+  O-   1.60  6.  2.14 -1.100 -4.50 1.40 00 00  88          X  sp2 anionic oxygen as in phenolate.  NOT carboxy, phosphate, sulphate
+  O=   1.60  6.  2.14 -0.400 -1.50 1.50 00 00  64          X  Resonating oxygen bonded to 1 atom and accepting upto 2 hydrogen bonds
+                                                           X    eg: in phosphates arsenates silicates sulphates or sulphonamides.
+                                                           X
+                                                           X  SULPHUR
+  S    1.85 12.  3.44  0.000  0.00 0.00 00 00  97          X  Neutral sulphur not bonded to hydrogen atoms.  eg: alkyl sulphates,
+                                                           X    disulphides, heterocycles, sulphones, unionised sulphonamides,
+                                                           X    thioamides and thioacids
+  SO   1.85 12.  3.44  0.000 -1.00 1.80 00 00  97          X  Explicit pyramidal sulphur of sulphoxides or unionised sulphinates
+  STH  1.85 12.  3.00  0.200 -0.50 1.70 00 00  97          X  Explicit aromatic thiophen sulphur
+  S1   1.85 12.  3.44  0.000 -0.30 1.80 00 00  84          X  Divalent sulphur bonded to one hydrogen and one other atom
+  S+1  1.85 11.  2.50  1.000  0.00 0.00 00 00  00          X  Sulphur in a mono-cation.  eg: sulphonium
+  S-   1.85 13.  4.50 -1.000 -0.50 1.70 00 00  98          X  Explicit sulphur in ionized sulphide.  eg: CH3.S-
+  S-1  1.85 13.  4.50 -1.000  0.00 0.00 00 00  00          X  Sulphur in a mono-anion and not directly bonded to hydrogen  eg:
+                                                           X    ionised sulphonamides, sulphonates or sulphamates
+  S-2  1.85 14.  5.50 -2.000  0.00 0.00 00 00  00          X  Sulphur in a double anion and not directly bonded to hydrogen
+                                                           X    ie: sulphate
+                                                           X
+                                                           X  SELENIUM
+ SE    1.95 20.  4.50  0.000  0.00 0.00 00 00  00          X  Neutral selenium not bonded to hydrogen and not making H-bonds
+ SE1   1.95 20.  4.50  0.000  0.00 0.00 00 00  60          X  Divalent selenium bonded to one hydrogen and one other atom
+ SE-1  1.95 21.  5.75 -1.000  0.00 0.00 00 00  00          X  Selenium in a mono-anion and not directly bonded to hydrogen
+ SE-2  1.95 22.  6.25 -2.000  0.00 0.00 00 00  00          X  Selenium in a di-anion and not directly bonded to hydrogen
+                                                           X
+                                                           X  HALOGENS
+ BR    1.95 22.  3.80  0.000  0.00 0.00 00 00  00          X  Covalent bromine atom
+ CL    1.80 12.  2.61  0.000  0.00 0.00 00 00  00          X  Covalent chlorine atom
+  F    1.45  8.  0.53  0.000 -0.50 1.40 00 00  99          X  Covalent fluorine atom
+  I    2.15 30.  6.31  0.000  0.00 0.00 00 00  00          X  Covalent iodine atom
+                                                           X  ======================================================================
+                                                           X  IONS
+ BA+2  1.35 31.  2.01  2.000  0.00 0.00 00 00  00          X  Barium cation
+ BE+2  0.35  2.  0.01  2.000  0.00 0.00 00 00  00          X  Beryllium cation
+  B+   0.35  3.  1.53  1.000  0.00 0.00 00 00  00          X  Boron cation
+ BR-   1.95 23.  4.89 -1.000  0.00 0.00 00 00  00          X  Bromide anion
+ CA+2  0.99 16.  0.53  2.000  0.00 0.00 00 00  00          X  Calcium cation
+ CL-   1.80 13.  3.48 -1.000  0.00 0.00 00 00  00          X  Chloride anion
+ CO+2  0.72 20.  0.42  2.000  0.00 0.00 00 00  00          X  Divalent Cobalt cation
+ CO+3  0.63 19.  0.23  3.000  0.00 0.00 00 00  00          X  Trivalent Cobalt cation
+ CR+2  0.89 17.  0.51  2.000  0.00 0.00 00 00  00          X  Divalent Chromium cation
+ CR+3  0.63 16.  0.29  3.000  0.00 0.00 00 00  00          X  Trivalent Chromium cation
+ CR+4  0.52 15.  0.19  4.000  0.00 0.00 00 00  00          X  Tetravalent Chromium cation
+ CS+   1.69 30.  3.08  1.000  0.00 0.00 00 00  00          X  Caesium cation
+ CU+2  0.72 22.  0.36  2.000  0.00 0.00 00 00  00          X  Divalent copper cation
+ FE+2  0.74 19.  0.44  2.000  0.00 0.00 00 00  00          X  Ferrous iron cation
+ FE+3  0.64 18.  0.24  3.000  0.00 0.00 00 00  00          X  Ferric iron cation
+  F-   1.36  9.  0.68 -1.000  0.00 0.00 00 00  00          X  Fluoride anion
+ GA+   0.81 25.  3.01  1.000  0.00 0.00 00 00  00          X  Monovalent Gallium cation
+ GA+3  0.62 23.  0.19  3.000  0.00 0.00 00 00  00          X  Trivalent Gallium cation
+ GE+4  0.53 23.  0.12  4.000  0.00 0.00 00 00  00          X  Tetravalent Germanium cation
+  I-   2.15 31.  8.02 -1.000  0.00 0.00 00 00  00          X  Iodide anion
+ IN+3  0.81 32.  0.54  3.000  0.00 0.00 00 00  00          X  Trivalent Indium cation
+  K+   1.33 16.  0.95  1.000  0.00 0.00 00 00  00          X  Potassium cation
+ LI+   0.60  2.  0.03  1.000  0.00 0.00 00 00  00          X  Lithium cation
+ MG+2  0.78  9.  0.08  2.000  0.00 0.00 00 00  00          X  Magnesium cation
+ MN+2  0.80 18.  0.46  2.000  0.00 0.00 00 00  00          X  Divalent Manganese cation
+ MN+3  0.66 17.  0.27  3.000  0.00 0.00 00 00  00          X  Trivalent Manganese cation
+ MN+4  0.60 16.  0.18  4.000  0.00 0.00 00 00  00          X  Tetravalent Manganese cation
+ MO+4  0.70 24.  0.55  4.000  0.00 0.00 00 00  00          X  Tetravalent Molybdenum cation
+ NA+   0.95  8.  0.15  1.000  0.00 0.00 00 00  00          X  Sodium cation
+ NB+4  0.74 23.  0.54  4.000  0.00 0.00 00 00  00          X  Tetravalent Niobium cation
+ NB+5  0.69 22.  0.35  5.000  0.00 0.00 00 00  00          X  Pentavalent Niobium cation
+ NI+2  0.69 21.  0.39  2.000  0.00 0.00 00 00  00          X  Nickel cation
+ PB+2  1.20 41.  3.31  2.000  0.00 0.00 00 00  00          X  Divalent Lead cation
+ PB+4  0.84 48.  1.57  4.000  0.00 0.00 00 00  00          X  Tetravalent Lead cation
+ RB+   1.48 22.  1.65  1.000  0.00 0.00 00 00  00          X  Rubidium cation
+ SC+3  0.73 13.  0.33  3.000  0.00 0.00 00 00  00          X  Scandium cation
+ SN+2  0.93 34.  2.70  2.000  0.00 0.00 00 00  00          X  Divalent Tin cation
+ SN+4  0.71 32.  0.37  4.000  0.00 0.00 00 00  00          X  Tetravalent Tin cation
+ SR+2  1.13 23.  1.01  2.000  0.00 0.00 00 00  00          X  Strontium cation
+ TI+   0.96 11.  1.64  1.000  0.00 0.00 00 00  00          X  Monovalent Titanium cation
+ TI+2  0.94 15.  0.60  2.000  0.00 0.00 00 00  00          X  Divalent Titanium cation
+ TI+3  0.76 14.  0.33  3.000  0.00 0.00 00 00  00          X  Trivalent Titanium cation
+ TI+4  0.68 13.  0.22  4.000  0.00 0.00 00 00  00          X  Tetravalent Titanium cation
+  V+2  0.88 16.  0.56  2.000  0.00 0.00 00 00  00          X  Divalent Vanadium cation
+  V+3  0.74 15.  0.31  3.000  0.00 0.00 00 00  00          X  Trivalent Vanadium cation
+  V+4  0.63 14.  0.21  4.000  0.00 0.00 00 00  00          X  Tetravalent Vanadium cation
+  W+4  0.70 40.  0.68  4.000  0.00 0.00 00 00  00          X  Tetravalent Tungsten cation
+  Y+3  0.89 22.  0.68  3.000  0.00 0.00 00 00  00          X  Trivalent Yttrium cation
+ ZN+2  0.74 23.  0.34  2.000  0.00 0.00 00 00  00          X  Zinc cation
+ ZR+4  0.79 22.  0.48  4.000  0.00 0.00 00 00  00          X  Zirconium cation
+                                                           X  ======================================================================
+                                                           X  WATER.    Note that  H2O  HOH  and  WAT are not acceptable as HETATM
+                                                           X  names since they do not begin with the oxygen symbol O      However,
+                                                           X  H2O  HOH  OH2 and WAT  are acceptable MOLECULE names for water, and
+                                                           X  are therefore shown as RECOGNISED MOLECULES in the main list above.
+                                                           X
+  OH2  1.70  7.  1.20  0.000 -4.50 1.40 00 00  95          X  Water (EA).   This is the normal HETATM name for water in the Target.
+                                                           X    There must be no water hydrogens.  The molecule name should be HOH.
+                                                           X
+  OHH  1.60  6.  1.00  0.000 -4.50 1.40 00 00  96          X  Used for the HETATM oxygen of a Target water when the explicit
+                                                           X    hydrogen coordinates are also given (There must be 3 consecutive
+                                                           X    HETATM records in the Target with atom names OHH and H and H).
+                                                           X    The molecule name must be HOH for these three HETATM records.
+                                                           X
+  O2   1.70  7.  1.20  0.000 -4.50 1.40 00 00  95          X  Water (EA).   Used when there are many waters in the Target, whose
+                                                           X    mutual interactions must be considered.   Programme GRIN may then
+                                                           X    replace the hydrogen-bond parameters by more appropriate values.
+                                                           X    There must be no water hydrogens.  The molecule name should be HOH.
+                                                           X  ======================================================================

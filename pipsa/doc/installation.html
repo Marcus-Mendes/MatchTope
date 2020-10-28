@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.8 [en] (X11; U; Linux 2.4.25 i686) [Netscape]">
+  <title>Protein Interaction Property Similarity Analysis</title>
+</head>
+<body>
+<center>
+<hr width="100%">
+<p style="color: rgb(255, 0, 0);"><b><font face="Arial,Helvetica"><font
+ size="+1">Installation of PIPSA 3.0 <br>
+</font></font></b><font face="Arial,Helvetica"><font color="#ff0000"><font
+ size="+1"><b>(Protein Interaction Property Similarity Analysis</b>)</font></font></font><br>
+</p>
+</center>
+<hr width="100%">
+<br>
+<font face="Arial,Helvetica">The PIPSA software distribution consist
+of a set of fortran 77 programs, accompanying data files and Unix shell
+scripts to analyse interaction field grids.</font>
+<br>
+<font face="Arial,Helvetica">Additionally, <a href="#other">several
+other licensed programs</a> may be be required, depending on the type
+of
+the similarity calculation performed.</font>
+<p><font face="Arial,Helvetica">To install, uncompress and untar
+the&nbsp;
+PIPSA distribution package ( </font><b><tt>gunzip -c
+pipsa.tar.gz&nbsp;
+| tar xvf - </tt></b><font face="Arial,Helvetica">).</font>
+<br>
+<font face="Arial,Helvetica">This will give you the PIPSA distribution
+directory (</font><b><tt>pipsa/</tt></b><font face="Arial,Helvetica">)
+with the following subdirectories:</font>
+<br>
+<font face="Arial,Helvetica">aux/ - Auxiliary programs and scripts
+that can be used for special purposes</font>
+<br>
+<font face="Arial,Helvetica">bin/ - Linux executables of pipsa programs
+compiled using g77</font>
+<br>
+<font face="Arial,Helvetica">data/ - Data files needed for PIPSA</font>
+<br>
+<font face="Arial,Helvetica">doc/ - Documentation</font>
+<br>
+<font face="Arial,Helvetica">src/ - Fortran source files of PIPSA
+programs</font>
+<br>
+<font face="Arial,Helvetica">scr/ - PIPSA example shell scripts</font>
+<br>
+<font face="Arial,Helvetica">exa/ - PIPSA usage examples</font>
+</p>
+<p><font face="Arial,Helvetica">The PIPSA scripts can be used under any
+Unix environment; the distributed executables are compiled under Linux
+using g77.</font>
+<br>
+<font face="Arial,Helvetica">The programs might need to be recompiled
+in order to run under your unix system or in order to optimize their
+performance.</font>&nbsp;
+<font face="Arial,Helvetica">To do this, remove all files from the bin/
+subdirectory, go to src/ subdirectory, edit (if needed) the Makefile to
+adjust your compiler options and type "make all".&nbsp; This will
+generate
+new executables in the bin/ subdirectory.</font>
+</p>
+<p></p>
+<hr width="100%"><br>
+<a name="other"></a><b><font face="Arial,Helvetica"><font
+ color="#000000"><font size="+1">Programs
+to use in conjunction with PIPSA</font></font></font></b>
+<br>
+&nbsp; <font face="Arial,Helvetica">The <font color="#000000">program
+<a href="http://www.cmbi.kun.nl/whatif/">WHATIF</a> <sup><a href="#1">1</a></sup>&nbsp;&nbsp;
+by G. Vriend can be used to add polar hydrogens to pdb coordinates of
+proteins,
+and then the program <a href="http://adrik.bchs.uh.edu/uhbd.html">UHBD</a>
+<sup><a href="#2">2</a></sup>
+used to compute electrostatic potentials of proteins.</font></font>
+<li><font face="Arial,Helvetica"><font color="#000000">&nbsp;Alternatively,
+the <a href="http://nbcr.sdsc.edu/pdb2pqr/">PDB2PQR</a> <a href="#3"><sup>3</sup></a>
+web
+service
+can be used to add hydrogens and assign parameters and the program <a
+ href="http://agave.wustl.edu/apbs/">APBS</a>&nbsp; <sup><a href="#4">4</a></sup>&nbsp;
+by N. Baker may be used to
+compute
+electrostatic potentials of proteins.</font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000">The program <a
+ href="http://www.moldiscovery.com/soft_grid.php">GRID</a> <sup><a
+ href="#5">5</a></sup>&nbsp; by P.</font>Goodford can be used
+to
+compute the grids of probe interaction fields.</font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000">The program <a
+ href="http://neon.chem.le.ac.uk/nmrclust/">NMRCLUST </a><sup><a
+ href="#6">6</a></sup>&nbsp; by M. Sutcliffe is used to
+check
+clustering of the proteins based on pairwise distances derived from
+similarity
+matrices.</font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000">&nbsp;The
+program <a href="http://kinemage.biochem.duke.edu/">MAGE</a> <sup><a
+ href="#7">7</a></sup> by D. Richardson is used to visualize
+the
+distribution and clustering of proteins in 3 dimensions based on the
+pairwise
+similarity measures.</font></font></li>
+<li> <font face="Arial,Helvetica"><font color="#000000">&nbsp; The
+program <a href="http://evolution.genetics.washington.edu/phylip.html">Phylip</a>
+  <sup><a href="#7">8</a></sup> by J. Felsenstein is used to derive
+phylogeny
+trees from pairwise similarities of proteins.</font></font></li>
+<br>
+<p><font face="Arial,Helvetica"><font color="#000000">The following
+table
+lists additional programs required to compute and vizualize similarity
+properties (free for academia programs in green):</font></font>
+<table nosave="" border="1" cols="5" width="100%">
+  <caption>&nbsp; <br>
+&nbsp;</caption> <tbody>
+    <tr>
+      <td><font face="Arial,Helvetica">Similarity estimate</font></td>
+      <td><font face="Arial,Helvetica">Analytical electrostatic
+properties</font></td>
+      <td><font face="Arial,Helvetica">UHBD computed electrostatic
+potentials</font></td>
+      <td><font face="Arial,Helvetica">APBS computed electrostatic
+potentials</font></td>
+      <td><font face="Arial,Helvetica">GRID computed interaction fields</font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">Required programs (computation)</font></td>
+      <td><font face="Arial,Helvetica">-</font></td>
+      <td><font face="Arial,Helvetica">WHATIF, UHBD</font></td>
+      <td><font face="Arial,Helvetica"><b><font color="#009900">PDB2PQR</font></b>,
+      <b><font color="#009900">APBS</font></b></font></td>
+      <td><font face="Arial,Helvetica"><b><font color="#009900">grin</font></b>,
+      <b><font color="#009900">grid</font></b>, <b><font
+ color="#009900">k2a</font></b></font></td>
+    </tr>
+    <tr>
+      <td><font face="Arial,Helvetica">Required programs (vizualization)</font></td>
+      <td><font face="Arial,Helvetica"><b><font color="#009900">MAGE</font></b>,
+      <b><font color="#009900">NMRCLUST</font></b>, <b><font
+ color="#009900">Phylip</font></b></font></td>
+      <td><font face="Arial,Helvetica"><b><font color="#009900">MAGE</font></b>,
+      <b><font color="#009900">NMRCLUST</font></b>, <b><font
+ color="#009900">Phylip</font></b></font></td>
+      <td><font face="Arial,Helvetica"><b><font color="#009900">MAGE</font></b>,
+      <b><font color="#009900">NMRCLUST</font></b>, <b><font
+ color="#009900">Phylip</font></b></font></td>
+      <td><font face="Arial,Helvetica"><b><font color="#009900">MAGE</font></b>,
+      <b><font color="#009900">NMRCLUST</font></b>, <b><font
+ color="#009900">Phylip</font></b></font></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<hr width="100%"><br>
+<b><font face="Arial,Helvetica"><font size="+1">References</font></font></b>
+<p><a name="1"></a><font face="Arial,Helvetica"><sup>1</sup> </font><font
+ face="Arial,Helvetica">G. Vriend. </font><font face="Arial,Helvetica">WHAT
+IF: A
+molecular modeling and drug design program.&nbsp; J. Mol.
+Graph.
+(1990) 8, 52-56.</font> <font face="Arial,Helvetica"><a
+ href="http://swift.cmbi.kun.nl/whatif/">http://swift.cmbi.kun.nl/whatif/</a></font>
+</p>
+<p><a name="2"></a><font face="Arial,Helvetica"><sup>2</sup>
+Madura, J.D.,
+Briggs, J.M., Wade, R.C., Davis, M.E., Luty, B.A., Ilin, A.,
+Antosiewicz, J.,
+Gilson, M.K., Bagheri, B., Scott, L.R. and McCammon, J.A.&nbsp;
+Electrostatics
+and Diffusion of Molecules in Solution: Simulations with the University
+of Houston Brownian Dynamics Program.&nbsp; Comp. Phys. Comm. (1995)
+91,
+57-95.</font> <a href="http://adrik.bchs.uh.edu/uhbd.html">http://adrik.bchs.uh.edu/uhbd.html</a><br>
+<br>
+<a name="3"></a><sup>3</sup> Dolinsky TJ, Nielsen JE, McCammon JA,
+Baker NA. PDB2PQR: an automated
+pipeline for the setup, execution, and analysis of Poisson-Boltzmann
+electrostatics calculations. Nucleic Acids Research (2004) 32,
+W665-W667. <a href="http://nbcr.sdsc.edu/pdb2pqr/">http://nbcr.sdsc.edu/pdb2pqr/</a></p>
+<p><a name="4"></a><font face="Arial,Helvetica"><sup>4</sup> Baker NA,
+Sept D, Joseph S, Holst MJ, McCammon JA. Electrostatics of nanosystems:
+application to microtubules and the ribosome. Proc. Natl. Acad. Sci.
+USA
+(2001) 98, 10037-10041.</font> <font face="Arial,Helvetica">
+<a href="http://agave.wustl.edu/apbs/">http://agave.wustl.edu/apbs/</a></font>
+<br>
+</p>
+<p><a name="5"></a><font face="Arial,Helvetica"><sup>5&nbsp; </sup>Goodford,
+P. J.&nbsp; J. Med. Chem. (1985) 28, 849. <a
+ href="http://www.moldiscovery.com/soft_grid.php">http://www.moldiscovery.com/soft_grid.php</a></font>
+<br>
+</p>
+<p><a name="6"></a><font face="Arial,Helvetica"><sup>6</sup> L.A.
+Kelley, S.P. Gardner and M.J. Sutcliffe.&nbsp; An Automated
+Approach
+For Clustering An Ensemble Of NMR-Derived Protein Structures Into
+Conformationally-Related
+Subfamilies.&nbsp; Protein Engineering (1996) 9, 1063-1065.</font> <font
+ face="Arial,Helvetica"><a href="http://neon.chem.le.ac.uk/nmrclust/">http://neon.chem.le.ac.uk/nmrclust/</a></font>
+<br>
+</p>
+<p><a name="7"></a><font face="Arial,Helvetica"><sup>7</sup> MAGE:
+copyright
+&copy; 1998 by David C. Richardson, Little River Institute, 5820 Old
+Stony
+Way, Durham NC 27705; dcr@kinemage.biochem.duke.edu; Biochemistry
+Dept.,
+Duke University, North Carolina 27710, USA</font>.&nbsp;<font
+ face="Arial,Helvetica">
+<a href="http://kinemage.biochem.duke.edu/">http://kinemage.biochem.duke.edu/</a></font>
+<br>
+</p>
+<p><a name="8"></a><sup>8</sup>&nbsp; <font face="Arial,Helvetica">Felsenstein,
+J.&nbsp; PHYLIP -- Phylogeny Inference Package (Version 3.2).
+Cladistics
+(1989) 5: 164-166.</font> <font face="Arial,Helvetica"><a
+ href="http://evolution.genetics.washington.edu/phylip.html">http://evolution.genetics.washington.edu/phylip.html</a></font>
+</p>
+<p></p>
+<hr width="100%"><br>
+<i><a href="mailto:razif.gabdoulline@eml-r.villa-bosch.de">Razif
+Gabdoulline</a>, 2007 </i>
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<ol>
+&nbsp;
+</ol>
+</body>
+</html>

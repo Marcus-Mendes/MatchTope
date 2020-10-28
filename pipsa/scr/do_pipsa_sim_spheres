@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Computes similarity matrix and post-processes it
+# Similarity of 2 potential grids are calculated on the molecular skin and over a  spherical part of the space
+#
+# - needs 2 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_sim_dir   = directory, where similarity matrix should be computed 
+#
+# - assumes grid files to be in pipsa_sim_dir and pdb files in  pipsa_sim_dir/../pdbs/
+# - assumes the conical part of the comparison region to be defined in the file "spheres", see format of this file in the header of 2potsim_skin_spheres.f
+# - will go to pipsa_sim_dir/ and calculate similarity matrix and its derivatives
+
+# calculate similarity matrix
+cd $2
+$1/bin/npotsim -pg $1/bin/2potsim_skin_spheres -fn names -pa spheres -lg sims_spheres.log -pr 3 -sk 4 
+
+# make kinemage and distance matrix
+$1/bin/mkkin 1 1 < sims_spheres.log > sims_spheres.kin
+$1/bin/mkdismx 1 1 < sims_spheres.log > sims_spheres.mat
+

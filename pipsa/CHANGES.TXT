@@ -1,0 +1,37 @@
+Changes in the version 4.0.2
+   - Modified pathlength to account for longer pathnames than 40 characters
+
+Changes in the version 3.1 and 3.2 are:
+   - Added support for cylindrical volumes for comparison
+   - Fall back to default, when sphere file is empty
+
+Changes in the version 3.0 are:
+   - Added the program to calculate similarity indices in spherical regions;
+   - Changed output that has now the values of average potential differences 
+     as well as the average potential values in the comparison region;
+   - Added the program to correlate and predict kinetic constants, and 
+     added an application example for this program;
+   - Added a script to remove a protein from a set of compared proteins;
+   - Added modified version to run the calculations in parallel;
+   - Changes in documentation. 
+
+Changes in the version 2.0 are:
+   -  The programs rewritten to make the parameter usage more transparent - 
+      previous parameter input from the files is changed to the input via 
+      command line;
+   -  Fixed subdirectory hierarchy is replaced via user-defined, e.g. 
+      calculations can be done in any chosen directory;
+   -  Only an upper part of the similarity matrix is calculated, thus the 
+      computations for a set of n protens are done not for 
+      n*n but n*(n+1)/2 pairs;
+   -  Enabled a possibility to add extra proteins to already  processed 
+      set of proteins;
+   -  Added phylogenic tree analysis;
+   -  Added APBS electrostatic potential based analysis;
+   -  Added several auxiliary programs. 
+
+Version 2.0 and 3.0 was developed at EML Research gGmbH, Heidelberg, Germany.
+
+Version 1.0 was developed at EMBL, Heidelberg, Germany.
+
+

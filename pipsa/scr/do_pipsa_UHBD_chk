@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Checks if all atoms in pdb files can be assigned parameters in UHBD calculations
+#
+# - needs 3 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory 
+# $2 = pipsa_uhbd_dir  = the directory where UHBD calculation 
+#                        are already prepared by the script do_pipsa_UHBD_prep
+# $3 = uhbd_executable = location of uhbd executable
+#
+# - assumes uhbd readable pdb files in  pipsa_uhbd_dir/../pdbs/
+# - assumes that the file with protein names "names" generated  by the script do_pipsa_UHBD_prep or manually
+#
+# - will go to directory pipsa_uhbd_dir/ and check if all parameters for electrostatic calculations can be set
+
+cd $2/
+
+# run uhbd checks
+cp $1/data/qtable.dat ./
+for i in `cat names`
+do
+cp ../pdbs/$i.pdb dum.pdb
+$1/bin/uhbd < $1/data/uhbd_chk.in > $i.uhbd_chk.ou
+done
+rm dum.pdb
+grep 'No parameters set' *.uhbd_chk.ou
+

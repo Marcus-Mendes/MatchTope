@@ -1,0 +1,54 @@
+The parallelization done for pipsa is an external parallelization such that
+each command launched for a comparison is written to a makefile instead of 
+executing the command directly. The makefile then has the following structure:
+<Makefile>:
+all: collect
+clean:
+        rm *.log *.part collect
+1.sims.log:
+        @echo "DM_PLCGD_2 DM_PLCGD_2">1.sims.log.part
+        ../../../bin/2potsim_skin -g1 DM_PLCGD_2.grd -g2 DM_PLCGD_2.grd -p1 ../pdbs/DM_PLCGD_2.pdb -p2 ../pdbs/DM_PLCGD_2.pdb -pa parts -pr   3.000 -sk   4.000 >> 1.sims.log.part
+        @echo "HSORFV DM_PLCGD_2">>1.sims.log.part
+        ../../../bin/2potsim_skin -g1 HSORFV.grd -g2 DM_PLCGD_2.grd -p1 ../pdbs/HSORFV.pdb -p2 ../pdbs/DM_PLCGD_2.pdb -pa parts -pr   3.000 -sk   4.000 >> 1.sims.log.part
+        @echo "HSORFV HSORFV">>1.sims.log.part
+        ../../../bin/2potsim_skin -g1 HSORFV.grd -g2 HSORFV.grd -p1 ../pdbs/HSORFV.pdb -p2 ../pdbs/HSORFV.pdb -pa parts -pr   3.000 -sk   4.000 >> 1.sims.log.part
+        @echo "H_ABR DM_PLCGD_2">>1.sims.log.part
+        ../../../bin/2potsim_skin -g1 H_ABR.grd -g2 DM_PLCGD_2.grd -p1 ../pdbs/H_ABR.pdb -p2 ../pdbs/DM_PLCGD_2.pdb -pa parts -pr   3.000 -sk   4.000 >> 1.sims.log.part
+        touch 1.sims.log
+
+
+2.sims.log:
+        @echo "H_ABR HSORFV">2.sims.log.part
+        ../../../bin/2potsim_skin -g1 H_ABR.grd -g2 HSORFV.grd -p1 ../pdbs/H_ABR.pdb -p2 ../pdbs/HSORFV.pdb -pa parts -pr   3.000 -sk   4.000 >> 2.sims.log.part
+....
+include Makefile.alltargets
+<Makefile.alltargets>:
+collect: 1.sims.log 2.sims.log 3.sims.log 4.sims.log 5.sims.log 6.sims.log 7.sims.log 8.sims.log 9.sims.log 10.sims.log 11.sims.log 12.sims.log
+        @echo "#     9" > sims.log
+        ls *.log.part|sort -n -t .|xargs cat >> sims.log
+        touch collect
+
+
+
+This can now be parallelized using make -j <n> -k where n is the number of 
+processors to use for parallelization. The -k flag indicates that in case of an
+error all independant targets should be executed as much as possible. In case of an
+error one can fix the problem (eg. a missing input file) and simply call 
+make -j <n> -k again.
+
+The changes in the source code are exclusively in the file src/npotsim.f, such 
+that the resulting executable accepts an additional commandline option (-ma 10000).
+This option indicates the number of comparisions that should be put in one 
+target in the makefile. Depending on the number of expected comparisons a 
+reasonable number of targets would be between 100 and 200. Therefore for 1600
+proteins on expects approx 1.2 Mio. comparisons. Putting 10000 in one target results
+in  aprox. 130 Makefile targets. Running this on 4 processors results in 32 targets
+per processor.
+A sample launch to use parallel pipsa would be:
+../../../bin/npotsim -pg ../../../bin/2potsim_skin -fn names -lg sims.log -pr 3 -sk 4 -ma 10000 && make -j 4 -k 
+
+In addition to npotsim an additional mat2phyl.pl (mat2phyl40.pl) is provided. 
+The difference here is that this accepts protein names with length up to 40 
+char (same limit as for pipsa).
+
+To install the changes, simply copy over the directory in a standard pipsa distribution.

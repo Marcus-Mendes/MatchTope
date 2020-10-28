@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# pipsa 3.0 script
+# Prepares GRID calculations
+#
+# - needs 2 parameters: 
+# $1 = pipsa_distr_dir = pipsa distribution directory
+# $2 = pipsa_wrk_dir   = the directory for pipsa calculations, where 
+#                        grid readable pdb files are placed in gpdbs/ subdirectory
+#                        and pdb file list is in gpdbs/pdbnames
+# - assumes that pdb files are in pipsa_wrk_dir/gpdbs/
+# - will create directory pipsa_wrk_dir/grid and generate 2 files there:
+#   list of protein names "names" and the file "grid.in" for UHBD calculations
+#    and copy data files needed for GRID calculations
+
+cd $2/
+mkdir grid 
+cd grid
+
+# prepare the file with protein names
+cat ../gpdbs/pdbnames | cut -f1 -d"." > names
+
+# prepare the center information
+touch center.log; \rm center.log; touch center.log
+for i in `cat names`
+do
+$1/bin/ccenter < ../gpdbs/$i.pdb >> center.log
+done
+$1/bin/mkgridin -fg grid.in -pr PO4 < center.log
+cp $1/data/grin.in ./
+cp $1/data/grub.dat ./
+cp $1/data/k2a.in ./
+

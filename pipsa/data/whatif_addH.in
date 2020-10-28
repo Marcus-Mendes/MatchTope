@@ -1,0 +1,13 @@
+getmol u.pdb
+
+HBONDS
+HB2NET
+HB2MAK 
+
+uH.pdb 
+
+tot 
+0
+END
+END
+Y

@@ -1,0 +1,216 @@
+Software License Agreement
+
+
+between
+
+HITS gGmbH, Schloss-Wolfsbrunnenweg 33, 69118 Heidelberg, Germany 
+
+
+- hereinafter referred to as "Licensor"-
+
+and
+
+......................................
+......................................
+full company/institution name, address
+
+- hereinafter referred to as "Licensee"-
+
+HITS gGmbH represents both HITS gGmbH and the European Molecular Biology 
+Laboratory, Meyerhofstrasse 1, 69117 Heidelberg, Germany in this agreement as 
+both parties have developed parts of the software.
+
+1 Subject Matter of License Agreement
+
+The subject matter of this Agreement is the Software
+
+PIPSA version 4.0.2 
+
+i.e., the latest version available and released for distribution prior to 
+execution of this Agreement (hereinafter referred to as the "Software"). 
+
+
+2 Shipment
+1.
+Upon execution of the Agreement, the Software will be shipped electronically.
+
+2.
+Licensee will carry out the installation of the Software.
+
+
+
+
+3 License
+1.
+Licensor grants Licensee  the non-exclusive, indefinite right, not limited as 
+to territory, to use the Software subject to the provisions set forth below. 
+
+2.
+Licensee may use the Software only for its own non-commercial research at its 
+own facilities, departments, or institutes. In particular, Licensee shall not 
+allow any third party access to the Software for business or research purposes 
+of third parties.
+
+
+3.
+Licensee shall reproduce the Software only to such extent that is required for 
+the use of the Software in accordance with the terms of this Agreement. 
+Licensee shall make the necessary number of backup copies required for safe 
+operation based on the state of the art, provided, however, that they are 
+marked as backup copies and - to the extent that is technically feasible - 
+the copyright notice has been attached to them.
+
+5.
+Licensee will inform the Licensor about any modification made to the licensed 
+software.
+
+6.
+Licensee shall not grant any sub-licenses to the Software or transfer the 
+Software made available to it to any third party. Any use of the Software at a 
+computer center, for the provision of outsourcing or application service, 
+requires the express written consent of Licensor.
+
+
+4 Updates
+
+Upon request, Licensor shall supply Licensee with free updates of the major 
+version of the Software acquired by Licensee. The major version is specified by
+the first digit in the version number. The provisions governing the Software 
+shall apply to updates accordingly. The Licensor is under no obligation to make
+and release updates.
+
+
+5 License Fee
+1.
+
+In consideration of the provision of the Software and the license grant, 
+Licensee shall acquire the rights of use free of charge.
+
+6 Publicity and Exchange of Experience
+1.
+On its own website, Licensor may identify research projects of Licensee in 
+which the Software is used, and/or create links on its own website pointing to 
+the website of Licensee's project or institute.
+
+2.
+In publications of Licensee reporting on research projects in which the 
+Software is used, Licensee will properly cite by the following references and 
+the version number of the licensed software: 
+Blomberg, N., Gabdoulline,R.R., Nilges, M., Wade,R.C. Classification of protein
+sequences by homology modeling and quantitative analysis of electrostatic 
+similarity. Proteins (1999) 37, 379-387.
+Wade,R.C., Gabdoulline,R.R., De Rienzo, F. Protein Interaction Property 
+Similarity Analysis Intl. J. Quant. Chem. (2001) 83, 122-127.
+Gabdoulline RR, Stein M, Wade RC. qPIPSA: Relating enzymatic kinetic parameters
+and interaction fields. BMC Bioinformatics 2007, 8: 373
+
+
+7 Duty to Inspect and Notify of Defects
+
+If Licensee is a business person, it shall promptly inspect the Software after 
+receipt in accordance with 377 German Trade Code and notify Licensor of any 
+defects that are apparent during the inspection immediately after delivery, and
+of any hidden defects immediately after their discovery. Notice of defect shall
+be given in writing. Licensee shall describe the defect(s) in writing and as 
+specifically as possible, to the extent that it may be reasonably expected to 
+do so.
+
+
+8 Quality Defects and Defects of Title
+1.
+
+Licensor grants the use of Software on an as-is basis. If Software should have 
+defects or exhibit unexpected behavior, Licensor does not accept responsibility 
+for removing those defects. Licensor also does not accept any responsibility 
+for damages resulting from the use of Software.
+
+
+
+
+9 Liability
+1.
+Under this Agreement and outside the contract, Licensor shall be liable to 
+Licensee without restriction in case of willful wrongdoing or in the absence of 
+a warranted quality or durability, for gross negligence only in the amount of 
+the typical and foreseeable damages, and in other cases, only when a material 
+duty (cardinal duty) has been violated, and in such cases, limited to 
+compensation for the foreseeable and typical damages. In all other cases, 
+Licensor does not assume any liability.
+
+2.
+The liability of Licensor for personal injury and under the Product Liability 
+Act remains unaffected by the foregoing liability limitations and restrictions. 
+
+
+10 Statute of Limitations for Claims of Licensee
+1.
+Any claims of Licensee pursuant to 8 and 9 shall fall under the statute of 
+limitations after 1 (one) year, unless provided otherwise in this Agreement 
+(in particular  10 par. 5).
+
+2.
+In case of quality defects and defects of title, the limitations period shall 
+commence upon delivery of the Software, and in case of other claims for damages 
+or reimbursement of wasted expenditure, at such time when Licensee becomes 
+aware of the circumstances giving rise to the claim or should have become aware 
+of in the absence of gross negligence.
+
+3.
+Paragraphs 1 and 2 apply accordingly to claims regarding a refund of the 
+purchase price based on a rescission of contract or reduction of the purchase 
+price, provided, however, that the statute of limitations period shall be no 
+less than three (3) months from the date that an effective notice regarding 
+the rescission or reduction of purchase price has been given.
+
+4.
+In any event, the claims shall come under the statute of limitations no later 
+than upon expiration of the maximum periods set forth in 
+199 German Civil Code.
+
+5.
+Claims based on intentional wrongdoing or the grossly negligent conduct of 
+Licensor, or on a violation of a guarantee given by Licensor or on malice, and 
+claims based on personal injury (life, body, or health) or on the Product 
+Liability Act, shall be subject to the statutory statute of limitations periods.  
+
+11 Final Provisions
+1.
+This Agreement is governed by the law of the Federal Republic of Germany. 
+The application of the UN Convention on the Sale of Goods is excluded.
+
+
+2.
+The exclusive venue for all disputes arising from or in connection with this 
+Agreement is Heidelberg, Germany, when the Licensee is a business person, a 
+legal entity governed by public law, or a special fund governed by public law, 
+or does not have a general place of jurisdiction within the Federal Republic of
+Germany.
+
+3.
+This Agreement contains any agreements made between the parties and supersedes 
+any previous agreements. There are no oral collateral agreements. Modifications 
+and amendments of this Agreement must be in writing to be effective. The same 
+applies to a waiver of the mandatory written form requirement.
+
+4.
+If any provision of this Agreement is or should become invalid, or if the 
+agreement is incomplete, its remaining terms and provisions shall remain in 
+full force and effect. The invalid provision is deemed to have been replaced 
+with such a provision that economically and validly most closely matches the 
+meaning and purpose of the invalid provision. The same applies to a gap in 
+this Agreement.
+
+
+
+
+
+Heidelberg, this _______________
+
+
+HITS gGmbH
+
+______________, this ______________
+
+
+Full company/institution name of Licensee
+

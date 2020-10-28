@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.8 [en] (X11; U; Linux 2.4.25 i686) [Netscape]">
+  <title>Protein Interaction Property Similarity Analysis</title>
+</head>
+<body>
+<hr width="100%">
+<center>
+<p><b><font face="Arial,Helvetica"><font color="#ff0000"><font size="+1">Example
+of the usage of the program.<br>
+PH domains</font></font></font></b></p>
+</center>
+<hr width="100%">
+<br>
+<b><font face="Arial,Helvetica"><font color="#000000"><a href="#run">Running
+the usage example</a></font></font></b>
+<p><b><font face="Arial,Helvetica"><a href="#test">Testing similarity
+calculations
+with already computed interaction fields</a></font></b>
+</p>
+<p><b><font face="Arial,Helvetica"><a href="#pdb">How to prepare
+pdb/pqr
+files</a></font></b>
+<br>
+&nbsp;
+</p>
+<p></p>
+<hr width="100%"><br>
+<font face="Arial,Helvetica"><font color="#000000">9 protein models
+of PH domains are compared on the basis of their electrostatic
+potentials.&nbsp;
+This is a subset of the 104 PH domains analyzed in the paper <sup><a
+ href="references.html#blomberg">1</a></sup>.&nbsp;
+PIPSA performs an automated comparison, from which it is clear that
+there
+are 2 clusters, one formed by proteins having a mostly positive
+potential,
+and the other formed by proteins having negative potentials.&nbsp; In
+this
+case, this classification could be done by simply looking at <a
+ href="potentials.html">electrostatic
+potential contours</a>.&nbsp; However, PIPSA does the classification in
+an automated, objective and quantitative fashion, and allows more
+subtle
+classification, as found amongst the full 104 domain dataset <sup><a
+ href="references.html#blomberg">1</a></sup>.
+Indeed, PIPSA shows that for this 9 protein model example, the cluster
+of proteins having positive potentials can be further divided into two
+subclusters.</font></font>
+<p></p>
+<hr width="100%"><br>
+<a name="run"></a><b><font face="Arial,Helvetica"><font color="#000000">Running
+the usage example:</font></font></b>
+<p><font face="Arial,Helvetica"><font color="#000000">Given that all
+programs
+to use in conjunction with PIPSA are available, running the usage
+example
+can be done by 1 meta script using PIPSA's low level scripts.&nbsp; For
+this example and for the local installations in my own computer this
+script
+looks like <a href="../exa/PHR/do_PHR_com">this</a>.&nbsp;
+You need to adjust your local assignments and skip the calculations you
+can not do due to absence of the programs&nbsp; to use in conjunction
+with
+PIPSA.&nbsp; Below is the detailed description of all PIPSA calculation
+steps.</font></font>
+</p>
+<p><font face="Arial,Helvetica"><b>-1.&nbsp;&nbsp; </b>Uncompress and
+untar
+pipsa distribtion package ( gunzip -c pipsa.tar.gz&nbsp; | tar xvf - ).
+This will give you pipsa distribution directory pipsa/ .&nbsp; Chdir
+here
+and note the directory name (using pwd) - this directory will be
+mentioned
+below as $pipsa_distr_dir, i.e. all occurencies of&nbsp;
+$pipsa_distr_dir
+below should be replaced by this directory path.&nbsp; (Under Linux,
+you can define </font>an environmental variable
+<font face="Arial,Helvetica">pipsa_distr_dir as the path to the
+distribution directory, then the command lines below can be typed in
+(or pasted) as they appear.)<br>
+<br>
+</font><font face="Arial,Helvetica"><b>Note.</b>&nbsp;&nbsp;&nbsp;
+Executables
+in the distribution were compiled under Linix (see the file Makefile in
+src/ subirectory) and you might need to recompile them in order to
+adjust
+to your OS (see <a href="installation.html">Installation instructions</a>)
+.</font>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000"><b>0.</b>&nbsp;
+Unzip
+the files needed to run the usage example from </font>$pipsa_distr_dir/exa/PH.zip
+to any directory.&nbsp; This will give you the subdirectory PH.&nbsp;
+Chdir
+there and note the directory name (using pwd) - this directory will be
+mentioned below as $pipsa_wrk_dir, i.e. all occurencies of&nbsp;
+$pipsa_wrk_dir
+below should be replaced by this directory path).&nbsp; This directory
+has the pdb files of proteins and the listings of pdb file names,
+needed
+for running PIPSA scripts.</font>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000"><b>1.&nbsp; </b>Type
+</font>(from
+any directory)</font>
+<br>
+<tt><font color="#000000">$pipsa_distr_dir/scr/do_pipsa_analyt_sim&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/pdbs/</font></tt>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">This will generate
+similarity matrix, distance matrix and its visualisation as a kenemage
+in the directory $</font></font><tt><font color="#000000"><span
+ style="font-family: arial,helvetica;"></span></font></tt><font
+ face="Arial,Helvetica"><font color="#000000">pipsa_wrk_dir/pdbs/ .</font></font>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000"><b>2.1.&nbsp;</b>
+If you have <a href="http://adrik.bchs.uh.edu/uhbd.html">UHBD</a>
+installed
+and its executable with its path is $path_to_uhbd_exe then you can
+compute
+UHBD grids and perform similarity analysis using electrostatic
+potential
+computed by UHBD running the following:</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_UHBD_prep&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_UHBD_grids&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/uhbd/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">path_to_uhbd_exe</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_sim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/uhbd/</font></tt>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000"><b>2.2.&nbsp;</b>
+If you have <a href="http://agave.wustl.edu/apbs/">APBS</a> installed
+and
+its executable with its path is $path_to_apbs_exe then you can compute
+APBS
+grids and perform similarity analysis using electrostatic potential
+computed
+by APBS running the following:</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_APBS_prep&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_APBS_grids&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/apbs/&nbsp;&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">path_to_apbs_exe</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_sim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/apbs/</font></tt>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000"><b>2.3.&nbsp;</b>
+If you have <a href="http://www.moldiscovery.com/soft_grid.php">GRID</a>
+installed and its executables grin, grid and k2a can be found in
+$path_to_grid_bin
+then you can compute GRID grids and perform similarity analysis using
+interaction
+field computed by GRID running the following:</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_GRID_prep&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_GRID_grids&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/grid/&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">path_to_grid_bin/</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_sim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/grid/</font></tt>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000">The result of
+these
+steps will be the similarity matrix (sims.log), distance matrix
+(sims.mat)
+based on (dis)similarity and kinemage representation of distribution of
+proteins in 3D (sims.kin)</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/pdbs/sims.log,
+sims.mat,
+sims.kin</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/uhbd/sims.log,
+sims.mat,
+sims.kin</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/apbs/sims.log,
+sims.mat,
+sims.kin</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk_dir/grid/sims.log,
+sims.mat,
+sims.kin</font></tt>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000">Compare these
+with
+precomputed results in pipsa distribution:</font></font>
+</p>
+<p><tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/exa/PHR/pdbs/<a
+ href="../exa/PHR/pdbs/sims.log">sims.log</a>,
+<a href="../exa/PHR/pdbs/sims.mat">sims.mat</a>,
+<a href="../exa/PHR/pdbs/sims.kin">sims.kin</a></font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/exa/PHR/uhbd/<a
+ href="../exa/PHR/uhbd/sims.log">sims.log</a>,
+<a href="../exa/PHR/uhbd/sims.mat">sims.mat</a>,
+<a href="../exa/PHR/uhbd/sims.kin">sims.kin</a></font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/exa/PHR/apbs/<a
+ href="../exa/PHR/apbs/sims.log">sims.log</a>,
+<a href="../exa/PHR/apbs/sims.mat">sims.mat</a>,
+<a href="../exa/PHR/apbs/sims.kin">sims.kin</a></font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/exa/PHR/grid/<a
+ href="../exa/PHR/grid/sims.log">sims.log</a>,
+<a href="../exa/PHR/grid/sims.mat">sims.mat</a>,
+<a href="../exa/PHR/grid/sims.kin">sims.kin</a></font></tt>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000">If you have <a
+ href="http://kinemage.biochem.duke.edu/">Mage</a>
+installed, you can visulaize representation of how the proteins can be
+distributed in three dimensions on the basis of their interaction
+potential
+similarity opening by Mage the files sims.kin</font></font>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000">If you have <a
+ href="http://neon.chem.le.ac.uk/nmrclust/">NMRCLUST</a>
+installed, you can cluster proteins on the basis of their interaction
+potential
+similarity using the files sims.mat .&nbsp; </font>For that, after
+executing
+nmrclust, answer "no" to the question "Use a PDB file for input?", and
+enter sims.mat as a Matrix filename.</font>
+</p>
+<p><font face="Arial,Helvetica"><font color="#000000"><b>3.</b> If you
+have <a href="http://evolution.genetics.washington.edu/phylip.html">Phylip
+package</a> installed and its executables can be found in
+$path_to_phylip_bin
+then you can generate phylogenic trees from interaction field
+similarities
+by executing one of the followings:</font></font>
+</p>
+<p><tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_phylip&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/pdbs/&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">path_to_phylip_bin</font></tt>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">or</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_phylip&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/uhbd/&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">path_to_phylip_bin</font></tt>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">or</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_phylip&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/apbs/&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">path_to_phylip_bin</font></tt>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">or</font></font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_phylip&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/grid/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">path_to_phylip_bin</font></tt>
+</p>
+<p><font face="Arial,Helvetica">The results of this step are phylogenic
+tree or diagram in the files (for example)</font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/exa/PHR/uhbd/</font><a
+ href="../exa/PHR/uhbd/phylip_tree.ps">phylip_tree.ps</a></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/exa/PHR/uhbd/</font><a
+ href="../exa/PHR/uhbd/phylip_gram.ps">phylip_gram.ps</a></tt>
+<br>
+&nbsp;
+</p>
+<p></p>
+<hr width="100%"><br>
+<a name="test"></a><b><font face="Arial,Helvetica">Testing similarity
+calculations with already computed interaction fields</font></b>
+<p><font face="Arial,Helvetica">If you do not have any of UHBD, APBS or
+GRID programs, you can test similarity calculations by pipsa
+downloading
+interaction potential grid files for this example.&nbsp; Note that the
+binary grid files are generated under Linux and may be not readable
+under
+other OS-s.</font>
+</p>
+<p><font face="Arial,Helvetica">Download tarfile with grids and pdbs <a
+ href="http://projects.villa-bosch.de/mcmsoft/pipsa/2.0/download/examples/PHR_grids_linux.tar">here</a>
+(30 MB file) and untar it - the subdirectory PHR will appear and will
+contain
+grid and pdb files needed for similarity calculation.&nbsp; Chdir there
+and note the directory name (using pwd) - this directory will be
+mentioned
+below as $pipsa_wrk2_dir, i.e. all occurencies of&nbsp; $pipsa_wrk2_dir
+below
+should be replaced by this directory path).</font>
+<br>
+<font face="Arial,Helvetica">Run</font> :
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_sim&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk2_dir/uhbd/</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_sim&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">pipsa_wrk2_dir/apbs/</font></tt>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr/do_pipsa_sim&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk2_dir/grid/</font></tt>
+</p>
+<p><font face="Arial,Helvetica">The results of pipsa similarity
+analysis
+can now be found in the files sims.log, sims.mat and sims.kin in </font>pipsa_wrk2_dir<font
+ face="Arial,Helvetica">/uhbd,
+apbs, or grid.</font>
+</p>
+<p></p>
+<hr width="100%"><br>
+<a name="pdb"></a><b><font face="Arial,Helvetica">How to prepare
+pdb/pqr
+files</font></b>
+<p><font face="Arial,Helvetica">pdb and pqr files for this example are
+already prepared - subdirectory pdbs/ has UHBD readable pdb files,
+gpdbs/
+- GRID radable pdb files and pqs/ - APBS readable pqr files.&nbsp;
+Original
+pdb files without any hydrogens are in subdirectory opdbs/ and, in
+principle,
+only they are needed.</font>
+</p>
+<p><font face="Arial,Helvetica"><b>1.&nbsp;</b>&nbsp; If you have <a
+ href="http://www.cmbi.kun.nl/whatif/">WHATIF</a>
+installed and path to its executable is $path_to_whatif_exe, then you
+can
+generate UHBD readable files using the script do_pipsa_WHATIF :</font>
+<br>
+<tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/scr</font>/do_pipsa_WHATIF&nbsp;&nbsp;&nbsp;
+</tt><tt><font color="#000000">$</font></tt><tt><font color="#000000">pipsa_distr_dir/&nbsp;&nbsp;&nbsp;&nbsp;
+</font></tt><tt><font color="#000000">$</font></tt><tt><font
+ color="#000000">pipsa_wrk_dir/&nbsp;&nbsp;&nbsp;&nbsp; </font></tt><tt><font
+ color="#000000">$</font></tt><tt><font color="#000000">p</font>ath_to_whatif_exe</tt>
+<br>
+<font face="Arial,Helvetica">this will make a directory <font
+ color="#000000">$pipsa_wrk_dir/whatif
+, generate and put there UHBD readable pdb files.</font></font>
+<br>
+<font face="Arial,Helvetica"><font color="#000000">N.B. This script
+was tested on Whatif version 19991018-1516 and should work with
+compatible
+versions of Whatif, working with gromos 87 / opls polar
+hydrogens.&nbsp;
+It won't work with Whatif (version 5) generating gromos 96 polar
+hydrogens.</font></font>
+<br>
+<font face="Arial,Helvetica"><font color="#000000"><b>2.&nbsp; </b>PQR
+files for APBS run can be optained from <a
+ href="http://nbcr.sdsc.edu/pdb2pqr/">PDB2PQR</a>
+server .&nbsp; For this example these files were generated from uhbd
+output
+files running <a href="../scr/do_pipsa_UHBD_chk">scr/do_pipsa_UHBD_chk</a>
+and <a href="../aux/do_pipsa_uho2pqr">aux/do_pipsa_uho2pqr</a> .</font></font>
+</p>
+<p></p>
+<hr width="100%">
+<p><i><a href="mailto:razif.gabdoulline@eml-r.villa-bosch.de">Razif
+Gabdoulline</a>, 2007 </i>
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<ol>
+&nbsp;
+</ol>
+</body>
+</html>
