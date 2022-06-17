@@ -12,5 +12,6 @@ MatchTope is a tool developed for predicting peptide similarity, which can trigg
 - Put your pdb files into the PDBs folder. It already has three files that can be used to test the tool.
 - In your terminal, run 'bash run_pipsa.sh'.
 - When it finishes, it will generate a pdf file called Results.pdf in the same folder of run_pipsa.sh.
+- There is a file called 'Results_example.pdf'. It is an output from the three PDBs examples in the PDBs folder.
 
 
