@@ -2,7 +2,7 @@
 MatchTope is a tool developed for predicting peptide similarity, which can trigger cross-reactivity events, by computing and analyzing the electrostatic potentials of pMHC complexes.
 
 # Requirements:
-python 3.7 version or higher
+python 3.7 version or higher /n
 R version 3.6.3 or higher
 pvclust (R package) version 2.2-0 or higher
 Pymol version 2.5.2 or higher
