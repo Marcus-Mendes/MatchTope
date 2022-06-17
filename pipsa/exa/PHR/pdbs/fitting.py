@@ -24,12 +24,37 @@ os.chdir(pwd)
 cmd = pymol.cmd
 for file in glob.glob("*.pdb"):
 	open(file)
-	os.rename(file, "target.dump")
-	cmd.load ("target.dump")
-	cmd.load ("modelo.txt")	
+	os.rename(file, "target.pdb")
+	os.rename("modelo.txt", "modelo.pdb")
+	cmd.load ("target.pdb")
+	cmd.load ("modelo.pdb")	
 	cmd.align('target', 'modelo', cutoff=10.0, cycles=5, gap=-10.0, extend=-0.5, max_gap=50, object=None, matrix='BLOSUM62', mobile_state=0, target_state=0, quiet=1, max_skip=0, transform=1, reset=0)
-	cmd.save ("target_fit", "target", -1)
-	os.rename("target_fit", file)
-	os.system("rm target.dump")
+	cmd.save ("target_fit.pdb", "target", -1)
+	os.rename("target_fit.pdb", file)
+	os.system("rm target.pdb")
+	os.rename("modelo.pdb", "modelo.txt")
 	cmd.reinitialize()
 	
+for pdbs in glob.glob("*.pdb"):
+	updated_data = ''
+	# opening the file
+	with open(pdbs, 'r+') as file:
+	    # read the file content
+	    file_content = file.readlines()
+
+	    # iterate over the content
+	    for line in file_content:
+
+	        # removing last word
+	        updated_line = ' '.join(line.split(' ')[:-5])
+
+	        # appending data to the variable
+	        updated_data += f'{updated_line}\n'
+
+	    # removing the old data
+	    file.seek(0)
+	    file.truncate()
+
+	    # writing the new data
+	    file.write(updated_data)
+

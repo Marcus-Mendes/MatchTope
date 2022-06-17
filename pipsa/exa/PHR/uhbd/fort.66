@@ -2,26 +2,26 @@
 
  Grid 1 file reading now... wait...
 grid dimensions:   65. 65. 65  spacing:   1.500
-grid origin: -13.145  -8.800 -10.925
+grid origin: -13.129  -8.789 -10.845
 
  Constructing fitting region...
-No of atoms used for excl grid       :  4111
-No of points assigned value 1        : 13124
-No of atoms used for prot 1 excl+skin grid:  4111
-No of points assigned value 1             :136362
+No of atoms used for excl grid       :  4118
+No of points assigned value 1        : 13118
+No of atoms used for prot 1 excl+skin grid:  4118
+No of points assigned value 1             :136345
 A cross section of excl. grid of pr. #1, xOy plane
 
                                                                  
                                                                  
                                                                  
                                                                  
-                                                                 
-                  xxxxxxxxxxxxxxx                                
-                xxxxxxxxxxxxxxxxxxxx                             
-              xxxxxxxxxxxxxxxxxxxxxxxx                           
+                      x                                          
+                 xxxxxxxxxxxxxxx                                 
+               xxxxxxxxxxxxxxxxxxxx                              
+              xxxxxxxxxxxxxxxxxxxxxxxxx                          
              xxxxxxxxxxxxxxxxxxxxxxxxxxxx                        
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                      
-           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                     
+           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                    
           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                  
           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                 
          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx               
@@ -30,76 +30,76 @@ A cross section of excl. grid of pr. #1, xOy plane
       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx            
    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx           
    xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx          
    xxxxxxxxxxxxxxxxxxxx   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
    xxxxxxxxxxxxxxxxxxxx   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx        
-  xxxxxxxxxxxxxxxxxxxx  xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx       
+   xxxxxxxxxxxxxxxxxxx  x  xx xxxxxxxxxxxxxxxxxxxxxxxxxxxx       
   xxxxxxxxxxxxxxxxxxx  x   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx       
-  xxxxxxxxxxxxxxxxxx   x    xxxxxxxxx  xxxxxxxxxxxxxxxxxxxx      
-  xxxxxxxxxxxxxxxxx          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
+  xxxxxxxxxxxxxxxxxx   xx   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
+   xxxxxxxxxxxxxxxx      x   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
    xxxxxxxxxxxxxxxxx      x  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
-   xxxxxxxxxxxxxxxxx         xxxxxxxxxx  xxxxxxxxxxxxxxxxxxx     
-   xxxxxxxxxxxxxxxxxxx  x xx xxxxxx xxx xxxxxxxxxxxxxxxxxxxxx    
-   xxxxxxxxxxxxxx  xxxx xxxx xxxxx  xx xxxxxxxxxxxxxxxxxxxxxx    
-   xxxxxxxxxxxxxxx xxxxxxxxxxxxx   xx   x  xxxxxxxxxxxxxxxxxx    
+   xxxxxxxxxxxxxxxxx         xxxxxxxxxx xxxxxxxxxxxxxxxxxxxx     
+   xxxxxxxxxxxxxxx xxx  x xx xxxxxx  xx xxxxxxxxxxxxxxxxxxxxx    
+   xxxxxxxxxxxxxxx xxxxxxxxx xxxxxx x  xx xxxxxxxxxxxxxxxxxxx    
+   xxxxxxxxxxxxxxxxxxxxxxxxxxxxx   xx   x   xxxxxxxxxxxxxxxxxx   
    xxxxxxxxxxxxxxxxxxxxxxxxxxxx    x x  x   xxxxxxxxxxxxxxxxxx   
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxx              xxxxxxxxxxxxxxxx   
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxxx    xx       xxxxxxxxxxxxxxxx   
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxx      x       xxxxxxxxxxxxxxxx   
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxx    x        xxxxxxxxxxxxxxxx   
     xxxxxxxxxxxxxxxxxxxxxxxxx   x  x          xxxxxxxxxxxxxxxx   
-     xxxxxxxxxxxxxxxxxxxxxxxx      x      xx   xxxxxxxxxxxxxxx   
-     xxxxxxxxxxxxxxxxxxxxxxxx       x  x xx x  xxxxxxxxxxxxxxx   
-      xxxxxxxxxxxxxxxxxxxxxxx  x      xxxx   x xxxxxxxxxxxxxx    
-      xxxxxxxxxxxxxxxxxxxxxxx    xxx     xx  xxxxxxxxxxxxxxxx    
-      xxxxxxxxxxxxxxxxxxxxxxxxx  xxxx    xx  xxxxxxxxxxxxxxxx    
+     xxxxxxxxxxxxxxxxxxxxxxxx   x  x      xx   xxxxxxxxxxxxxxx   
+     xxxxxxxxxxxxxxxxxxxxxxxx       x  x x     xxxxxxxxxxxxxxx   
+      xxxxxxxxxxxxxxxxxxxxxxx   x   xxx  x   xxxxxxxxxxxxxxxx    
+      xxxxxxxxxxxxxxxxxxxxxxx    xxxxx   x   xxxxxxxxxxxxxxxx    
+       xxxxxxxxxxxxxxxxxxxxxxxx  xxxx   xxx  xxxxxxxxxxxxxxxx    
        xxxxxxxxxxxxxxxxxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxx    
        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
+             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx       
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx        
+              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx       
                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx        
+               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
-                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx          
+                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx          
                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx           
                     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx            
                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
                        xxxxxxxxxxxxxxxxxxxxxxxxxxxx              
                          xxxxxxxxxxxxxxxxxxxxxxxx                
-                             xxxxx       xxxxx                   
+                           xxxxxxxx     xxxxxx                   
                                                                  
                                                                  
 
 
  Grid 2 file reading now... wait...
 grid dimensions:   65. 65. 65  spacing:   1.500
-grid origin: -13.145  -8.800 -10.925
+grid origin: -13.129  -8.789 -10.845
 
  Constructing fitting region...
-No of atoms used for excl grid       :  4111
-No of points assigned value 1        : 13124
-No of atoms used for prot 1 excl+skin grid:  4111
-No of points assigned value 1             :136362
+No of atoms used for excl grid       :  4118
+No of points assigned value 1        : 13118
+No of atoms used for prot 1 excl+skin grid:  4118
+No of points assigned value 1             :136345
 A cross section of excl. grid of pr. #1, xOy plane
 
                                                                  
                                                                  
                                                                  
                                                                  
-                                                                 
-                  xxxxxxxxxxxxxxx                                
-                xxxxxxxxxxxxxxxxxxxx                             
-              xxxxxxxxxxxxxxxxxxxxxxxx                           
+                      x                                          
+                 xxxxxxxxxxxxxxx                                 
+               xxxxxxxxxxxxxxxxxxxx                              
+              xxxxxxxxxxxxxxxxxxxxxxxxx                          
              xxxxxxxxxxxxxxxxxxxxxxxxxxxx                        
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                      
-           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                     
+           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                    
           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                  
           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                 
          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx               
@@ -108,57 +108,57 @@ A cross section of excl. grid of pr. #1, xOy plane
       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx            
    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx           
    xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx          
    xxxxxxxxxxxxxxxxxxxx   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
    xxxxxxxxxxxxxxxxxxxx   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx        
-  xxxxxxxxxxxxxxxxxxxx  xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx       
+   xxxxxxxxxxxxxxxxxxx  x  xx xxxxxxxxxxxxxxxxxxxxxxxxxxxx       
   xxxxxxxxxxxxxxxxxxx  x   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx       
-  xxxxxxxxxxxxxxxxxx   x    xxxxxxxxx  xxxxxxxxxxxxxxxxxxxx      
-  xxxxxxxxxxxxxxxxx          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
+  xxxxxxxxxxxxxxxxxx   xx   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
+   xxxxxxxxxxxxxxxx      x   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
    xxxxxxxxxxxxxxxxx      x  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
-   xxxxxxxxxxxxxxxxx         xxxxxxxxxx  xxxxxxxxxxxxxxxxxxx     
-   xxxxxxxxxxxxxxxxxxx  x xx xxxxxx xxx xxxxxxxxxxxxxxxxxxxxx    
-   xxxxxxxxxxxxxx  xxxx xxxx xxxxx  xx xxxxxxxxxxxxxxxxxxxxxx    
-   xxxxxxxxxxxxxxx xxxxxxxxxxxxx   xx   x  xxxxxxxxxxxxxxxxxx    
+   xxxxxxxxxxxxxxxxx         xxxxxxxxxx xxxxxxxxxxxxxxxxxxxx     
+   xxxxxxxxxxxxxxx xxx  x xx xxxxxx  xx xxxxxxxxxxxxxxxxxxxxx    
+   xxxxxxxxxxxxxxx xxxxxxxxx xxxxxx x  xx xxxxxxxxxxxxxxxxxxx    
+   xxxxxxxxxxxxxxxxxxxxxxxxxxxxx   xx   x   xxxxxxxxxxxxxxxxxx   
    xxxxxxxxxxxxxxxxxxxxxxxxxxxx    x x  x   xxxxxxxxxxxxxxxxxx   
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxx              xxxxxxxxxxxxxxxx   
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxxx    xx       xxxxxxxxxxxxxxxx   
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxx      x       xxxxxxxxxxxxxxxx   
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxx    x        xxxxxxxxxxxxxxxx   
     xxxxxxxxxxxxxxxxxxxxxxxxx   x  x          xxxxxxxxxxxxxxxx   
-     xxxxxxxxxxxxxxxxxxxxxxxx      x      xx   xxxxxxxxxxxxxxx   
-     xxxxxxxxxxxxxxxxxxxxxxxx       x  x xx x  xxxxxxxxxxxxxxx   
-      xxxxxxxxxxxxxxxxxxxxxxx  x      xxxx   x xxxxxxxxxxxxxx    
-      xxxxxxxxxxxxxxxxxxxxxxx    xxx     xx  xxxxxxxxxxxxxxxx    
-      xxxxxxxxxxxxxxxxxxxxxxxxx  xxxx    xx  xxxxxxxxxxxxxxxx    
+     xxxxxxxxxxxxxxxxxxxxxxxx   x  x      xx   xxxxxxxxxxxxxxx   
+     xxxxxxxxxxxxxxxxxxxxxxxx       x  x x     xxxxxxxxxxxxxxx   
+      xxxxxxxxxxxxxxxxxxxxxxx   x   xxx  x   xxxxxxxxxxxxxxxx    
+      xxxxxxxxxxxxxxxxxxxxxxx    xxxxx   x   xxxxxxxxxxxxxxxx    
+       xxxxxxxxxxxxxxxxxxxxxxxx  xxxx   xxx  xxxxxxxxxxxxxxxx    
        xxxxxxxxxxxxxxxxxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxx    
        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
+             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx      
              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx       
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx        
+              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx       
                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx        
+               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
-                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx          
+                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx          
                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx           
                     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx            
                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx             
                        xxxxxxxxxxxxxxxxxxxxxxxxxxxx              
                          xxxxxxxxxxxxxxxxxxxxxxxx                
-                             xxxxx       xxxxx                   
+                           xxxxxxxx     xxxxxx                   
                                                                  
                                                                  
 
   24.590  41.072  55.891  33.621   1.849   4.938  25.000
-rearrangement routine, grid origin: -13.145  -8.800 -10.925
-rearrangement routine, grid minmax: -0.475E+05  0.000E+00
-rearrangement routine, grid minmax: -0.475E+05  0.000E+00
+rearrangement routine, grid origin: -13.129  -8.789 -10.845
+rearrangement routine, grid minmax: -0.474E+05  0.000E+00
+rearrangement routine, grid minmax: -0.474E+05  0.000E+00
 grid dimensions:   65. 65. 65  spacing:   1.500
-grid origin: -13.145  -8.800 -10.925
- No of points on skin:       13899
+grid origin: -13.129  -8.789 -10.845
+ No of points on skin:       13860

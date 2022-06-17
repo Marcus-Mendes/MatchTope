@@ -291,7 +291,7 @@ sub generateHeatMap() {
 	foreach $dist_method (@dist_methods) {			# bug: array only contains one entry, either "root" or "asis"
                 print STDERR "Using distance: '$dist_method'\n";
 		foreach $clust_method (@clust_methods) {	# bug: array only contains one entry, "ward"
-                        print STDERR "Using clustering method '$clust_method'\n";
+                       print STDERR "Using clustering method '$clust_method'\n";
 			print RSCRIPT "x=as.matrix(read.table(\"$opt_m\"))\n";
 			print RSCRIPT "write.csv(x, file='table.csv')\n";
 #			my $title='expression(paste("Electrostatic Distance (",D[list(a,b)]==sqrt(2-2*SI[list(a,b)]),")" sep=""))' ; #"\"$opt_h clust. method: $clust_method,$dist_method sim. index: $type, no. cluster: ${opt_n}\"";
@@ -307,6 +307,7 @@ sub generateHeatMap() {
 						$title = "\"Exp average electrostatic potential difference\"";
 		  			}
 				}
+			print RSCRIPT "results <- pvclust(order, method.hclust='average', method.dist='cor', nboot=1000, parallel=FALSE)\n";
 			} elsif ($dist_method ne 'root') {
 				$title = "\"Electrostatic Distance $dist_method\"";
 				if ($dist_method eq 'minkowski_p2') {
@@ -340,9 +341,6 @@ sub generateHeatMap() {
 			}
 			print RSCRIPT "x.clust.colors=1:ncol(x)\n";
 			print RSCRIPT "order=order.dendrogram(x.dend)\n";
-			print RSCRIPT "results <- pvclust(x, method.hclust=\"$clust_method\", method.dist='correlation')\n";
-			print RSCRIPT "plot(results)\n";
-			print RSCRIPT "pvrect(results, alpha=0.95)\n";
 			print RSCRIPT "for(count in 1:ncol(x)) {\n";
 			print RSCRIPT "   x.clust.colors[count]=x.clust.coltypes[x.clust.members[count]]\n";
 			print RSCRIPT "}\n";
@@ -380,6 +378,9 @@ sub generateHeatMap() {
 			print RSCRIPT "rm(x)\n";
 		}
 	}
+	print RSCRIPT "results <- pvclust(read.table(\"$opt_m\"), method.hclust='complete', method.dist='cor', nboot=10000, parallel=FALSE)\n";
+	print RSCRIPT "plot(results)\n";
+	print RSCRIPT "output <- pvrect(results, alpha=0.97)\n";
 	print RSCRIPT "dev.off()\n";
 	close (RSCRIPT);
 #	print STDERR `R --vanilla < heatmap.R`;

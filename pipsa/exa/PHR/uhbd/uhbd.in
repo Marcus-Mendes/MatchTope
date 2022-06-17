@@ -17,9 +17,9 @@ assign yc     =  0.000 end
 assign zc     =  0.000 end
  
 ! The end of assignments
-assign xc =   36.355 end
-assign yc =   40.700 end
-assign zc =   38.575 end
+assign xc =   36.371 end
+assign yc =   40.711 end
+assign zc =   38.655 end
 assign ios =   50.000 end
 ! The end of re-assignments
  

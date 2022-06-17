@@ -28,7 +28,7 @@ based on similarities of their interaction fields.
 original distance matrix.  Accuracy may be measured
 by similarity of the original matrix to the matrix
 derived from 3D distribution; Hodgkin index of this
-similarity is :    0.540
+similarity is :      NaN
 (more accurate means this index close to 1.000)
 @onewidth
 @matrix
@@ -36,7 +36,7 @@ similarity is :    0.540
 @viewid {x y}
 @2zoom 1.0
 @2zslab 2
-@2center   0.147   0.068   0.054
+@2center   0.140   0.048     NaN
 @2matrix
 1 0 0   0 0 1  0 -1 0
 @2viewid {x z}
@@ -46,7 +46,6 @@ similarity is :    0.540
 @3viewid {z y}
 @group {ALL}
 @balllist {ALL} color= white radius= 0.008
-{  1 A0201-IAPHQISSV_pMHC }   0.177   0.225  -0.000
-{  2 A0201-LLAVLTAAP_pMHC }   0.293   0.000  -0.000
-{  3 A0201-MILLVLVSA_pMHC }   0.116   0.046   0.215
-{  4 A0201-TLAGKGISV_pMHC }   0.000  -0.000  -0.000
+{  1 FLFGEPKRL }   0.268   0.000Infinity
+{  2 FLWGPRAHA }   0.153   0.144Infinity
+{  3 GLLFMILTV }   0.000   0.000     NaN

@@ -36,7 +36,7 @@ similarity is :      NaN
 @viewid {x y}
 @2zoom 1.0
 @2zslab 2
-@2center   0.106     NaN     NaN
+@2center   0.092   0.013     NaN
 @2matrix
 1 0 0   0 0 1  0 -1 0
 @2viewid {x z}
@@ -46,7 +46,6 @@ similarity is :      NaN
 @3viewid {z y}
 @group {ALL}
 @balllist {ALL} color= white radius= 0.008
-{  1 A0201-IAPHQISSV_pMHC }   0.141Infinity     NaN
-{  2 A0201-LLAVLTAAP_pMHC }   0.141Infinity     NaN
-{  3 A0201-MILLVLVSA_pMHC }   0.141Infinity     NaN
-{  4 A0201-TLAGKGISV_pMHC }   0.000     NaN     NaN
+{  1 FLFGEPKRL }   0.148   0.000Infinity
+{  2 FLWGPRAHA }   0.128   0.040Infinity
+{  3 GLLFMILTV }   0.000   0.000    -Inf

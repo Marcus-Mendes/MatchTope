@@ -2,18 +2,18 @@
 
 # assign local directories 
 
-pipsa_distr_dir=/home/marcus/Downloads/sw/pipsa
-pipsa_wrk_dir=/home/marcus/Downloads/sw/pipsa/exa/PHR
+pipsa_distr_dir=$PWD/../..
+pipsa_wrk_dir=$PWD
 export pipsa_distr_dir
 export pipsa_wrk_dir
 
 
 # assign local executables 
 
-path_to_grid_bin=/sw/mcm/app/grid/grid22a_linux/
-path_to_uhbd_exe=/home/marcus/Downloads/sw/pipsa/uhbd/uhbd065
-path_to_apbs_exe=/usr/bin/apbs
-path_to_phylip_bin=/sw/mcm/app/phylip/bin.linux/
+path_to_grid_bin=$PWD/../../app/grid/grid22a_linux/
+path_to_uhbd_exe=$PWD/../../uhbd/uhbd065
+path_to_apbs_exe=$PWD/../../apbs
+path_to_phylip_bin=/$PWD/pipsa/app/phylip/bin.linux/
 export path_to_uhbd_exe
 export path_to_grid_bin
 export path_to_apbs_exe
@@ -30,7 +30,9 @@ $pipsa_distr_dir/scr/do_pipsa_UHBD_prep $pipsa_distr_dir/ $pipsa_wrk_dir/
 $pipsa_distr_dir/scr/do_pipsa_UHBD_grids $pipsa_distr_dir/ $pipsa_wrk_dir/uhbd/ $path_to_uhbd_exe
 $pipsa_distr_dir/scr/do_pipsa_sim $pipsa_distr_dir/ $pipsa_wrk_dir/uhbd/
 # results in the directory $pipsa_wrk_dir/uhbd/
-
+cd $pipsa_wrk_dir/../
+tar cvf PHR_grids_linux.tar PHR/*/names PHR/*/*.grd PHR/pdbs/*.pdb PHR/pdbs/pdbnames
+\rm -f PHR/*/*.grd
 exit
 # APBS electrostatic similarity calculations
 
