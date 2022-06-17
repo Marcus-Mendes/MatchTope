@@ -2,18 +2,18 @@
 
 # assign local directories 
 
-pipsa_distr_dir=$PWD/pipsa/
-pipsa_wrk_dir=$PWD/pipsa/pipsa/exa/PHR
+pipsa_distr_dir=/home/marcus/Downloads/sw/pipsa
+pipsa_wrk_dir=/home/marcus/Downloads/sw/pipsa/exa/PHR
 export pipsa_distr_dir
 export pipsa_wrk_dir
 
 
 # assign local executables 
 
-path_to_grid_bin=$PWD/pipsa/app/grid/grid22a_linux/
-path_to_uhbd_exe=$PWD/pipsa/uhbd/uhbd065
-path_to_apbs_exe=$PWD/pipsa/bin/apbs
-path_to_phylip_bin=/$PWD/pipsa/app/phylip/bin.linux/
+path_to_grid_bin=/sw/mcm/app/grid/grid22a_linux/
+path_to_uhbd_exe=/home/marcus/Downloads/sw/pipsa/uhbd/uhbd065
+path_to_apbs_exe=/usr/bin/apbs
+path_to_phylip_bin=/sw/mcm/app/phylip/bin.linux/
 export path_to_uhbd_exe
 export path_to_grid_bin
 export path_to_apbs_exe
