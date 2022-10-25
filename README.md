@@ -14,4 +14,25 @@ MatchTope is a tool developed for predicting peptide similarity, which can trigg
 - When it finishes, it will generate a pdf file called Results.pdf in the same folder of run_pipsa.sh.
 - There is a file called 'Results_example.pdf'. It is an output from the three PDBs examples in the PDBs folder.
 
+# How to cite:
+How to cite:
+
+Matchtope: (https://doi.org/10.3389/fimmu.2022.930590).
+
+
+PIPSA: https://projects.h-its.org/mcmsoft/pipsa/4.0.2/references.html
+
+Blomberg N, Gabdoulline RR, Nilges M, and Wade RC.
+Classification of protein sequences by homology modeling and quantitative analysis of electrostatic similarity.
+Proteins: Str., Function and Genetics 1999, 37: 379-387
+
+Wade RC, Gabdoulline RR and De Rienzo F.
+Protein Interaction Property Similarity Analysis.
+Intl. J. Quant. Chem. 2001, 83: 122-127.
+
+UHBD:
+
+Madura, Jeffry D., et al.
+
+Electrostatics and diffusion of molecules in solution: simulations with the University of Houston Brownian Dynamics program. Computer Physics Communications 1995, 91 (1-3): 57-95.
 
