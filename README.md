@@ -14,25 +14,70 @@ MatchTope is a tool developed for predicting peptide similarity, which can trigg
 - When it finishes, it will generate a pdf file called Results.pdf in the same folder of run_pipsa.sh.
 - There is a file called 'Results_example.pdf'. It is an output from the three PDBs examples in the PDBs folder.
 
+## Running MatchTope with Docker
+
+MatchTope can be easily run in a Docker container, which encapsulates all its dependencies and provides a consistent running environment. This section guides you through the process of using Docker to run MatchTope.
+
+### Prerequisites:
+
+- Docker Desktop (for Windows/Mac) or Docker Engine (for Linux)
+- Git (for cloning the repository)
+
+### Steps:
+
+1. **Clone the Repository:**  
+First, clone the MatchTope repository to your local machine:
+
+```bash
+git clone https://github.com/Marcus-Mendes/MatchTope.git
+cd MatchTope
+```
+
+2. **Build the Docker Image:**
+
+In the root directory of the project, build the Docker image:
+
+```bash
+Copy code
+docker build -t matchtope .
+```
+
+This command reads the Dockerfile in the current directory and builds an image named "matchtope".
+
+3. **Prepare Input Data:**
+
+Place your PDB files into the PDBs folder. If this folder does not exist, create it in the root directory of the project.
+
+4. **Run the Docker Container:**
+
+Execute the following command to run MatchTope in a Docker container:
+
+```bash
+Copy code
+docker run -v "${PWD}/PDBs:/MatchTope/PDBs" -v "${PWD}/Results:/MatchTope/Results" matchtope
+```
+
+This command mounts the PDBs folder from your local machine to the container and sets up a Results folder for the output.
+
+5. **Accessing Results:**
+
+After the container finishes running, the output (e.g., Results.pdf) will be available in the Results folder on your local machine.
+
+**Note for Linux Users:**
+
+Replace `${PWD}` with `$PWD` in the Docker run command to reference the current directory.
+
+
 # How to cite:
-How to cite:
 
-Matchtope: (https://doi.org/10.3389/fimmu.2022.930590).
+### [Matchtope article](https://doi.org/10.3389/fimmu.2022.930590)
+> M. F. de A. Mendes et al., “MatchTope: A tool to predict the cross reactivity of peptides complexed with Major Histocompatibility Complex I,” Front. Immunol., vol. 13, 2022, Accessed: Jan. 26, 2023. [Online]. Available: https://www.frontiersin.org/articles/10.3389/fimmu.2022.930590
 
 
-PIPSA: https://projects.h-its.org/mcmsoft/pipsa/4.0.2/references.html
+### [PIPSA article](https://projects.h-its.org/mcmsoft/pipsa/4.0.2/references.html)
+> Blomberg N, Gabdoulline RR, Nilges M, and Wade RC. Classification of protein sequences by homology modeling and quantitative analysis of electrostatic similarity. Proteins: Str., Function and Genetics 1999, 37: 379-387
 
-Blomberg N, Gabdoulline RR, Nilges M, and Wade RC.
-Classification of protein sequences by homology modeling and quantitative analysis of electrostatic similarity.
-Proteins: Str., Function and Genetics 1999, 37: 379-387
+> Wade RC, Gabdoulline RR and De Rienzo F. Protein Interaction Property Similarity Analysis. Intl. J. Quant. Chem. 2001, 83: 122-127.
 
-Wade RC, Gabdoulline RR and De Rienzo F.
-Protein Interaction Property Similarity Analysis.
-Intl. J. Quant. Chem. 2001, 83: 122-127.
-
-UHBD:
-
-Madura, Jeffry D., et al.
-
-Electrostatics and diffusion of molecules in solution: simulations with the University of Houston Brownian Dynamics program. Computer Physics Communications 1995, 91 (1-3): 57-95.
-
+### UHBD:
+> Madura, Jeffry D., et al. Electrostatics and diffusion of molecules in solution: simulations with the University of Houston Brownian Dynamics program. Computer Physics Communications 1995, 91 (1-3): 57-95.
