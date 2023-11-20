@@ -1,4 +1,4 @@
-library(gplots)
+library(ggplot2)
 library(cluster)
 library(pvclust)
 pdf(file="matrix_2_h.pdf",width=9,height=9,paper="a4")
