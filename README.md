@@ -25,7 +25,8 @@ MatchTope can be easily run in a Docker container, which encapsulates all its de
 
 ### Steps:
 
-1. **Clone the Repository:**  
+1. **Clone the Repository:**
+
 First, clone the MatchTope repository to your local machine:
 
 ```bash
@@ -38,11 +39,56 @@ cd MatchTope
 In the root directory of the project, build the Docker image:
 
 ```bash
-Copy code
 docker build -t matchtope .
 ```
 
 This command reads the Dockerfile in the current directory and builds an image named "matchtope".
+
+2.1 **Windons OS**
+
+Install Docker Desktop on Windows: If you haven't already, download and install Docker Desktop for Windows from the official Docker website.
+
+* Enable WSL 2 Integration in Docker Desktop:
+  * Open Docker Desktop.
+  * Go to Settings (the gear icon).
+  * Click on Resources > WSL Integration.
+  * Enable integration with your WSL 2 distro (e.g., Ubuntu 22.04).
+  
+  * Apply & Restart Docker Desktop.
+        
+    Restart WSL 2: Sometimes, a restart of the WSL 2 instance is required for changes to take effect. 
+
+    You can restart WSL 2 by running the following command in your Windows Command Prompt or PowerShell:
+
+    ```bash
+    wsl --shutdown
+    ```
+    
+    ![IMAGE DEMONSTRATION.IMG]()
+
+  Then, reopen your WSL 2 Ubuntu terminal.
+  
+
+
+* Verify Docker Installation:
+
+After the restart, in your WSL 2 Ubuntu terminal, check if Docker is accessible by running:
+
+```bash
+docker --version
+```
+
+You should see the Docker version if it's installed correctly.
+
+2.2 **Build Your Docker Image om Windows WSL:**
+
+Now, try building your Docker image again in your WSL 2 environment:
+
+```bash
+docker build -t matchtope .
+```
+
+By enabling WSL 2 integration in Docker Desktop and ensuring Docker commands are accessible within your WSL 2 Ubuntu distro, you should be able to build Docker images directly from WSL 2.
 
 3. **Prepare Input Data:**
 
@@ -53,7 +99,6 @@ Place your PDB files into the PDBs folder. If this folder does not exist, create
 Execute the following command to run MatchTope in a Docker container:
 
 ```bash
-Copy code
 docker run -v "${PWD}/PDBs:/MatchTope/PDBs" -v "${PWD}/Results:/MatchTope/Results" matchtope
 ```
 

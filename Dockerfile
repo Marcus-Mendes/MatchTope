@@ -34,12 +34,6 @@ RUN apt-get update && apt-get install -y r-base r-base-dev \
 
 # Copying the project files into the container and ensuring Unix-style line endings
 COPY . /MatchTope
-RUN dos2unix /MatchTope/run_pipsa.sh \
-    && dos2unix /MatchTope/do_PHR_com \
-    && dos2unix /MatchTope/pipsa2R.pl \
-    && chmod +x /MatchTope/run_pipsa.sh \
-    && chmod +x /MatchTope/do_PHR_com \
-    && chmod +x /MatchTope/pipsa2R.pl
 
 WORKDIR /MatchTope
 
