@@ -77,20 +77,39 @@ After the restart, in your WSL 2 Ubuntu terminal, check if Docker is accessible 
 ```bash
 docker --version
 ```
-
 You should see the Docker version if it's installed correctly.
 
-2.2 **Build Your Docker Image om Windows WSL:**
+2.2 **Add your user to the docker**
+You must add your user to the docker group so that you can execute Docker commands without needing sudo. Here's how to do it:
 
-Now, try building your Docker image again in your WSL 2 environment:
+Add Your User to the Docker Group:
+Open your WSL 2 terminal and run the following command:
 
 ```bash
-docker build -t matchtope .
+sudo usermod -aG docker $USER
+```
+
+Apply the Group Changes:
+For the group change to take effect, you need to log out and log back into your session. An easy way to do this in WSL 2 is to close the WSL 2 terminal, then reopen it.
+
+Look for docker in the output list.
+
+This process alloud to run Docker Commands Without sudo:
+
+```bash
+docker run -it --entrypoint /bin/bash matchtope
+```
+
+Verify the Changes:
+After reopening your WSL 2 terminal, you can check if your user has been added to the docker group or you are the root user in the env by running:
+
+```bash
+groups
 ```
 
 By enabling WSL 2 integration in Docker Desktop and ensuring Docker commands are accessible within your WSL 2 Ubuntu distro, you should be able to build Docker images directly from WSL 2.
 
-3. **Prepare Input Data:**
+1. **Prepare Input Data:**
 
 Place your PDB files into the PDBs folder. If this folder does not exist, create it in the root directory of the project.
 
