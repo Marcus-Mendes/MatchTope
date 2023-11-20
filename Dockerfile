@@ -30,7 +30,9 @@ RUN /bin/bash -c "source activate matchtope_env && conda install -c schrodinger 
 # Install R and R packages
 RUN apt-get update && apt-get install -y r-base r-base-dev \
     && rm -rf /var/lib/apt/lists/* \
-    && R -e "install.packages('pvclust', repos='http://cran.rstudio.com/')"
+    && R -e "install.packages('pvclust', repos='http://cran.rstudio.com/')" \
+    && R -e "install.packages('gplots', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+
 
 # Copying the project files into the container and ensuring Unix-style line endings
 COPY . /MatchTope
