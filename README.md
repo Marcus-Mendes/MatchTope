@@ -63,8 +63,6 @@ Install Docker Desktop on Windows: If you haven't already, download and install 
     ```bash
     wsl --shutdown
     ```
-    
-    ![IMAGE DEMONSTRATION.IMG]()
 
   Then, reopen your WSL 2 Ubuntu terminal.
   
@@ -115,13 +113,16 @@ Place your PDB files into the PDBs folder. If this folder does not exist, create
 
 4. **Run the Docker Container:**
 
-Execute the following command to run MatchTope in a Docker container:
+Execute the following command to run MatchTope inside the matchtope_env from the Docker container:
 
 ```bash
-docker run -v "${PWD}/PDBs:/MatchTope/PDBs" -v "${PWD}/Results:/MatchTope/Results" matchtope
+docker run -it --entrypoint /bin/bash matchtope
 ```
 
 This command mounts the PDBs folder from your local machine to the container and sets up a Results folder for the output.
+
+![](https://i.imgur.com/nqdjcxL.png)
+
 
 5. **Accessing Results:**
 
