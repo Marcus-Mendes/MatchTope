@@ -2,7 +2,7 @@
 #echo -e "Where is the SW folder?"; read path
 cd $PWD/pipsa/exa/PHR/pdbs
 rm *.pdb
-cd ../../../../ls
+cd ../../../../
 cp -r $PWD/PDBs/. $PWD/pipsa/exa/PHR/pdbs
 cd $PWD/pipsa/exa/PHR/pdbs
 #./add_polar_h.sh
