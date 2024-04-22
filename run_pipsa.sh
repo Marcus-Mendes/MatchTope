@@ -1,5 +1,5 @@
 #!/bin/bash
-#echo -e "Where is the SW folder?"; read caminho
+#echo -e "Where is the SW folder?"; read path
 cd $PWD/pipsa/exa/PHR/pdbs
 rm *.pdb
 cd ../../../../
