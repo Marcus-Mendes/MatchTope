@@ -1,6 +1,7 @@
 # MatchTope Dockerfile
 ## Author: BragatteMAS
-## Last Update: 2023-11
+## Edits: Norgent
+## Last Update: 2025-08
 
 FROM ubuntu:20.04
 
@@ -20,12 +21,17 @@ RUN wget -qO Miniconda3-latest-Linux-x86_64.sh https://repo.anaconda.com/minicon
 
 ENV PATH="/miniconda/bin:${PATH}"
 
-# Creating a Conda environment with Python 3.7 and installing PyMOL
-RUN conda create -n matchtope_env python=3.7 -y \
+# Accept channel TOS and add conda-forge channe;
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+RUN /bin/bash -c "conda config --prepend channels conda-forge"
+
+# Creating a Conda environment with Python 3.10 and installing PyMOL
+RUN conda create -n matchtope_env python==3.10 pymol-open-source -c conda-forge \
     && echo "source activate matchtope_env" > ~/.bashrc
 
-# Activate conda environment and install PyMOL
-RUN /bin/bash -c "source activate matchtope_env && conda install -c schrodinger pymol -y"
+# Activate conda environment 
+RUN /bin/bash -c "source activate matchtope_env"
 
 # Install R and R packages
 RUN apt-get update && apt-get install -y r-base r-base-dev \
